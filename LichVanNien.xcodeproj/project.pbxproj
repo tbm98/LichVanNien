@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		0377B95E20DC055D0074410C /* ChiTiet2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95D20DC055D0074410C /* ChiTiet2ViewController.swift */; };
 		0377B96020DC0ECD0074410C /* ChucNangDuoiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95F20DC0ECD0074410C /* ChucNangDuoiViewController.swift */; };
 		0377B96220DC121F0074410C /* ChucNangTrenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B96120DC121F0074410C /* ChucNangTrenViewController.swift */; };
+		0378BA3420DCA97D00BD765D /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0378BA3320DCA97D00BD765D /* Const.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0377B95D20DC055D0074410C /* ChiTiet2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTiet2ViewController.swift; sourceTree = "<group>"; };
 		0377B95F20DC0ECD0074410C /* ChucNangDuoiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChucNangDuoiViewController.swift; sourceTree = "<group>"; };
 		0377B96120DC121F0074410C /* ChucNangTrenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChucNangTrenViewController.swift; sourceTree = "<group>"; };
+		0378BA3320DCA97D00BD765D /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		0377B91A20DBFA780074410C /* LichVanNien */ = {
 			isa = PBXGroup;
 			children = (
+				0378BA3220DCA96800BD765D /* Model */,
 				0377B96420DC22CB0074410C /* PageController */,
 				0377B96320DC22B80074410C /* Controller */,
 				0377B91B20DBFA780074410C /* AppDelegate.swift */,
@@ -166,6 +169,14 @@
 				0377B95920DC01B80074410C /* ChiTiet2PageViewController.swift */,
 			);
 			path = PageController;
+			sourceTree = "<group>";
+		};
+		0378BA3220DCA96800BD765D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0378BA3320DCA97D00BD765D /* Const.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,19 +247,22 @@
 				TargetAttributes = {
 					0377B91720DBFA780074410C = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 					};
 					0377B92D20DBFA790074410C = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 0377B91720DBFA780074410C;
 					};
 					0377B93820DBFA790074410C = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 0377B91720DBFA780074410C;
 					};
 				};
 			};
 			buildConfigurationList = 0377B91320DBFA780074410C /* Build configuration list for PBXProject "LichVanNien" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -304,6 +318,7 @@
 				0377B95A20DC01B80074410C /* ChiTiet2PageViewController.swift in Sources */,
 				0377B92020DBFA780074410C /* LichThangViewController.swift in Sources */,
 				0377B95E20DC055D0074410C /* ChiTiet2ViewController.swift in Sources */,
+				0378BA3420DCA97D00BD765D /* Const.swift in Sources */,
 				0377B91C20DBFA780074410C /* AppDelegate.swift in Sources */,
 				0377B94E20DBFBB90074410C /* NhieuHonViewController.swift in Sources */,
 				0377B96220DC121F0074410C /* ChucNangTrenViewController.swift in Sources */,
@@ -472,8 +487,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -484,10 +498,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LichVanNien/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tbm.LichVanNien;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -501,10 +513,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LichVanNien/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tbm.LichVanNien;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -519,11 +529,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LichVanNienTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tbm.LichVanNienTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -539,11 +545,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LichVanNienTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tbm.LichVanNienTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -558,11 +560,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LichVanNienUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tbm.LichVanNienUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -577,11 +575,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LichVanNienUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tbm.LichVanNienUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

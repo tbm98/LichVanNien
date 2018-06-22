@@ -10,13 +10,20 @@ import UIKit
 
 class ChiTiet1ViewController: UIViewController {
 
+    @IBOutlet weak var imageBackground: UIImageView!
     @IBAction func btn(_ sender: Any) {
         print("lick")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("view did load")
+        //view.backgroundColor = UIColor(patternImage: UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])!)
+        
+        
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
     }
 
     override func didReceiveMemoryWarning() {
