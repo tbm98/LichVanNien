@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChiTiet1ViewController: UIViewController {
+class ChiTietViewController: UIViewController {
 
     @IBOutlet weak var imageBackground: UIImageView!
     @IBAction func btn(_ sender: Any) {
@@ -16,14 +16,14 @@ class ChiTiet1ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view did load")
+        //print("view did load")
         //view.backgroundColor = UIColor(patternImage: UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])!)
         imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
         
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-        imageBackground.imageWithFade = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
+        //imageBackground.imageWithFade = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
         
     }
 

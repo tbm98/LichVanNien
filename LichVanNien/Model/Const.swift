@@ -14,6 +14,7 @@ class Const{
         return min + Int(arc4random_uniform(UInt32(max - min + 1)))
     }
     
+    
 }
 extension UIImageView{
     var imageWithFade:UIImage?{

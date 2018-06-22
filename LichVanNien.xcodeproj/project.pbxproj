@@ -16,11 +16,9 @@
 		0377B93E20DBFA790074410C /* LichVanNienUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B93D20DBFA790074410C /* LichVanNienUITests.swift */; };
 		0377B94C20DBFBAA0074410C /* DoiNgayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B94B20DBFBAA0074410C /* DoiNgayViewController.swift */; };
 		0377B94E20DBFBB90074410C /* NhieuHonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B94D20DBFBB90074410C /* NhieuHonViewController.swift */; };
-		0377B95420DBFCA60074410C /* ChiTietPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95320DBFCA60074410C /* ChiTietPageViewController.swift */; };
-		0377B95620DC01860074410C /* ChiTiet1PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95520DC01860074410C /* ChiTiet1PageViewController.swift */; };
-		0377B95A20DC01B80074410C /* ChiTiet2PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95920DC01B80074410C /* ChiTiet2PageViewController.swift */; };
-		0377B95C20DC05500074410C /* ChiTiet1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95B20DC05500074410C /* ChiTiet1ViewController.swift */; };
-		0377B95E20DC055D0074410C /* ChiTiet2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95D20DC055D0074410C /* ChiTiet2ViewController.swift */; };
+		0377B95420DBFCA60074410C /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95320DBFCA60074410C /* MainPageViewController.swift */; };
+		0377B95620DC01860074410C /* ChiTietPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95520DC01860074410C /* ChiTietPageViewController.swift */; };
+		0377B95C20DC05500074410C /* ChiTietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95B20DC05500074410C /* ChiTietViewController.swift */; };
 		0377B96020DC0ECD0074410C /* ChucNangDuoiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95F20DC0ECD0074410C /* ChucNangDuoiViewController.swift */; };
 		0377B96220DC121F0074410C /* ChucNangTrenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B96120DC121F0074410C /* ChucNangTrenViewController.swift */; };
 		0378BA3420DCA97D00BD765D /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0378BA3320DCA97D00BD765D /* Const.swift */; };
@@ -59,11 +57,9 @@
 		0377B93F20DBFA7A0074410C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0377B94B20DBFBAA0074410C /* DoiNgayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoiNgayViewController.swift; sourceTree = "<group>"; };
 		0377B94D20DBFBB90074410C /* NhieuHonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NhieuHonViewController.swift; sourceTree = "<group>"; };
-		0377B95320DBFCA60074410C /* ChiTietPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTietPageViewController.swift; sourceTree = "<group>"; };
-		0377B95520DC01860074410C /* ChiTiet1PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTiet1PageViewController.swift; sourceTree = "<group>"; };
-		0377B95920DC01B80074410C /* ChiTiet2PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTiet2PageViewController.swift; sourceTree = "<group>"; };
-		0377B95B20DC05500074410C /* ChiTiet1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTiet1ViewController.swift; sourceTree = "<group>"; };
-		0377B95D20DC055D0074410C /* ChiTiet2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTiet2ViewController.swift; sourceTree = "<group>"; };
+		0377B95320DBFCA60074410C /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		0377B95520DC01860074410C /* ChiTietPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTietPageViewController.swift; sourceTree = "<group>"; };
+		0377B95B20DC05500074410C /* ChiTietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTietViewController.swift; sourceTree = "<group>"; };
 		0377B95F20DC0ECD0074410C /* ChucNangDuoiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChucNangDuoiViewController.swift; sourceTree = "<group>"; };
 		0377B96120DC121F0074410C /* ChucNangTrenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChucNangTrenViewController.swift; sourceTree = "<group>"; };
 		0378BA3320DCA97D00BD765D /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -153,8 +149,7 @@
 				0377B91F20DBFA780074410C /* LichThangViewController.swift */,
 				0377B94B20DBFBAA0074410C /* DoiNgayViewController.swift */,
 				0377B94D20DBFBB90074410C /* NhieuHonViewController.swift */,
-				0377B95B20DC05500074410C /* ChiTiet1ViewController.swift */,
-				0377B95D20DC055D0074410C /* ChiTiet2ViewController.swift */,
+				0377B95B20DC05500074410C /* ChiTietViewController.swift */,
 				0377B95F20DC0ECD0074410C /* ChucNangDuoiViewController.swift */,
 				0377B96120DC121F0074410C /* ChucNangTrenViewController.swift */,
 			);
@@ -164,9 +159,8 @@
 		0377B96420DC22CB0074410C /* PageController */ = {
 			isa = PBXGroup;
 			children = (
-				0377B95320DBFCA60074410C /* ChiTietPageViewController.swift */,
-				0377B95520DC01860074410C /* ChiTiet1PageViewController.swift */,
-				0377B95920DC01B80074410C /* ChiTiet2PageViewController.swift */,
+				0377B95320DBFCA60074410C /* MainPageViewController.swift */,
+				0377B95520DC01860074410C /* ChiTietPageViewController.swift */,
 			);
 			path = PageController;
 			sourceTree = "<group>";
@@ -314,17 +308,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0377B94C20DBFBAA0074410C /* DoiNgayViewController.swift in Sources */,
-				0377B95620DC01860074410C /* ChiTiet1PageViewController.swift in Sources */,
-				0377B95A20DC01B80074410C /* ChiTiet2PageViewController.swift in Sources */,
+				0377B95620DC01860074410C /* ChiTietPageViewController.swift in Sources */,
 				0377B92020DBFA780074410C /* LichThangViewController.swift in Sources */,
-				0377B95E20DC055D0074410C /* ChiTiet2ViewController.swift in Sources */,
 				0378BA3420DCA97D00BD765D /* Const.swift in Sources */,
 				0377B91C20DBFA780074410C /* AppDelegate.swift in Sources */,
 				0377B94E20DBFBB90074410C /* NhieuHonViewController.swift in Sources */,
 				0377B96220DC121F0074410C /* ChucNangTrenViewController.swift in Sources */,
-				0377B95420DBFCA60074410C /* ChiTietPageViewController.swift in Sources */,
+				0377B95420DBFCA60074410C /* MainPageViewController.swift in Sources */,
 				0377B96020DC0ECD0074410C /* ChucNangDuoiViewController.swift in Sources */,
-				0377B95C20DC05500074410C /* ChiTiet1ViewController.swift in Sources */,
+				0377B95C20DC05500074410C /* ChiTietViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

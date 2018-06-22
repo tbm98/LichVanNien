@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -15,7 +14,7 @@
         <!--Chi tiết-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="ChiTietPageViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="MainPageViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,19 +97,19 @@
                                 <rect key="frame" x="30" y="58.5" width="315" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra3-pL-iaF">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="84.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D0-JW-31j">
-                                        <rect key="frame" x="115" y="0.0" width="85.5" height="30"/>
+                                        <rect key="frame" x="114.5" y="0.0" width="85.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="1" green="0.04659687497" blue="0.1021087576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEU-Nk-D89">
-                                        <rect key="frame" x="230.5" y="0.0" width="84.5" height="30"/>
+                                        <rect key="frame" x="230" y="0.0" width="85" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -247,66 +246,14 @@ Mậu Tuất</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cXO-pw-T76"/>
                     </view>
+                    <connections>
+                        <outlet property="labelNgay" destination="8D0-JW-31j" id="cwq-Bu-zOK"/>
+                        <outlet property="labelThang" destination="GEU-Nk-D89" id="VfJ-ri-sLh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNd-MU-CYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3030" y="-321"/>
-        </scene>
-        <!--Chi Tiet2 View Controller-->
-        <scene sceneID="TbQ-Yd-QWU">
-            <objects>
-                <viewController storyboardIdentifier="chitiet2" id="lug-2f-c50" customClass="ChiTiet2ViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7Tn-Ks-oJv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tvV-Oe-obm">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="k86-VI-8wZ">
-                                <rect key="frame" x="40" y="202.5" width="295" height="282.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUm-56-aMs">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="131.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="110"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thứ năm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgt-yS-dtI">
-                                        <rect key="frame" x="0.0" y="161.5" width="295" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thước đo cược đời không phải là bạn sống dài hay sống ngắn, mà là sống như thế nào!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5k-8o-ewg">
-                                        <rect key="frame" x="0.0" y="221.5" width="295" height="61"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="k86-VI-8wZ" firstAttribute="centerY" secondItem="7nW-aQ-hWt" secondAttribute="centerY" id="EHI-u1-8Us"/>
-                            <constraint firstItem="7nW-aQ-hWt" firstAttribute="trailing" secondItem="tvV-Oe-obm" secondAttribute="trailing" id="Fxo-4H-4DT"/>
-                            <constraint firstItem="7nW-aQ-hWt" firstAttribute="top" secondItem="tvV-Oe-obm" secondAttribute="top" constant="20" id="Sxv-pb-aE1"/>
-                            <constraint firstItem="k86-VI-8wZ" firstAttribute="centerX" secondItem="7nW-aQ-hWt" secondAttribute="centerX" id="Z09-Fn-i4L"/>
-                            <constraint firstItem="7nW-aQ-hWt" firstAttribute="leading" secondItem="tvV-Oe-obm" secondAttribute="leading" id="hVU-fN-1E0"/>
-                            <constraint firstItem="7nW-aQ-hWt" firstAttribute="bottom" secondItem="tvV-Oe-obm" secondAttribute="bottom" id="yao-vg-TMz"/>
-                            <constraint firstItem="k86-VI-8wZ" firstAttribute="leading" secondItem="7nW-aQ-hWt" secondAttribute="leading" constant="40" id="yuu-Da-50h"/>
-                            <constraint firstItem="7nW-aQ-hWt" firstAttribute="trailing" secondItem="k86-VI-8wZ" secondAttribute="trailing" constant="40" id="z0E-L4-PVq"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="7nW-aQ-hWt"/>
-                    </view>
-                    <connections>
-                        <outlet property="imageBackground" destination="tvV-Oe-obm" id="kik-zf-suy"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iGA-sv-wec" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2297" y="-1003"/>
+            <point key="canvasLocation" x="2241" y="-321"/>
         </scene>
         <!--Chuc Nang Tren View Controller-->
         <scene sceneID="Xo6-Dv-giw">
@@ -404,7 +351,7 @@ Mậu Tuất</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX7-NT-5r8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3968.8000000000002" y="-1003.4482758620691"/>
+            <point key="canvasLocation" x="2950" y="-1003"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="poE-30-7Fr">
@@ -438,12 +385,12 @@ Mậu Tuất</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VbZ-jv-ADI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4739" y="-999"/>
+            <point key="canvasLocation" x="3679" y="-1003"/>
         </scene>
-        <!--Chi Tiet1 View Controller-->
+        <!--Chi Tiet View Controller-->
         <scene sceneID="OwP-E7-hu9">
             <objects>
-                <viewController storyboardIdentifier="chitiet1" id="rka-Wk-rMW" customClass="ChiTiet1ViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chitiet" id="rka-Wk-rMW" customClass="ChiTietViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gUx-8R-RTx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -496,10 +443,10 @@ Mậu Tuất</string>
             </objects>
             <point key="canvasLocation" x="1540" y="-1003.4482758620691"/>
         </scene>
-        <!--Chi Tiet1 Page View Controller-->
+        <!--Chi Tiet Page View Controller-->
         <scene sceneID="k69-yk-MSq">
             <objects>
-                <viewController storyboardIdentifier="p1" id="qIZ-5E-A7g" customClass="ChiTiet1PageViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="p" id="qIZ-5E-A7g" customClass="ChiTietPageViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gc9-sq-od3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -519,30 +466,6 @@ Mậu Tuất</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPJ-Uy-Z0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1540" y="-321"/>
-        </scene>
-        <!--Chi Tiet2 Page View Controller-->
-        <scene sceneID="yVe-e5-qXG">
-            <objects>
-                <viewController storyboardIdentifier="p2" id="WNn-BM-cGP" customClass="ChiTiet2PageViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NBo-qz-wFZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="view xem lich" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWD-dP-VvN">
-                                <rect key="frame" x="166" y="323" width="102" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.82542726572068115" blue="0.80689138019343687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="yva-Uv-Ght"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xHS-NC-IBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2297" y="-322"/>
         </scene>
         <!--Lịch tháng-->
         <scene sceneID="wg7-f3-ORb">
@@ -629,7 +552,7 @@ Mậu Tuất</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W1p-rA-nCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3029.5999999999999" y="-1003.4482758620691"/>
+            <point key="canvasLocation" x="2241" y="-1003"/>
         </scene>
     </scenes>
     <resources>
