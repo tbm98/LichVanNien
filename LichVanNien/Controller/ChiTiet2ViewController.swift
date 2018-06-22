@@ -22,10 +22,12 @@ class ChiTiet2ViewController: UIViewController {
 //        view.backgroundColor = UIColor(patternImage: UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])!)
         //imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
         // Do any additional setup after loading the view.
+        imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
+        imageBackground.imageWithFade = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -16,8 +16,8 @@ UIPageViewControllerDataSource{
     var currentIndex = 0
     lazy var subViewController:[UIViewController] = {
         return [
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet1") as! ChiTiet1ViewController,
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet2") as! ChiTiet2ViewController
+            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet1") as! ChiTiet1ViewController),
+            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet2") as! ChiTiet2ViewController)
         ]
     }()
     
@@ -30,6 +30,11 @@ UIPageViewControllerDataSource{
         setViewControllers([subViewController[0]], direction: .forward, animated: true, completion: nil)
         //addChucNang()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //setViewControllers([subViewController[0]], direction: .forward, animated: true, completion: nil)
+
     }
     
     required init?(coder: NSCoder) {
@@ -51,6 +56,7 @@ UIPageViewControllerDataSource{
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         currentIndex = subViewController.index(of: viewController) ?? 0
+        print("giam ngay")
         if(currentIndex <= 0){
             return subViewController[subViewController.count-1]
         }
@@ -59,6 +65,7 @@ UIPageViewControllerDataSource{
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         currentIndex = subViewController.index(of: viewController) ?? 0
+        print("tang thang")
         if(currentIndex >= subViewController.count-1){
             return subViewController[0]
         }

@@ -29,6 +29,9 @@ UIPageViewControllerDataSource{
         self.dataSource = self
         setViewControllers([subViewController[0]], direction: .forward, animated: true, completion: nil)
         addChucNang()
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        leftSwipe.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(leftSwipe)
         // Do any additional setup after loading the view.
     }
     
@@ -61,6 +64,7 @@ UIPageViewControllerDataSource{
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         currentIndex = subViewController.index(of: viewController) ?? 0
+        print("giam thang")
         if(currentIndex <= 0){
             return subViewController[subViewController.count-1]
         }
@@ -69,6 +73,7 @@ UIPageViewControllerDataSource{
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         currentIndex = subViewController.index(of: viewController) ?? 0
+        print("tang thang")
         if(currentIndex >= subViewController.count-1){
             return subViewController[0]
         }

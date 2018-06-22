@@ -36,6 +36,10 @@ UIPageViewControllerDataSource{
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //setViewControllers([subViewController[0]], direction: .forward, animated: true, completion: nil)
+    }
+    
     func addChucNang(){
         let controller = storyboard!.instantiateViewController(withIdentifier: "chucNang")
         self.addChildViewController(controller)
