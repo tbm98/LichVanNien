@@ -97,19 +97,19 @@
                                 <rect key="frame" x="30" y="58.5" width="315" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra3-pL-iaF">
-                                        <rect key="frame" x="0.0" y="0.0" width="84.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D0-JW-31j">
-                                        <rect key="frame" x="114.5" y="0.0" width="85.5" height="30"/>
+                                        <rect key="frame" x="115" y="0.0" width="85.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="1" green="0.04659687497" blue="0.1021087576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEU-Nk-D89">
-                                        <rect key="frame" x="230" y="0.0" width="85" height="30"/>
+                                        <rect key="frame" x="230.5" y="0.0" width="84.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -247,8 +247,16 @@ Mậu Tuất</string>
                         <viewLayoutGuide key="safeArea" id="cXO-pw-T76"/>
                     </view>
                     <connections>
+                        <outlet property="labelGio" destination="Ra3-pL-iaF" id="IEf-GV-hIj"/>
                         <outlet property="labelNgay" destination="8D0-JW-31j" id="cwq-Bu-zOK"/>
+                        <outlet property="labelTenGio" destination="Dk0-0i-3iA" id="ksq-Wi-5hR"/>
+                        <outlet property="labelTenNam" destination="feN-BH-dtx" id="M8j-0c-M9f"/>
+                        <outlet property="labelTenNgay" destination="hZY-M2-qY8" id="EgX-Ys-AWf"/>
                         <outlet property="labelThang" destination="GEU-Nk-D89" id="VfJ-ri-sLh"/>
+                        <outlet property="stackChiTiet" destination="ahy-XL-KK3" id="rBV-Dn-pOa"/>
+                        <outlet property="stackThang" destination="0XW-OU-sy1" id="g3b-ag-fqj"/>
+                        <outlet property="stackThayDoi" destination="Bsn-M9-RHb" id="umW-Fy-ear"/>
+                        <outlet property="stackThem" destination="nca-2h-zZk" id="Myk-W3-QAN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNd-MU-CYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,6 +297,9 @@ Mậu Tuất</string>
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnChonNgay:" destination="Xgx-hx-RJx" eventType="touchUpInside" id="rIm-re-SeG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rq-Rw-OZK">
                                 <rect key="frame" x="319" y="94" width="48" height="40"/>
@@ -300,6 +311,9 @@ Mậu Tuất</string>
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnLichCaNhan:" destination="Xgx-hx-RJx" eventType="touchUpInside" id="K0B-XD-Vqi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mu4-W6-eV3">
                                 <rect key="frame" x="263" y="94" width="48" height="40"/>
@@ -311,6 +325,9 @@ Mậu Tuất</string>
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnShare:" destination="Xgx-hx-RJx" eventType="touchUpInside" id="gt1-fK-Rqw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uEJ-Du-7cB">
                                 <rect key="frame" x="64" y="94" width="48" height="40"/>
@@ -327,6 +344,9 @@ Mậu Tuất</string>
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnHomNay:" destination="Xgx-hx-RJx" eventType="touchUpInside" id="V8a-hf-mxG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.73130773744977984" green="1" blue="0.99868345517169266" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
