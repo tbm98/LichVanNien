@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ChiTietViewController: UIViewController {
+class ViewLich: UIViewController {
 
     @IBOutlet weak var imageBackground: UIImageView!
     @IBOutlet weak var labelNgay: UILabel!
     @IBOutlet weak var labelThu: UILabel!
     @IBOutlet weak var labelChamNgon: UILabel!
-    
     
     var date:Date?
     let calendar = Calendar.current
@@ -22,16 +21,20 @@ class ChiTietViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("view did load")
-        //view.backgroundColor = UIColor(patternImage: UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])!)
         imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         let components = calendar.dateComponents([.year, .month, .day], from: date!)
         labelNgay.text = components.day?.description
+        labelChamNgon.text = Const.chamNgon[Const.randomInt(min: 0, max: Const.chamNgon.count-1)].description
+        let thu = Const.thu(date: self.date!)
+        if(thu == "Chủ nhật"){
+            labelThu.textColor = UIColor.red
+        }else{
+            labelThu.textColor = UIColor.white
+        }
+        labelThu.text = thu
         print("year:",components.year)
         print("month:",components.month)
         print("day:",components.day)
@@ -40,23 +43,6 @@ class ChiTietViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         //imageBackground.imageWithFade = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

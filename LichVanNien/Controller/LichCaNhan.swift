@@ -1,15 +1,18 @@
 //
-//  DoiNgayViewController.swift
+//  LichCaNhanViewController.swift
 //  LichVanNien
 //
-//  Created by TBM on 6/21/18.
+//  Created by TBM on 6/24/18.
 //  Copyright © 2018 TBM. All rights reserved.
 //
 
 import UIKit
 
-class DoiNgayViewController: UIViewController {
-
+class LichCaNhan: UIViewController {
+    @IBAction func btnCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

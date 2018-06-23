@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChucNangDuoiViewController: UIViewController {
+class Duoi: UIViewController {
 
 
     @IBOutlet weak var stackThem: UIStackView!
@@ -21,11 +21,32 @@ class ChucNangDuoiViewController: UIViewController {
     @IBOutlet weak var labelGio: UILabel!
     @IBOutlet weak var labelThang: UILabel!
     @IBOutlet weak var labelNgay: UILabel!
+    var date:Date?
+    let calendar = Calendar.current
+    var chucNang:ChucNangDuoi?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("chuc nang duoi đi load")
-        // Do any additional setup after loading the view.
+        let components = calendar.dateComponents([.year, .month, .day], from: date!)
+        labelThang.text = components.month?.description
+        labelNgay.text = components.day?.description
+        
+        let hour = calendar.component(.hour, from: date!)
+        let minutes = calendar.component(.minute, from: date!)
+        labelGio.text = "\(hour):\(minutes)"
         setClick()
+    }
+    func updateUI(date:Date){
+        self.date = date
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        labelThang.text = components.month?.description
+        labelNgay.text = components.day?.description
+        
+        let date = Date()
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        labelGio.text = "\(hour):\(minutes)"
     }
     
     func setClick(){
@@ -49,18 +70,22 @@ class ChucNangDuoiViewController: UIViewController {
     @objc func actionChiTiet(tapGestureRecognizer: UITapGestureRecognizer) {
         // Your code goes here
         print("chi tiet")
+        chucNang?.chiTiet()
     }
     @objc func actionThang(tapGestureRecognizer: UITapGestureRecognizer) {
         // Your code goes here
         print("thang")
+        chucNang?.lichThang()
     }
     @objc func actionThayDoi(tapGestureRecognizer: UITapGestureRecognizer) {
         // Your code goes here
         print("thay doi")
+        chucNang?.doiNgay()
     }
     @objc func actionThem(tapGestureRecognizer: UITapGestureRecognizer) {
         // Your code goes here
         print("them")
+        chucNang?.nhieuHon()
     }
 
     override func viewDidAppear(_ animated: Bool) {

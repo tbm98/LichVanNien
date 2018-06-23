@@ -8,16 +8,25 @@
 
 import UIKit
 
-class ChucNangTrenViewController: UIViewController {
+class Tren: UIViewController {
 
+    @IBAction func btnThoiTiet(_ sender: Any) {
+        chucNang?.thoiTiet()
+    }
     @IBAction func btnLichCaNhan(_ sender: Any) {
+        chucNang?.lichCaNhan()
     }
     @IBAction func btnShare(_ sender: Any) {
+        chucNang?.share()
     }
     @IBAction func btnChonNgay(_ sender: Any) {
+        chucNang?.chonThang()
     }
     @IBAction func btnHomNay(_ sender: Any) {
+        chucNang?.homNay()
     }
+    var date:Date?
+    var chucNang:ChucNangTren?
     override func viewDidLoad() {
         super.viewDidLoad()
         print("chuc nang tren đi load")

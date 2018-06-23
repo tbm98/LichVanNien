@@ -14,58 +14,42 @@
         <!--Chi tiết-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="MainPageViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="MainPage" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="112.5" y="312" width="150.5" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="90.5" y="363" width="194.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chi tiết" image="first" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="-2" y="-322"/>
         </scene>
-        <!--Chuc Nang Duoi View Controller-->
+        <!--Chi Tiet-->
+        <scene sceneID="S4j-E4-7Ww">
+            <objects>
+                <viewController storyboardIdentifier="chitiet" id="yag-qo-Lnr" customClass="ChiTiet" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LzZ-m3-E80">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wpI-df-fkl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nEj-UV-wYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="-327"/>
+        </scene>
+        <!--Duoi-->
         <scene sceneID="0Xe-70-vGX">
             <objects>
-                <viewController storyboardIdentifier="chucNangDuoi" id="8Km-uC-wSW" customClass="ChucNangDuoiViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="duoi" id="8Km-uC-wSW" customClass="Duoi" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DxR-cq-09z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxL-38-vj5">
-                                <rect key="frame" x="183" y="309" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="1" green="0.24335331419824346" blue="0.14595405143244633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="btn:" destination="8Km-uC-wSW" eventType="touchUpInside" id="egQ-iN-GcT"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="8ps-Y7-Y4N">
                                 <rect key="frame" x="30" y="28" width="315" height="20.5"/>
                                 <subviews>
@@ -263,16 +247,16 @@ Mậu Tuất</string>
             </objects>
             <point key="canvasLocation" x="2241" y="-321"/>
         </scene>
-        <!--Chuc Nang Tren View Controller-->
+        <!--Tren-->
         <scene sceneID="Xo6-Dv-giw">
             <objects>
-                <viewController storyboardIdentifier="chucNangTren" id="Xgx-hx-RJx" customClass="ChucNangTrenViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tren" id="Xgx-hx-RJx" customClass="Tren" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wV3-eE-Q52">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l81-mq-lvA">
-                                <rect key="frame" x="8" y="94" width="48" height="40"/>
+                                <rect key="frame" x="8" y="50" width="48" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.3046339897260274" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
                                 <state key="normal" image="cloud"/>
@@ -282,11 +266,11 @@ Mậu Tuất</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="sF5-bN-gRh" kind="showDetail" id="aAu-yM-n3o"/>
+                                    <action selector="btnThoiTiet:" destination="Xgx-hx-RJx" eventType="touchUpInside" id="qr8-Yo-8oi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQr-Xd-Bw7">
-                                <rect key="frame" x="153.5" y="94" width="67" height="40"/>
+                                <rect key="frame" x="153.5" y="50" width="67" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30195847602739728" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
                                 <state key="normal" title="6-2018">
@@ -302,7 +286,7 @@ Mậu Tuất</string>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rq-Rw-OZK">
-                                <rect key="frame" x="319" y="94" width="48" height="40"/>
+                                <rect key="frame" x="319" y="50" width="48" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.3009685359589041" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
                                 <state key="normal" image="lichcanhan"/>
@@ -316,7 +300,7 @@ Mậu Tuất</string>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mu4-W6-eV3">
-                                <rect key="frame" x="263" y="94" width="48" height="40"/>
+                                <rect key="frame" x="263" y="50" width="48" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29556399828767121" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
                                 <state key="normal" image="share"/>
@@ -330,7 +314,7 @@ Mậu Tuất</string>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uEJ-Du-7cB">
-                                <rect key="frame" x="64" y="94" width="48" height="40"/>
+                                <rect key="frame" x="64" y="50" width="48" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29989833047945208" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
@@ -371,12 +355,12 @@ Mậu Tuất</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX7-NT-5r8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2950" y="-1003"/>
+            <point key="canvasLocation" x="2993" y="-322"/>
         </scene>
-        <!--View Controller-->
+        <!--Thoi Tiet-->
         <scene sceneID="poE-30-7Fr">
             <objects>
-                <viewController id="sF5-bN-gRh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="thoitiet" id="sF5-bN-gRh" customClass="ThoiTiet" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="83E-od-DN8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -386,14 +370,14 @@ Mậu Tuất</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Thời tiết" id="Xdf-4D-7uj">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hHZ-vW-y9s">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="hHZ-vW-y9s">
                                             <connections>
-                                                <segue destination="9pv-A4-QxB" kind="show" id="r5h-wT-oXt"/>
+                                                <action selector="btnCancel:" destination="sF5-bN-gRh" id="Nnj-Pb-Qdk"/>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Item" id="fCz-mg-kjv"/>
-                                            <barButtonItem title="Item" id="569-iv-LRW"/>
+                                            <barButtonItem title="Item" image="star" id="fCz-mg-kjv"/>
+                                            <barButtonItem title="Item" image="share" id="569-iv-LRW"/>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -405,12 +389,46 @@ Mậu Tuất</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VbZ-jv-ADI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3679" y="-1003"/>
+            <point key="canvasLocation" x="3721" y="-322"/>
         </scene>
-        <!--Chi Tiet View Controller-->
+        <!--Lich Ca Nhan-->
+        <scene sceneID="9ex-eE-yeL">
+            <objects>
+                <viewController storyboardIdentifier="lichcanhan" id="VcH-gL-U2h" customClass="LichCaNhan" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B9M-ZJ-caj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bMV-EW-kCY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Lịch cá nhân" id="q2m-iQ-5QM">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="fFf-NP-DuI">
+                                            <connections>
+                                                <action selector="btnCancel:" destination="VcH-gL-U2h" id="4FB-2Z-tcH"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Item" image="star" id="QVe-X2-MxW"/>
+                                            <barButtonItem title="Item" image="share" id="10g-oa-82L"/>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="2Rr-cy-dT6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IRJ-cO-Bmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4386" y="-322"/>
+        </scene>
+        <!--View Lich-->
         <scene sceneID="OwP-E7-hu9">
             <objects>
-                <viewController storyboardIdentifier="chitiet" id="rka-Wk-rMW" customClass="ChiTietViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewlich" id="rka-Wk-rMW" customClass="ViewLich" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gUx-8R-RTx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -464,61 +482,16 @@ Mậu Tuất</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goa-JX-75r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540" y="-1003.4482758620691"/>
-        </scene>
-        <!--Chi Tiet Page View Controller-->
-        <scene sceneID="k69-yk-MSq">
-            <objects>
-                <viewController storyboardIdentifier="p" id="qIZ-5E-A7g" customClass="ChiTietPageViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gc9-sq-od3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="view xem lich" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5d-aq-M9u">
-                                <rect key="frame" x="166" y="323" width="102" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.76556447170392716" green="1" blue="0.9687404281008396" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="4ne-A2-jtd"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dPJ-Uy-Z0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1540" y="-321"/>
+            <point key="canvasLocation" x="1466" y="-321"/>
         </scene>
         <!--Lịch tháng-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="LichThangViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="lichthang" id="8rJ-Kc-sve" customClass="LichThang" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="87" y="312" width="201.5" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="363" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Lịch tháng" image="second" id="cPa-gy-q4n"/>
@@ -546,7 +519,7 @@ Mậu Tuất</string>
         <!--Nhiều hơn-->
         <scene sceneID="q7d-R9-Qab">
             <objects>
-                <viewController id="Ow1-Im-Ysp" customClass="NhieuHonViewController" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="nhieuhon" id="Ow1-Im-Ysp" customClass="NhieuHon" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BsS-gc-2ai">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -559,24 +532,6 @@ Mậu Tuất</string>
             </objects>
             <point key="canvasLocation" x="748" y="1772"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Yez-IG-jPw">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WMA-ho-CjC" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xlB-X8-Uvq">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Xgx-hx-RJx" kind="relationship" relationship="rootViewController" id="GyI-eT-VFp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W1p-rA-nCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2241" y="-1003"/>
-        </scene>
     </scenes>
     <resources>
         <image name="chitiet" width="32" height="32"/>
@@ -585,6 +540,7 @@ Mậu Tuất</string>
         <image name="lichcanhan" width="32" height="32"/>
         <image name="second" width="30" height="30"/>
         <image name="share" width="32" height="32"/>
+        <image name="star" width="32" height="32"/>
         <image name="thang" width="32" height="32"/>
         <image name="thaydoi" width="32" height="32"/>
     </resources>
