@@ -11,9 +11,15 @@ import UIKit
 class ChiTietViewController: UIViewController {
 
     @IBOutlet weak var imageBackground: UIImageView!
-    @IBAction func btn(_ sender: Any) {
-        print("lick")
-    }
+    @IBOutlet weak var labelNgay: UILabel!
+    @IBOutlet weak var labelThu: UILabel!
+    @IBOutlet weak var labelChamNgon: UILabel!
+    
+    
+    var date:Date?
+    let calendar = Calendar.current
+    var pageFinish:PageFinish?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //print("view did load")
@@ -22,6 +28,16 @@ class ChiTietViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let components = calendar.dateComponents([.year, .month, .day], from: date!)
+        labelNgay.text = components.day?.description
+        print("year:",components.year)
+        print("month:",components.month)
+        print("day:",components.day)
+        self.pageFinish?.updateUI(date: self.date!)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         //imageBackground.imageWithFade = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
         

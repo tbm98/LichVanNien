@@ -14,20 +14,24 @@ UIPageViewControllerDataSource{
     
     
     var ngay = 0
-    lazy var subViewController:[UIViewController] = {
-        return [
-            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
-            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
-            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
-            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
-            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
-            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
-            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
-            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
-            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
-            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController)
-        ]
-    }()
+    var date:Date?
+    let calendar = Calendar.current
+    var pageFinish:PageFinish?
+    
+//    lazy var subViewController:[UIViewController] = {
+//        return [
+//            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
+//            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
+//            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
+//            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
+//            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
+//            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
+//            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
+//            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
+//            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController),
+//            (UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chitiet") as! ChiTietViewController)
+//        ]
+//    }()
     
     
     
@@ -35,10 +39,20 @@ UIPageViewControllerDataSource{
         super.viewDidLoad()
         self.delegate = self
         self.dataSource = self
-        setViewControllers([subViewController[4]], direction: .forward, animated: true, completion: nil)
+        setViewControllers([viewPage(for: date!)!], direction: .forward, animated: true, completion: nil)
         //addChucNang()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //let calendar = Calendar.current
+        //let components = calendar.dateComponents([.year, .month, .day], from: date!)
+//        print("year:",components.year)
+//        print("month:",components.month)
+//        print("day:",components.day)
+        //self.pageFinish?.updateUI(date: self.date!)
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         //setViewControllers([subViewController[0]], direction: .forward, animated: true, completion: nil)
@@ -58,26 +72,54 @@ UIPageViewControllerDataSource{
     }
     
     
+    
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return subViewController.count
+        return 2
+    }
+    
+    func viewPage(for date: Date) -> ChiTietViewController? {
+        // Create a new view controller and pass suitable data.
+        guard let viewPage = storyboard?.instantiateViewController(withIdentifier: "chitiet") as? ChiTietViewController else {
+            return nil
+        }
+        
+        viewPage.date = date
+        viewPage.pageFinish = self.pageFinish
+        return viewPage
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        ngay = subViewController.index(of: viewController) ?? 0
-        print("state: giam ngay")
-        if(ngay <= 0){
-            return subViewController[subViewController.count-1]
+//        ngay = subViewController.index(of: viewController) ?? 0
+//        print("state: giam ngay")
+//        if(ngay <= 0){
+//            return subViewController[subViewController.count-1]
+//        }
+//        return subViewController[ngay-1]
+        debugPrint("Before: ", separator: "", terminator: "")
+        let today = (viewController as! ChiTietViewController).date
+        guard var yesterday = calendar.date(byAdding: .day, value: -1, to: today!) else {
+            return nil
         }
-        return subViewController[ngay-1]
+        yesterday = calendar.startOfDay(for: yesterday)
+        
+        return viewPage(for: yesterday)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        ngay = subViewController.index(of: viewController) ?? 0
-        print("state: tang ngay")
-        if(ngay >= subViewController.count-1){
-            return subViewController[0]
+//        ngay = subViewController.index(of: viewController) ?? 0
+//        print("state: tang ngay")
+//        if(ngay >= subViewController.count-1){
+//            return subViewController[0]
+//        }
+//        return subViewController[ngay+1]
+        debugPrint("After: ", separator: "", terminator: "")
+        let today = (viewController as! ChiTietViewController).date
+        guard var tomorrow = calendar.date(byAdding: .day, value: 1, to: today!) else {
+            return nil
         }
-        return subViewController[ngay+1]
+        tomorrow = calendar.startOfDay(for: tomorrow)
+        
+        return viewPage(for: tomorrow)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
@@ -86,6 +128,7 @@ UIPageViewControllerDataSource{
             print("Ngay:",ngay)
             //addChucNang()
         }
+        self.date = (self.viewControllers?.first as! ChiTietViewController).date!
        
         
     }

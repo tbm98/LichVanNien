@@ -97,19 +97,19 @@
                                 <rect key="frame" x="30" y="58.5" width="315" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra3-pL-iaF">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="84.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D0-JW-31j">
-                                        <rect key="frame" x="115" y="0.0" width="85.5" height="30"/>
+                                        <rect key="frame" x="114.5" y="0.0" width="85.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="1" green="0.04659687497" blue="0.1021087576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEU-Nk-D89">
-                                        <rect key="frame" x="230.5" y="0.0" width="84.5" height="30"/>
+                                        <rect key="frame" x="230" y="0.0" width="85" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -457,6 +457,9 @@ Mậu Tuất</string>
                     </view>
                     <connections>
                         <outlet property="imageBackground" destination="V9X-Db-YZa" id="tiW-tp-1Ug"/>
+                        <outlet property="labelChamNgon" destination="btU-HR-H20" id="ARs-Vp-eAD"/>
+                        <outlet property="labelNgay" destination="PGW-gy-3YE" id="tvx-wN-Crl"/>
+                        <outlet property="labelThu" destination="WWm-Bj-ROA" id="KQT-bm-ofj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goa-JX-75r" userLabel="First Responder" sceneMemberID="firstResponder"/>
