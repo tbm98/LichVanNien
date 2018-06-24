@@ -28,6 +28,7 @@ class Duoi: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("chuc nang duoi đi load")
+        print("chuc nang duoi đi load")
         let components = calendar.dateComponents([.year, .month, .day], from: date!)
         labelThang.text = components.month?.description
         labelNgay.text = components.day?.description
@@ -37,6 +38,7 @@ class Duoi: UIViewController {
         labelGio.text = "\(hour):\(minutes)"
         setClick()
     }
+    
     func updateUI(date:Date){
         self.date = date
         let components = calendar.dateComponents([.year, .month, .day], from: date)

@@ -14,15 +14,17 @@
 		0377B92820DBFA790074410C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0377B92620DBFA790074410C /* LaunchScreen.storyboard */; };
 		0377B93320DBFA790074410C /* LichVanNienTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B93220DBFA790074410C /* LichVanNienTests.swift */; };
 		0377B93E20DBFA790074410C /* LichVanNienUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B93D20DBFA790074410C /* LichVanNienUITests.swift */; };
-		0377B94C20DBFBAA0074410C /* ChiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B94B20DBFBAA0074410C /* ChiTiet.swift */; };
+		0377B94C20DBFBAA0074410C /* DoiNgay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B94B20DBFBAA0074410C /* DoiNgay.swift */; };
 		0377B94E20DBFBB90074410C /* NhieuHon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B94D20DBFBB90074410C /* NhieuHon.swift */; };
 		0377B95420DBFCA60074410C /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95320DBFCA60074410C /* MainPage.swift */; };
+		0377B95620DC01860074410C /* SubPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95520DC01860074410C /* SubPage.swift */; };
 		0377B95C20DC05500074410C /* ViewLich.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95B20DC05500074410C /* ViewLich.swift */; };
 		0377B96020DC0ECD0074410C /* Duoi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B95F20DC0ECD0074410C /* Duoi.swift */; };
 		0377B96220DC121F0074410C /* Tren.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B96120DC121F0074410C /* Tren.swift */; };
 		0378BA3420DCA97D00BD765D /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0378BA3320DCA97D00BD765D /* Const.swift */; };
-		03A3600C20DED51900DB3E17 /* ThoiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3600B20DED51900DB3E17 /* ThoiTiet.swift */; };
-		03A3600E20DED78E00DB3E17 /* LichCaNhan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A3600D20DED78E00DB3E17 /* LichCaNhan.swift */; };
+		03A319A320DF6922005266BB /* ThoiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A319A220DF6922005266BB /* ThoiTiet.swift */; };
+		03A319A520DF6949005266BB /* ChiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A319A420DF6949005266BB /* ChiTiet.swift */; };
+		03A319A720DF6988005266BB /* LichCaNhan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A319A620DF6988005266BB /* LichCaNhan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,15 +58,17 @@
 		0377B93920DBFA790074410C /* LichVanNienUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LichVanNienUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0377B93D20DBFA790074410C /* LichVanNienUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichVanNienUITests.swift; sourceTree = "<group>"; };
 		0377B93F20DBFA7A0074410C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0377B94B20DBFBAA0074410C /* ChiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTiet.swift; sourceTree = "<group>"; };
+		0377B94B20DBFBAA0074410C /* DoiNgay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoiNgay.swift; sourceTree = "<group>"; };
 		0377B94D20DBFBB90074410C /* NhieuHon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NhieuHon.swift; sourceTree = "<group>"; };
 		0377B95320DBFCA60074410C /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		0377B95520DC01860074410C /* SubPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPage.swift; sourceTree = "<group>"; };
 		0377B95B20DC05500074410C /* ViewLich.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLich.swift; sourceTree = "<group>"; };
 		0377B95F20DC0ECD0074410C /* Duoi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duoi.swift; sourceTree = "<group>"; };
 		0377B96120DC121F0074410C /* Tren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tren.swift; sourceTree = "<group>"; };
 		0378BA3320DCA97D00BD765D /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		03A3600B20DED51900DB3E17 /* ThoiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoiTiet.swift; sourceTree = "<group>"; };
-		03A3600D20DED78E00DB3E17 /* LichCaNhan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichCaNhan.swift; sourceTree = "<group>"; };
+		03A319A220DF6922005266BB /* ThoiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoiTiet.swift; sourceTree = "<group>"; };
+		03A319A420DF6949005266BB /* ChiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTiet.swift; sourceTree = "<group>"; };
+		03A319A620DF6988005266BB /* LichCaNhan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichCaNhan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,13 +153,14 @@
 			isa = PBXGroup;
 			children = (
 				0377B91F20DBFA780074410C /* LichThang.swift */,
-				0377B94B20DBFBAA0074410C /* ChiTiet.swift */,
+				0377B94B20DBFBAA0074410C /* DoiNgay.swift */,
 				0377B94D20DBFBB90074410C /* NhieuHon.swift */,
 				0377B95B20DC05500074410C /* ViewLich.swift */,
 				0377B95F20DC0ECD0074410C /* Duoi.swift */,
 				0377B96120DC121F0074410C /* Tren.swift */,
-				03A3600B20DED51900DB3E17 /* ThoiTiet.swift */,
-				03A3600D20DED78E00DB3E17 /* LichCaNhan.swift */,
+				03A319A220DF6922005266BB /* ThoiTiet.swift */,
+				03A319A420DF6949005266BB /* ChiTiet.swift */,
+				03A319A620DF6988005266BB /* LichCaNhan.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				0377B95320DBFCA60074410C /* MainPage.swift */,
+				0377B95520DC01860074410C /* SubPage.swift */,
 			);
 			path = PageController;
 			sourceTree = "<group>";
@@ -310,17 +316,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0377B94C20DBFBAA0074410C /* ChiTiet.swift in Sources */,
+				03A319A320DF6922005266BB /* ThoiTiet.swift in Sources */,
+				0377B94C20DBFBAA0074410C /* DoiNgay.swift in Sources */,
+				0377B95620DC01860074410C /* SubPage.swift in Sources */,
 				0377B92020DBFA780074410C /* LichThang.swift in Sources */,
 				0378BA3420DCA97D00BD765D /* Const.swift in Sources */,
 				0377B91C20DBFA780074410C /* AppDelegate.swift in Sources */,
 				0377B94E20DBFBB90074410C /* NhieuHon.swift in Sources */,
 				0377B96220DC121F0074410C /* Tren.swift in Sources */,
-				03A3600C20DED51900DB3E17 /* ThoiTiet.swift in Sources */,
+				03A319A720DF6988005266BB /* LichCaNhan.swift in Sources */,
 				0377B95420DBFCA60074410C /* MainPage.swift in Sources */,
 				0377B96020DC0ECD0074410C /* Duoi.swift in Sources */,
+				03A319A520DF6949005266BB /* ChiTiet.swift in Sources */,
 				0377B95C20DC05500074410C /* ViewLich.swift in Sources */,
-				03A3600E20DED78E00DB3E17 /* LichCaNhan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

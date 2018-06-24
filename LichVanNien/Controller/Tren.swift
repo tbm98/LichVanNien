@@ -27,6 +27,7 @@ class Tren: UIViewController {
     }
     var date:Date?
     var chucNang:ChucNangTren?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("chuc nang tren đi load")

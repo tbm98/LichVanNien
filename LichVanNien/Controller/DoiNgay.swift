@@ -1,14 +1,14 @@
 //
-//  LichCaNhan.swift
+//  DoiNgayViewController.swift
 //  LichVanNien
 //
-//  Created by TBM on 6/24/18.
+//  Created by TBM on 6/21/18.
 //  Copyright © 2018 TBM. All rights reserved.
 //
 
 import UIKit
 
-class LichCaNhan: UIViewController {
+class DoiNgay: UIViewController {
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -18,4 +18,5 @@ class LichCaNhan: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+
 }

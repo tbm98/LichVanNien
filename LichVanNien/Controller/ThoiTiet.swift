@@ -1,5 +1,5 @@
 //
-//  ThoiTietViewController.swift
+//  ThoiTiet.swift
 //  LichVanNien
 //
 //  Created by TBM on 6/24/18.
@@ -9,7 +9,7 @@
 import UIKit
 
 class ThoiTiet: UIViewController {
-    @IBAction func btnCancel(_ sender: Any) {
+    @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
