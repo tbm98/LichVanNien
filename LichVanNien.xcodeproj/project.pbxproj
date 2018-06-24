@@ -25,6 +25,7 @@
 		03A319A320DF6922005266BB /* ThoiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A319A220DF6922005266BB /* ThoiTiet.swift */; };
 		03A319A520DF6949005266BB /* ChiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A319A420DF6949005266BB /* ChiTiet.swift */; };
 		03A319A720DF6988005266BB /* LichCaNhan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A319A620DF6988005266BB /* LichCaNhan.swift */; };
+		03A319A920DFB17A005266BB /* VanKhan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A319A820DFB17A005266BB /* VanKhan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		03A319A220DF6922005266BB /* ThoiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoiTiet.swift; sourceTree = "<group>"; };
 		03A319A420DF6949005266BB /* ChiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTiet.swift; sourceTree = "<group>"; };
 		03A319A620DF6988005266BB /* LichCaNhan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichCaNhan.swift; sourceTree = "<group>"; };
+		03A319A820DFB17A005266BB /* VanKhan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanKhan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				03A319A220DF6922005266BB /* ThoiTiet.swift */,
 				03A319A420DF6949005266BB /* ChiTiet.swift */,
 				03A319A620DF6988005266BB /* LichCaNhan.swift */,
+				03A319A820DFB17A005266BB /* VanKhan.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				0377B95620DC01860074410C /* SubPage.swift in Sources */,
 				0377B92020DBFA780074410C /* LichThang.swift in Sources */,
 				0378BA3420DCA97D00BD765D /* Const.swift in Sources */,
+				03A319A920DFB17A005266BB /* VanKhan.swift in Sources */,
 				0377B91C20DBFA780074410C /* AppDelegate.swift in Sources */,
 				0377B94E20DBFBB90074410C /* NhieuHon.swift in Sources */,
 				0377B96220DC121F0074410C /* Tren.swift in Sources */,
