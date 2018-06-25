@@ -91,7 +91,7 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi{
 
     
     func addChucNang(){
-        chucNangTren = storyboard!.instantiateViewController(withIdentifier: "chucnangtren") as! Tren
+        chucNangTren = storyboard!.instantiateViewController(withIdentifier: "chucnangtren") as? Tren
         chucNangTren?.date = self.date
         chucNangTren?.chucNang = self
         
@@ -101,7 +101,7 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi{
         self.view.addSubview((chucNangTren?.view)!)
         chucNangTren?.didMove(toParentViewController: self)
         //duoi
-        chucNangDuoi = storyboard!.instantiateViewController(withIdentifier: "chucnangduoi") as! Duoi
+        chucNangDuoi = storyboard!.instantiateViewController(withIdentifier: "chucnangduoi") as? Duoi
         chucNangDuoi?.date = self.date
         chucNangDuoi?.chucNang = self
         self.addChildViewController(chucNangDuoi!)

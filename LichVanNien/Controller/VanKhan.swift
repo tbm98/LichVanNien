@@ -25,7 +25,16 @@ class VanKhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         (cell.viewWithTag(1) as! UILabel).text = titleVanKhan[indexPath.row]
         return cell
     }
-    func tableview
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Const.indexVanKhan = indexPath.row
+        print("indexvankhan:",Const.indexVanKhan)
+        let vankhan = storyboard?.instantiateViewController(withIdentifier: "chitietvankhan")
+        
+        self.present(vankhan!, animated: true, completion: nil)
+        
+    }
     
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

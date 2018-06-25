@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0311E3D920E0C6B400EB2055 /* ChiTietVanKhan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311E3D820E0C6B400EB2055 /* ChiTietVanKhan.swift */; };
 		0377B91C20DBFA780074410C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B91B20DBFA780074410C /* AppDelegate.swift */; };
 		0377B92020DBFA780074410C /* LichThang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B91F20DBFA780074410C /* LichThang.swift */; };
 		0377B92320DBFA780074410C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0377B92120DBFA780074410C /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0311E3D820E0C6B400EB2055 /* ChiTietVanKhan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTietVanKhan.swift; sourceTree = "<group>"; };
 		0377B91820DBFA780074410C /* LichVanNien.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LichVanNien.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0377B91B20DBFA780074410C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0377B91F20DBFA780074410C /* LichThang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichThang.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				03A319A420DF6949005266BB /* ChiTiet.swift */,
 				03A319A620DF6988005266BB /* LichCaNhan.swift */,
 				03A319A820DFB17A005266BB /* VanKhan.swift */,
+				0311E3D820E0C6B400EB2055 /* ChiTietVanKhan.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				03A319A320DF6922005266BB /* ThoiTiet.swift in Sources */,
 				0377B94C20DBFBAA0074410C /* DoiNgay.swift in Sources */,
 				0377B95620DC01860074410C /* SubPage.swift in Sources */,
+				0311E3D920E0C6B400EB2055 /* ChiTietVanKhan.swift in Sources */,
 				0377B92020DBFA780074410C /* LichThang.swift in Sources */,
 				0378BA3420DCA97D00BD765D /* Const.swift in Sources */,
 				03A319A920DFB17A005266BB /* VanKhan.swift in Sources */,
@@ -505,8 +509,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S2463Y4TAQ;
 				INFOPLIST_FILE = LichVanNien/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tbm.LichVanNien;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -520,8 +525,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S2463Y4TAQ;
 				INFOPLIST_FILE = LichVanNien/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tbm.LichVanNien;
 				PRODUCT_NAME = "$(TARGET_NAME)";
