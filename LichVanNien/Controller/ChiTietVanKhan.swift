@@ -8,31 +8,30 @@
 
 import UIKit
 
-class ChiTietVanKhan: UIViewController {
+class ChiTietVanKhan: UIViewController ,UIWebViewDelegate{
+    @IBAction func btnBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var webView: UIWebView!
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        print("Start load")
+    }
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        print("finish load")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let url = Bundle.main.url(forResource: "vankhan_\(Const.indexVanKhan)", withExtension: "html") {
-            webView.loadRequest(URLRequest(url: url))
-        }
+        //Const.indexVanKhan = 1
+        let url = Bundle.main.url(forResource: "vankhan_\(Const.indexVanKhan)", withExtension: "html")
+        //let url = Bundle.main.url(forResource: "vankhan_3", withExtension: "html")
+        //let url = Bundle.main.url(forResource: "Html/vankhan_2", withExtension:"html")
+        let request = NSURLRequest(url: url!)
+        webView.loadRequest(request as URLRequest)
+        //webView.loadRequest(URLRequest(url: url!))
+        
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

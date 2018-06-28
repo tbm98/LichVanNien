@@ -12,6 +12,12 @@ class LichCaNhan: UIViewController {
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func btnShare(_ sender: Any) {
+        let image:[Any] = [UIApplication.shared.screenShot as Any]
+        let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

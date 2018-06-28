@@ -2,7 +2,7 @@
 //  ChucNangTrenViewController.swift
 //  LichVanNien
 //
-//  Created by TBM on 6/22/18.
+//  Created by TBM on 6/22/18./
 //  Copyright © 2018 TBM. All rights reserved.
 //
 
@@ -22,12 +22,23 @@ class Tren: UIViewController {
     @IBAction func btnChonNgay(_ sender: Any) {
         chucNang?.chonThang()
     }
+    @IBOutlet weak var chonNgay: UIButton!
     @IBAction func btnHomNay(_ sender: Any) {
         chucNang?.homNay()
     }
     var date:Date?
     var chucNang:ChucNangTren?
+    var calendar = Calendar.current
     
+    func updateUI(date:Date){
+        self.date = date
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        let m:Int = components.month!
+        let y:Int = components.year!
+        //print("\(m)-\(y)")
+        chonNgay.setTitle("\(m)-\(y)", for: .normal)
+        //chonNgay.titleLabel?.text = "\(m)-\(y)"
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("chuc nang tren đi load")

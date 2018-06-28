@@ -115,9 +115,12 @@ UIPageViewControllerDataSource{
             //addChucNang()
         }
         self.date = (self.viewControllers?.first as! ViewLich).date!
-        
-        DispatchQueue.main.async {
-            self.pageFinish?.updateUI(date: self.date!)
+        let p1 = calendar.dateComponents([.year, .month, .day], from: self.date!)
+        let p2 = calendar.dateComponents([.year, .month, .day], from: Const.date!)
+        if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
+            DispatchQueue.main.async {
+                self.pageFinish?.updateUI(date: self.date!)
+            }
         }
         
     }

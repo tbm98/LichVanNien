@@ -14,6 +14,10 @@ class ViewLich: UIViewController {
     @IBOutlet weak var labelNgay: UILabel!
     @IBOutlet weak var labelThu: UILabel!
     @IBOutlet weak var labelChamNgon: UILabel!
+    @IBOutlet weak var stack: UIStackView!
+    @IBOutlet weak var top: NSLayoutConstraint!
+    
+    
     
     
     var date:Date?
@@ -25,6 +29,16 @@ class ViewLich: UIViewController {
         //print("view did load")
         //view.backgroundColor = UIColor(patternImage: UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])!)
         //imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
+        let topct:CGFloat = (80 as CGFloat).dp
+        if(self.view.frame.height<700){
+            top.constant = topct
+            //stack.spacing = (10 as CGFloat).dp
+        }
+        labelNgay.font = UIFont.boldSystemFont(ofSize: (110 as CGFloat).dp)
+        //top.constant = topct
+        //stack.spacing = (30 as CGFloat).dp
+        print("topct:",topct)
+        print("spacing:",(30 as CGFloat).dp)
         
         // Do any additional setup after loading the view.
     }
@@ -32,7 +46,7 @@ class ViewLich: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let components = calendar.dateComponents([.year, .month, .day], from: date!)
         labelNgay.text = components.day?.description
-        labelChamNgon.text = Const.chamNgon[Const.indexChamNgon].description
+        
         let thu = Const.thu(date: self.date!)
         if(thu == "Chủ nhật"){
             labelThu.textColor = UIColor.red
@@ -43,7 +57,21 @@ class ViewLich: UIViewController {
 //        print("year:",components.year)
 //        print("month:",components.month)
 //        print("day:",components.day)
-        imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.indexBackground])
+        
+        let p1 = calendar.dateComponents([.year, .month, .day], from: self.date!)
+        let p2 = calendar.dateComponents([.year, .month, .day], from: Const.date!)
+        if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
+            print("self.date",self.date)
+            print("date",Const.date)
+            labelChamNgon.text = Const.chamNgon[Const.indexChamNgon2].description
+            imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.indexBackground2])
+            Const.indexBackground = Const.indexBackground2
+            Const.indexChamNgon = Const.indexChamNgon2
+            //Const.date = self.date
+        }else{
+            labelChamNgon.text = Const.chamNgon[Const.indexChamNgon].description
+            imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.indexBackground])
+        }
         
         
     }

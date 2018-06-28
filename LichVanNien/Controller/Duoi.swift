@@ -10,7 +10,20 @@ import UIKit
 
 class Duoi: UIViewController {
 
-
+    @IBOutlet weak var lb1: UILabel!
+    @IBOutlet weak var lb2: UILabel!
+    @IBOutlet weak var lb3: UILabel!
+    @IBOutlet weak var lb4: UILabel!
+    @IBOutlet weak var lb5: UILabel!
+    @IBOutlet weak var lb6: UILabel!
+    @IBOutlet weak var lb7: UILabel!
+    @IBOutlet weak var lb8: UILabel!
+    @IBOutlet weak var lb9: UILabel!
+    @IBOutlet weak var lb10: UILabel!
+    @IBOutlet weak var lb11: UILabel!
+    @IBOutlet weak var lb12: UILabel!
+    @IBOutlet weak var lb13: UILabel!
+    
     @IBOutlet weak var stackThem: UIStackView!
     @IBOutlet weak var stackThayDoi: UIStackView!
     @IBOutlet weak var stackThang: UIStackView!
@@ -24,26 +37,54 @@ class Duoi: UIViewController {
     var date:Date?
     let calendar = Calendar.current
     var chucNang:ChucNangDuoi?
+    var lichAm:Date?
+    var vietCalendar = VietCalendar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("chuc nang duoi đi load")
         print("chuc nang duoi đi load")
+        
         let components = calendar.dateComponents([.year, .month, .day], from: date!)
-        labelThang.text = components.month?.description
-        labelNgay.text = components.day?.description
+        lichAm = vietCalendar.minh(d: components.day!, m: components.month!, y: components.year!)
+        let components2 = calendar.dateComponents([.year, .month, .day], from: lichAm!)
+        labelThang.text = components2.month?.description
+        labelNgay.text = components2.day?.description
         
         let hour = calendar.component(.hour, from: date!)
         let minutes = calendar.component(.minute, from: date!)
         labelGio.text = "\(hour):\(minutes)"
+        
+        lb1.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
+        lb2.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
+        lb3.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
+        lb4.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
+        lb5.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
+        lb6.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
+        lb7.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
+        lb8.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
+        lb9.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
+        lb10.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
+        lb11.font = UIFont.boldSystemFont(ofSize: (20 as CGFloat).dp)
+        lb12.font = UIFont.boldSystemFont(ofSize: (20 as CGFloat).dp)
+        lb13.font = UIFont.boldSystemFont(ofSize: (20 as CGFloat).dp)
+        if(self.view.frame.height<700){
+            lb7.font = UIFont.systemFont(ofSize: (10 as CGFloat).dp)
+            lb8.font = UIFont.systemFont(ofSize: (10 as CGFloat).dp)
+            lb9.font = UIFont.systemFont(ofSize: (10 as CGFloat).dp)
+            lb10.font = UIFont.systemFont(ofSize: (10 as CGFloat).dp)
+        }
         setClick()
     }
     
+   
     func updateUI(date:Date){
         self.date = date
         let components = calendar.dateComponents([.year, .month, .day], from: date)
-        labelThang.text = components.month?.description
-        labelNgay.text = components.day?.description
+        lichAm = vietCalendar.minh(d: components.day!, m: components.month!, y: components.year!)
+        let components2 = calendar.dateComponents([.year, .month, .day], from: lichAm!)
+        labelThang.text = components2.month?.description
+        labelNgay.text = components2.day?.description
         
         let date = Date()
         let hour = calendar.component(.hour, from: date)

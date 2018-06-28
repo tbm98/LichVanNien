@@ -10,12 +10,16 @@ import UIKit
 
 class MainPage: UIPageViewController ,
     UIPageViewControllerDelegate,
-UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi{
+UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgayXong{
+    
+    func done(date:Date) {
+        updateUI(date: date)
+        chonThang()
+    }
 
     func chiTiet() {
         let chitiet:ChiTiet = (storyboard?.instantiateViewController(withIdentifier: "chitiet"))! as! ChiTiet
         chitiet.date = self.date
-        
         self.present(chitiet, animated: true, completion: nil)
     }
     
@@ -41,15 +45,46 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi{
     
     func homNay() {
         self.date = Date()
+        updateChucNang(date: date)
         setViewControllers([viewPage(for: Date())!], direction: .forward, animated: true, completion: nil)
     }
-    
+    var a = false
     func chonThang() {
         //
+        print("chon thang")
+        if(a){
+            chonNgay?.view.removeFromSuperview()
+        }else{
+            self.view.addSubview((chonNgay?.view)!)
+        }
+        a = !a
+        
     }
     
     func share() {
-        //
+        let image:[Any] = [UIApplication.shared.screenShot as Any]
+        let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    /// Takes the screenshot of the screen and returns the corresponding image
+    ///
+    /// - Parameter shouldSave: Boolean flag asking if the image needs to be saved to user's photo library. Default set to 'true'
+    /// - Returns: (Optional)image captured as a screenshot
+    open func takeScreenshot(_ shouldSave: Bool = true) -> UIImage? {
+        var screenshotImage :UIImage?
+        let layer = UIApplication.shared.keyWindow!.layer
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        guard let context = UIGraphicsGetCurrentContext() else {return nil}
+        layer.render(in:context)
+        screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        if let image = screenshotImage, shouldSave {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
+        return screenshotImage
     }
     
     func lichCaNhan() {
@@ -62,9 +97,11 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi{
     var thang = 0
     var chucNangTren:Tren? = nil
     var chucNangDuoi:Duoi? = nil
+    var chonNgay:ChonNgay? = nil
 
     var date = Date()
     let calendar = Calendar.current
+    var appear = false
     
 
     
@@ -72,16 +109,29 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi{
         super.viewDidLoad()
         self.delegate = self
         self.dataSource = self
+        Const.date = self.date
         setViewControllers([viewPage(for: date)!], direction: .forward, animated: true, completion: nil)
         addChucNang()
 //        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
 //        leftSwipe.direction = UISwipeGestureRecognizerDirection.left
 //        self.view.addGestureRecognizer(leftSwipe)
         // Do any additional setup after loading the view.
+        print("width:",self.view.frame.width)
+        print("height:",self.view.frame.height)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        print("view will appear")
+        if(appear){
+            print("view will appear2")
+            updateUI(date: Const.date!)
+        }
+        appear = true
+        
     }
     
     func updateUI(date:Date) {
         print("update UI")
+        Const.date = self.date
         updateChucNang(date: date)
     }
     
@@ -95,6 +145,7 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi{
         chucNangTren?.date = self.date
         chucNangTren?.chucNang = self
         
+        
         self.addChildViewController(chucNangTren!)
         var fra = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
         chucNangTren?.view.frame = fra// or better, turn off `translatesAutoresizingMaskIntoConstraints` and then define constraints for this subview
@@ -104,22 +155,47 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi{
         chucNangDuoi = storyboard!.instantiateViewController(withIdentifier: "chucnangduoi") as? Duoi
         chucNangDuoi?.date = self.date
         chucNangDuoi?.chucNang = self
+        
         self.addChildViewController(chucNangDuoi!)
-        fra = CGRect(x: 0, y: self.view.frame.height-200, width: self.view.frame.width, height: 200)
+        fra = CGRect(x: 0, y: self.view.frame.height-(164 as CGFloat).dp, width: self.view.frame.width, height: (164 as CGFloat).dp)
         chucNangDuoi?.view.frame = fra// or better, turn off `translatesAutoresizingMaskIntoConstraints` and then define constraints for this subview
         self.view.addSubview((chucNangDuoi?.view)!)
         chucNangDuoi?.didMove(toParentViewController: self)
-        //
+        
+        
+        //chon ngay
+        chonNgay = storyboard!.instantiateViewController(withIdentifier: "chonngay") as? ChonNgay
+//        chonNgay?.date = self.date
+//        chonNgay?.chucNang = self
+        chonNgay?.dele = self
+        
+        self.addChildViewController(chonNgay!)
+        fra = CGRect(x: 0, y: self.view.frame.height/2 - (145 as CGFloat), width: self.view.frame.width, height: (290 as CGFloat))
+        chonNgay?.view.frame = fra// or better, turn off `translatesAutoresizingMaskIntoConstraints` and then define constraints for this subview
+        //self.view.addSubview((chonNgay?.view)!)
+        chonNgay?.didMove(toParentViewController: self)
     }
     
     func updateChucNang(date:Date){
         //chucNangDuoi.labelNgay.text = n
         print("update chuc nang ")
+        chucNangTren?.updateUI(date:date)
         chucNangDuoi?.updateUI(date: date)
         print("update-----------------")
-        self.setViewControllers([viewPage(for: date)!], direction: .forward, animated: false, completion: nil)
-        Const.indexBackground = Const.randomInt(min: 0, max: Const.imageBackgrounds.count - 1)
-        Const.indexChamNgon = Const.randomInt(min: 0, max: Const.chamNgon.count - 1)
+        let p1 = calendar.dateComponents([.year, .month, .day], from: self.date)
+        let p2 = calendar.dateComponents([.year, .month, .day], from: date)
+        if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
+            print("self.datem",self.date)
+            print("datem",date)
+            
+            self.setViewControllers([viewPage(for: date)!], direction: .forward, animated: false, completion: nil)
+            self.date = date
+            Const.date = date
+        }
+        Const.indexBackground2 = Const.randomInt(min: 0, max: Const.imageBackgrounds.count - 1)
+        Const.indexChamNgon2 = Const.randomInt(min: 0, max: Const.chamNgon.count - 1)
+        
+
     }
     
 //    func updateChucNang(date:Date){
@@ -197,8 +273,12 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi{
             //updateChucNang()
         }
         self.date = (self.viewControllers?.first as! SubPage).date!
-        DispatchQueue.main.async {
-            self.updateUI(date: self.date)
+        let p1 = calendar.dateComponents([.year, .month, .day], from: self.date)
+        let p2 = calendar.dateComponents([.year, .month, .day], from: Const.date!)
+        if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
+            DispatchQueue.main.async {
+                self.updateUI(date: self.date)
+            }
         }
         
 
@@ -211,6 +291,9 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi{
 
 protocol PageFinish {
     func updateUI(date:Date)
+}
+protocol ChonNgayXong{
+    func done(date:Date)
 }
 protocol ChucNangTren {
     func thoiTiet()

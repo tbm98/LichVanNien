@@ -12,6 +12,12 @@ class NhieuHon: UIViewController {
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func btnShare(_ sender: Any) {
+        let image:[Any] = [UIApplication.shared.screenShot as Any]
+        let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
     @IBOutlet weak var viewVanKhan: UIView!
     @IBOutlet weak var viewTuVi: UIView!
     @IBOutlet weak var viewThoiTiet: UIView!
@@ -45,22 +51,33 @@ class NhieuHon: UIViewController {
     
     @objc func actionVanKhan(tapGestureRecognizer: UITapGestureRecognizer) {
         print("van khan")
-        let vankhan:VanKhan = (storyboard?.instantiateViewController(withIdentifier: "vankhan"))! as! VanKhan
+        let vankhan = (storyboard?.instantiateViewController(withIdentifier: "vk"))!
         
+        //UIApplication.topViewController()?.present(vankhan, animated: true, completion: nil)
         self.present(vankhan, animated: true, completion: nil)
         
     }
     @objc func actionTuVi(tapGestureRecognizer: UITapGestureRecognizer) {
         print("tu vi")
+        let tuvi = (storyboard?.instantiateViewController(withIdentifier: "tuvi"))!
+        
+        //UIApplication.topViewController()?.present(vankhan, animated: true, completion: nil)
+        self.present(tuvi, animated: true, completion: nil)
     }
     @objc func actionThoiTiet(tapGestureRecognizer: UITapGestureRecognizer) {
         print("thoi tiet")
+        let thoitiet:UIViewController = (storyboard?.instantiateViewController(withIdentifier: "thoitiet"))!
+        self.present(thoitiet, animated: true, completion: nil)
     }
     @objc func actionDanhGia(tapGestureRecognizer: UITapGestureRecognizer) {
         print("danh gia")
     }
     @objc func actionChiaSe(tapGestureRecognizer: UITapGestureRecognizer) {
         print("chia se")
+        let image:[Any] = [UIApplication.shared.screenShot as Any]
+        let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
