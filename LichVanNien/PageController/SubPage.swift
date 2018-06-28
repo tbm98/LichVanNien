@@ -71,6 +71,8 @@ UIPageViewControllerDataSource{
         
         viewPage.date = date
         viewPage.pageFinish = self.pageFinish
+        viewPage.indexBG = Const.randomInt(min: 0, max: Const.imageBackgrounds.count - 1)
+        viewPage.indexCN = Const.randomInt(min: 0, max: Const.chamNgon.count - 1)
         return viewPage
     }
     
@@ -113,15 +115,21 @@ UIPageViewControllerDataSource{
             print("conpleted2")
             print("Ngay:",ngay)
             //addChucNang()
-        }
-        self.date = (self.viewControllers?.first as! ViewLich).date!
-        let p1 = calendar.dateComponents([.year, .month, .day], from: self.date!)
-        let p2 = calendar.dateComponents([.year, .month, .day], from: Const.date!)
-        if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
+            Const.indexBackground2 = Const.indexBackground
+            self.date = (self.viewControllers?.first as! ViewLich).date!
             DispatchQueue.main.async {
+                Const.update = false
                 self.pageFinish?.updateUI(date: self.date!)
             }
         }
+//        self.date = (self.viewControllers?.first as! ViewLich).date!
+//        let p1 = calendar.dateComponents([.year, .month, .day], from: self.date!)
+//        let p2 = calendar.dateComponents([.year, .month, .day], from: Const.date!)
+//        if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
+//            DispatchQueue.main.async {
+//                self.pageFinish?.updateUI(date: self.date!)
+//            }
+//        }
         
     }
     

@@ -185,15 +185,16 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgay
         let p1 = calendar.dateComponents([.year, .month, .day], from: self.date)
         let p2 = calendar.dateComponents([.year, .month, .day], from: date)
         if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
-            print("self.datem",self.date)
-            print("datem",date)
+            print("self.datem main",self.date)
+            print("datem main",date)
             
             self.setViewControllers([viewPage(for: date)!], direction: .forward, animated: false, completion: nil)
             self.date = date
             Const.date = date
         }
-        Const.indexBackground2 = Const.randomInt(min: 0, max: Const.imageBackgrounds.count - 1)
-        Const.indexChamNgon2 = Const.randomInt(min: 0, max: Const.chamNgon.count - 1)
+        Const.indexBackground2 = Const.indexBackground
+        Const.indexBackground = Const.randomInt(min: 0, max: Const.imageBackgrounds.count - 1)
+        Const.indexChamNgon = Const.randomInt(min: 0, max: Const.chamNgon.count - 1)
         
 
     }
@@ -271,15 +272,22 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgay
             print("Thang:",thang)
             //addChucNang()
             //updateChucNang()
-        }
-        self.date = (self.viewControllers?.first as! SubPage).date!
-        let p1 = calendar.dateComponents([.year, .month, .day], from: self.date)
-        let p2 = calendar.dateComponents([.year, .month, .day], from: Const.date!)
-        if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
+            Const.indexBackground2 = Const.indexBackground
+            self.date = (self.viewControllers?.first as! SubPage).date!
             DispatchQueue.main.async {
+                Const.update = false
                 self.updateUI(date: self.date)
             }
         }
+        
+//        self.date = (self.viewControllers?.first as! SubPage).date!
+//        let p1 = calendar.dateComponents([.year, .month, .day], from: self.date)
+//        let p2 = calendar.dateComponents([.year, .month, .day], from: Const.date!)
+//        if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
+//            DispatchQueue.main.async {
+//                self.updateUI(date: self.date)
+//            }
+//        }
         
 
         

@@ -16,6 +16,8 @@ class ViewLich: UIViewController {
     @IBOutlet weak var labelChamNgon: UILabel!
     @IBOutlet weak var stack: UIStackView!
     @IBOutlet weak var top: NSLayoutConstraint!
+    var indexBG = 0
+    var indexCN = 0
     
     
     
@@ -44,6 +46,13 @@ class ViewLich: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if(!Const.update){
+            indexBG = Const.indexBackground
+            indexCN = Const.indexChamNgon
+        }else{
+            //indexBG = Const.indexBackground lay indexBG
+        }
+        
         let components = calendar.dateComponents([.year, .month, .day], from: date!)
         labelNgay.text = components.day?.description
         
@@ -61,18 +70,19 @@ class ViewLich: UIViewController {
         let p1 = calendar.dateComponents([.year, .month, .day], from: self.date!)
         let p2 = calendar.dateComponents([.year, .month, .day], from: Const.date!)
         if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
-            print("self.date",self.date)
-            print("date",Const.date)
-            labelChamNgon.text = Const.chamNgon[Const.indexChamNgon2].description
-            imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.indexBackground2])
-            Const.indexBackground = Const.indexBackground2
-            Const.indexChamNgon = Const.indexChamNgon2
+            print("self.date viewlich",self.date)
+            print("date viewlich",Const.date)
+            labelChamNgon.text = Const.chamNgon[indexCN].description
+            imageBackground.image = UIImage(named: Const.imageBackgrounds[indexBG])
             //Const.date = self.date
         }else{
-            labelChamNgon.text = Const.chamNgon[Const.indexChamNgon].description
-            imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.indexBackground])
+            labelChamNgon.text = Const.chamNgon[indexCN].description
+            imageBackground.image = UIImage(named: Const.imageBackgrounds[indexBG])
         }
         
+        Const.indexBackground = indexBG
+        Const.indexChamNgon = indexCN
+        Const.update = true
         
     }
     
