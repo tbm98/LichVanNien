@@ -28,21 +28,15 @@ class ViewLich: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("view did load")
-        //view.backgroundColor = UIColor(patternImage: UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])!)
-        //imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
+        
         let topct:CGFloat = (80 as CGFloat).dp
         if(self.view.frame.height<700){
             top.constant = topct
-            //stack.spacing = (10 as CGFloat).dp
         }
         labelNgay.font = UIFont.boldSystemFont(ofSize: (110 as CGFloat).dp)
-        //top.constant = topct
-        //stack.spacing = (30 as CGFloat).dp
         print("topct:",topct)
         print("spacing:",(30 as CGFloat).dp)
         
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,9 +57,6 @@ class ViewLich: UIViewController {
             labelThu.textColor = UIColor.white
         }
         labelThu.text = thu
-//        print("year:",components.year)
-//        print("month:",components.month)
-//        print("day:",components.day)
         
         let p1 = calendar.dateComponents([.year, .month, .day], from: self.date!)
         let p2 = calendar.dateComponents([.year, .month, .day], from: Const.date!)
@@ -74,7 +65,6 @@ class ViewLich: UIViewController {
             print("date viewlich",Const.date)
             labelChamNgon.text = Const.chamNgon[indexCN].description
             imageBackground.image = UIImage(named: Const.imageBackgrounds[indexBG])
-            //Const.date = self.date
         }else{
             labelChamNgon.text = Const.chamNgon[indexCN].description
             imageBackground.image = UIImage(named: Const.imageBackgrounds[indexBG])
