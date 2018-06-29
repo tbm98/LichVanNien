@@ -13,6 +13,7 @@ class SubPageLichThang: UIPageViewController ,
 UIPageViewControllerDataSource{
 
     var date:Date?
+    var dele:viewlich?
     
 
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ UIPageViewControllerDataSource{
         }
         
         viewPage.date = date
-//        viewPage.pageFinish = self.pageFinish
+        viewPage.dele = self.dele
 //        viewPage.indexBG = Const.randomInt(min: 0, max: Const.imageBackgrounds.count - 1)
 //        viewPage.indexCN = Const.randomInt(min: 0, max: Const.chamNgon.count - 1)
         return viewPage

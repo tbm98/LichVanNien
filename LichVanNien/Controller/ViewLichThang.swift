@@ -11,6 +11,7 @@ import UIKit
 class ViewLichThang: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
     
+    @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var Calendar: UICollectionView!
     @IBAction func btnPre(_ sender: Any) {
@@ -19,7 +20,7 @@ class ViewLichThang: UIViewController,UICollectionViewDataSource,UICollectionVie
     }
     
     var date:Date?
-    
+    var dele:viewlich?
     
     let Months = [
         1,
@@ -148,7 +149,8 @@ class ViewLichThang: UIViewController,UICollectionViewDataSource,UICollectionVie
         
         indexDay = thu(date: Const.createDate(day: 1, month: m, year: y))
         currentMonth = Months[calendar.component(.month, from: self.date!) - 1]
-        monthLabel.text = "\(currentMonth) \(calendar.component(.year, from: self.date!))"
+        monthLabel.text = "Tháng \(currentMonth)-\(calendar.component(.year, from: self.date!))"
+        img.image = UIImage(named: Const.imageBackgrounds[Const.indexBackground])
     }
     
     
@@ -165,6 +167,7 @@ class ViewLichThang: UIViewController,UICollectionViewDataSource,UICollectionVie
         }
     }
     
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
         var title = indexPath.row + 1 - indexDay
@@ -174,8 +177,15 @@ class ViewLichThang: UIViewController,UICollectionViewDataSource,UICollectionVie
             cell.Datelabel.textColor = UIColor.red
             
         }
+        let dates = Date()
+        if(title == calendar.component(.day, from: dates) && m == calendar.component(.month, from: dates) && y == calendar.component(.year, from: dates)){
+            cell.vieww.backgroundColor = UIColor.green
+        }else{
+            cell.vieww.backgroundColor = UIColor.clear
+        }
         if(indexPath.row<indexDay){
             title = preDays - (indexDay - 1 - indexPath.row)
+            
             cell.Datelabel.textColor = UIColor.gray
             cell.DatelabelAm.textColor = UIColor.gray
             let datepre = vietCalendar.minh(d: title, m: preMonth, y: preYear)
@@ -190,30 +200,33 @@ class ViewLichThang: UIViewController,UICollectionViewDataSource,UICollectionVie
             let datemid = vietCalendar.minh(d: title, m: m, y: y)
             da = calendar.component(.day, from: datemid)
         }
-
+        
         
         cell.Datelabel.text = title.description
         cell.DatelabelAm.text = da.description
         //"\((indexPath.row + 1 - indexDay) % (DaysInMonths[calendar.component(.month, from: self.date!) - 1]+1))"
         return cell
-
+        
     }
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         var title = indexPath.row + 1 - indexDay
         
         if(indexPath.row<indexDay){
             title = preDays - (indexDay - 1 - indexPath.row)
-            print(Const.createDate(day: title, month: preMonth, year: preYear))
+            Const.date = Const.createDate(day: title, month: preMonth, year: preYear)
+            dele?.choose()
             return
         }
         if(title > DaysInMonths[m - 1]){
             title = title - DaysInMonths[m - 1]//- DaysInMonths[m - 1] + indexDay
-            print(Const.createDate(day: title, month: nextMonth, year: nextYear))
+            Const.date = Const.createDate(day: title, month: nextMonth, year: nextYear)
+            dele?.choose()
             return
         }
-        print(Const.createDate(day: title, month: m, year: y))
-        
+        Const.date = Const.createDate(day: title, month: m, year: y)
+        dele?.choose()
         
         
     }

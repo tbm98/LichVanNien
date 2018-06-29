@@ -90,6 +90,11 @@
 		03E8808220E1456000F8E3D3 /* vankhan_53.html in Resources */ = {isa = PBXBuildFile; fileRef = 03E8808120E1456000F8E3D3 /* vankhan_53.html */; };
 		03E8808420E1456400F8E3D3 /* vankhan_54.html in Resources */ = {isa = PBXBuildFile; fileRef = 03E8808320E1456400F8E3D3 /* vankhan_54.html */; };
 		03E8808620E14A6000F8E3D3 /* VK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E8808520E14A6000F8E3D3 /* VK.swift */; };
+		03EF6D6920E5DDA6007E0E7B /* NaviLich.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EF6D6820E5DDA6007E0E7B /* NaviLich.swift */; };
+		03F99C9720E627950035F4FE /* LichCaNhanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F99C9620E627950035F4FE /* LichCaNhanTableViewCell.swift */; };
+		03F99C9920E628E00035F4FE /* objectLich.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F99C9820E628E00035F4FE /* objectLich.swift */; };
+		03F99C9B20E62CFA0035F4FE /* ThemLich.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F99C9A20E62CFA0035F4FE /* ThemLich.swift */; };
+		03F99C9E20E62DE40035F4FE /* Lich.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03F99C9C20E62DE40035F4FE /* Lich.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +204,11 @@
 		03E8808120E1456000F8E3D3 /* vankhan_53.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_53.html; sourceTree = "<group>"; };
 		03E8808320E1456400F8E3D3 /* vankhan_54.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_54.html; sourceTree = "<group>"; };
 		03E8808520E14A6000F8E3D3 /* VK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK.swift; sourceTree = "<group>"; };
+		03EF6D6820E5DDA6007E0E7B /* NaviLich.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviLich.swift; sourceTree = "<group>"; };
+		03F99C9620E627950035F4FE /* LichCaNhanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichCaNhanTableViewCell.swift; sourceTree = "<group>"; };
+		03F99C9820E628E00035F4FE /* objectLich.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objectLich.swift; sourceTree = "<group>"; };
+		03F99C9A20E62CFA0035F4FE /* ThemLich.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemLich.swift; sourceTree = "<group>"; };
+		03F99C9D20E62DE40035F4FE /* Lich.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lich.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,12 +363,15 @@
 				0377B96120DC121F0074410C /* Tren.swift */,
 				03A319A220DF6922005266BB /* ThoiTiet.swift */,
 				03A319A420DF6949005266BB /* ChiTiet.swift */,
-				03A319A620DF6988005266BB /* LichCaNhan.swift */,
 				0311E3D820E0C6B400EB2055 /* ChiTietVanKhan.swift */,
 				0377B94B20DBFBAA0074410C /* DoiNgay.swift */,
 				035A9E2920E36AED001175C3 /* ChonNgay.swift */,
 				03D0D34820E54C14009E50BE /* DateCollectionViewCell.swift */,
 				03D0D34A20E54FA1009E50BE /* ViewLichThang.swift */,
+				03EF6D6820E5DDA6007E0E7B /* NaviLich.swift */,
+				03A319A620DF6988005266BB /* LichCaNhan.swift */,
+				03F99C9620E627950035F4FE /* LichCaNhanTableViewCell.swift */,
+				03F99C9A20E62CFA0035F4FE /* ThemLich.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -381,6 +394,8 @@
 				0322DEC520E29F90004C50B3 /* objectThoiTiet.swift */,
 				03D0D34C20E552F6009E50BE /* Calendars.swift */,
 				03D0D35020E56CCA009E50BE /* VietCalendar.swift */,
+				03F99C9820E628E00035F4FE /* objectLich.swift */,
+				03F99C9C20E62DE40035F4FE /* Lich.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -574,10 +589,12 @@
 			files = (
 				0322DEC620E29F90004C50B3 /* objectThoiTiet.swift in Sources */,
 				03A319A320DF6922005266BB /* ThoiTiet.swift in Sources */,
+				03F99C9E20E62DE40035F4FE /* Lich.xcdatamodeld in Sources */,
 				03D0D34F20E554BF009E50BE /* SubPageLichThang.swift in Sources */,
 				0377B94C20DBFBAA0074410C /* DoiNgay.swift in Sources */,
 				0377B95620DC01860074410C /* SubPage.swift in Sources */,
 				0311E3D920E0C6B400EB2055 /* ChiTietVanKhan.swift in Sources */,
+				03EF6D6920E5DDA6007E0E7B /* NaviLich.swift in Sources */,
 				03987AD220E1DEA00041E617 /* ChiTietTuVi.swift in Sources */,
 				03E8808620E14A6000F8E3D3 /* VK.swift in Sources */,
 				0377B92020DBFA780074410C /* LichThang.swift in Sources */,
@@ -586,9 +603,11 @@
 				0377B91C20DBFA780074410C /* AppDelegate.swift in Sources */,
 				03D0D34D20E552F6009E50BE /* Calendars.swift in Sources */,
 				0377B94E20DBFBB90074410C /* NhieuHon.swift in Sources */,
+				03F99C9920E628E00035F4FE /* objectLich.swift in Sources */,
 				03D0D34920E54C14009E50BE /* DateCollectionViewCell.swift in Sources */,
 				0377B96220DC121F0074410C /* Tren.swift in Sources */,
 				03A319A720DF6988005266BB /* LichCaNhan.swift in Sources */,
+				03F99C9720E627950035F4FE /* LichCaNhanTableViewCell.swift in Sources */,
 				0377B95420DBFCA60074410C /* MainPage.swift in Sources */,
 				0377B96020DC0ECD0074410C /* Duoi.swift in Sources */,
 				03987AC820E1D86A0041E617 /* TuVi.swift in Sources */,
@@ -596,6 +615,7 @@
 				0377B95C20DC05500074410C /* ViewLich.swift in Sources */,
 				03D0D34B20E54FA1009E50BE /* ViewLichThang.swift in Sources */,
 				03D0D35120E56CCB009E50BE /* VietCalendar.swift in Sources */,
+				03F99C9B20E62CFA0035F4FE /* ThemLich.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,12 +793,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 829UC4YNAB;
 				INFOPLIST_FILE = LichVanNien/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tenomedia.LichVanNien;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbm.LichVanNienn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -795,12 +815,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 829UC4YNAB;
 				INFOPLIST_FILE = LichVanNien/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tenomedia.LichVanNien;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbm.LichVanNienn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -927,6 +947,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		03F99C9C20E62DE40035F4FE /* Lich.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				03F99C9D20E62DE40035F4FE /* Lich.xcdatamodel */,
+			);
+			currentVersion = 03F99C9D20E62DE40035F4FE /* Lich.xcdatamodel */;
+			path = Lich.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0377B91020DBFA780074410C /* Project object */;
 }

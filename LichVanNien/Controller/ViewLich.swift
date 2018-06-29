@@ -58,17 +58,9 @@ class ViewLich: UIViewController {
         }
         labelThu.text = thu
         
-        let p1 = calendar.dateComponents([.year, .month, .day], from: self.date!)
-        let p2 = calendar.dateComponents([.year, .month, .day], from: Const.date!)
-        if(p1.year != p2.year || p1.month != p2.month || p1.day != p2.day){
-            print("self.date viewlich",self.date)
-            print("date viewlich",Const.date)
-            labelChamNgon.text = Const.chamNgon[indexCN].description
-            imageBackground.image = UIImage(named: Const.imageBackgrounds[indexBG])
-        }else{
-            labelChamNgon.text = Const.chamNgon[indexCN].description
-            imageBackground.image = UIImage(named: Const.imageBackgrounds[indexBG])
-        }
+        labelChamNgon.text = Const.chamNgon[indexCN].description
+        imageBackground.image = UIImage(named: Const.imageBackgrounds[indexBG])
+        
         
         Const.indexBackground = indexBG
         Const.indexChamNgon = indexCN
@@ -76,8 +68,5 @@ class ViewLich: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        //imageBackground.imageWithFade = UIImage(named: Const.imageBackgrounds[Const.randomInt(min: 0, max: 14)])
-    }
 
 }
