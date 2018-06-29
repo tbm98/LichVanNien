@@ -59,7 +59,8 @@ class Const{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
         //("\(year)/\(month)/\(day) 00:00")
-        let someDateTime = formatter.date(from: "\(year)/\(month)/\(day) 00:00")
+        let someDateTime = formatter.date(from: "\(year)/\(month)/\(day) 12:00")
+        print(someDateTime)
         return someDateTime!
     }
     

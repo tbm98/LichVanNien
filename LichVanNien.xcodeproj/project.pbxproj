@@ -11,7 +11,6 @@
 		0318CBAC20E0FAC300BCDC29 /* vankhan_9.html in Resources */ = {isa = PBXBuildFile; fileRef = 0318CBAB20E0FAC300BCDC29 /* vankhan_9.html */; };
 		0322DEC620E29F90004C50B3 /* objectThoiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322DEC520E29F90004C50B3 /* objectThoiTiet.swift */; };
 		035A9E2A20E36AED001175C3 /* ChonNgay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9E2920E36AED001175C3 /* ChonNgay.swift */; };
-		035A9EA220E3E7F3001175C3 /* VietCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9EA120E3E7F3001175C3 /* VietCalendar.swift */; };
 		0377B91C20DBFA780074410C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B91B20DBFA780074410C /* AppDelegate.swift */; };
 		0377B92020DBFA780074410C /* LichThang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B91F20DBFA780074410C /* LichThang.swift */; };
 		0377B92320DBFA780074410C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0377B92120DBFA780074410C /* Main.storyboard */; };
@@ -32,6 +31,11 @@
 		03A319A320DF6922005266BB /* ThoiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A319A220DF6922005266BB /* ThoiTiet.swift */; };
 		03A319A520DF6949005266BB /* ChiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A319A420DF6949005266BB /* ChiTiet.swift */; };
 		03A319A720DF6988005266BB /* LichCaNhan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A319A620DF6988005266BB /* LichCaNhan.swift */; };
+		03D0D34920E54C14009E50BE /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D0D34820E54C14009E50BE /* DateCollectionViewCell.swift */; };
+		03D0D34B20E54FA1009E50BE /* ViewLichThang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D0D34A20E54FA1009E50BE /* ViewLichThang.swift */; };
+		03D0D34D20E552F6009E50BE /* Calendars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D0D34C20E552F6009E50BE /* Calendars.swift */; };
+		03D0D34F20E554BF009E50BE /* SubPageLichThang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D0D34E20E554BF009E50BE /* SubPageLichThang.swift */; };
+		03D0D35120E56CCB009E50BE /* VietCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D0D35020E56CCA009E50BE /* VietCalendar.swift */; };
 		03E8801C20E1447000F8E3D3 /* vankhan_1.html in Resources */ = {isa = PBXBuildFile; fileRef = 03E8801B20E1447000F8E3D3 /* vankhan_1.html */; };
 		03E8801E20E1447B00F8E3D3 /* vankhan_2.html in Resources */ = {isa = PBXBuildFile; fileRef = 03E8801D20E1447B00F8E3D3 /* vankhan_2.html */; };
 		03E8802020E1449A00F8E3D3 /* vankhan_3.html in Resources */ = {isa = PBXBuildFile; fileRef = 03E8801F20E1449A00F8E3D3 /* vankhan_3.html */; };
@@ -110,7 +114,6 @@
 		0318CBAB20E0FAC300BCDC29 /* vankhan_9.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_9.html; sourceTree = "<group>"; };
 		0322DEC520E29F90004C50B3 /* objectThoiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objectThoiTiet.swift; sourceTree = "<group>"; };
 		035A9E2920E36AED001175C3 /* ChonNgay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChonNgay.swift; sourceTree = "<group>"; };
-		035A9EA120E3E7F3001175C3 /* VietCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VietCalendar.swift; sourceTree = "<group>"; };
 		0377B91820DBFA780074410C /* LichVanNien.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LichVanNien.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0377B91B20DBFA780074410C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0377B91F20DBFA780074410C /* LichThang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichThang.swift; sourceTree = "<group>"; };
@@ -137,6 +140,11 @@
 		03A319A220DF6922005266BB /* ThoiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoiTiet.swift; sourceTree = "<group>"; };
 		03A319A420DF6949005266BB /* ChiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTiet.swift; sourceTree = "<group>"; };
 		03A319A620DF6988005266BB /* LichCaNhan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LichCaNhan.swift; sourceTree = "<group>"; };
+		03D0D34820E54C14009E50BE /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		03D0D34A20E54FA1009E50BE /* ViewLichThang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLichThang.swift; sourceTree = "<group>"; };
+		03D0D34C20E552F6009E50BE /* Calendars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendars.swift; sourceTree = "<group>"; };
+		03D0D34E20E554BF009E50BE /* SubPageLichThang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPageLichThang.swift; sourceTree = "<group>"; };
+		03D0D35020E56CCA009E50BE /* VietCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VietCalendar.swift; path = ../../../../.Trash/VietCalendar.swift; sourceTree = "<group>"; };
 		03E8801B20E1447000F8E3D3 /* vankhan_1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_1.html; sourceTree = "<group>"; };
 		03E8801D20E1447B00F8E3D3 /* vankhan_2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_2.html; sourceTree = "<group>"; };
 		03E8801F20E1449A00F8E3D3 /* vankhan_3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_3.html; sourceTree = "<group>"; };
@@ -336,7 +344,6 @@
 		0377B96320DC22B80074410C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0377B91F20DBFA780074410C /* LichThang.swift */,
 				0377B94D20DBFBB90074410C /* NhieuHon.swift */,
 				03E8808520E14A6000F8E3D3 /* VK.swift */,
 				03987AC720E1D86A0041E617 /* TuVi.swift */,
@@ -350,6 +357,8 @@
 				0311E3D820E0C6B400EB2055 /* ChiTietVanKhan.swift */,
 				0377B94B20DBFBAA0074410C /* DoiNgay.swift */,
 				035A9E2920E36AED001175C3 /* ChonNgay.swift */,
+				03D0D34820E54C14009E50BE /* DateCollectionViewCell.swift */,
+				03D0D34A20E54FA1009E50BE /* ViewLichThang.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -359,6 +368,8 @@
 			children = (
 				0377B95320DBFCA60074410C /* MainPage.swift */,
 				0377B95520DC01860074410C /* SubPage.swift */,
+				0377B91F20DBFA780074410C /* LichThang.swift */,
+				03D0D34E20E554BF009E50BE /* SubPageLichThang.swift */,
 			);
 			path = PageController;
 			sourceTree = "<group>";
@@ -368,7 +379,8 @@
 			children = (
 				0378BA3320DCA97D00BD765D /* Const.swift */,
 				0322DEC520E29F90004C50B3 /* objectThoiTiet.swift */,
-				035A9EA120E3E7F3001175C3 /* VietCalendar.swift */,
+				03D0D34C20E552F6009E50BE /* Calendars.swift */,
+				03D0D35020E56CCA009E50BE /* VietCalendar.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -562,17 +574,19 @@
 			files = (
 				0322DEC620E29F90004C50B3 /* objectThoiTiet.swift in Sources */,
 				03A319A320DF6922005266BB /* ThoiTiet.swift in Sources */,
+				03D0D34F20E554BF009E50BE /* SubPageLichThang.swift in Sources */,
 				0377B94C20DBFBAA0074410C /* DoiNgay.swift in Sources */,
 				0377B95620DC01860074410C /* SubPage.swift in Sources */,
 				0311E3D920E0C6B400EB2055 /* ChiTietVanKhan.swift in Sources */,
 				03987AD220E1DEA00041E617 /* ChiTietTuVi.swift in Sources */,
 				03E8808620E14A6000F8E3D3 /* VK.swift in Sources */,
-				035A9EA220E3E7F3001175C3 /* VietCalendar.swift in Sources */,
 				0377B92020DBFA780074410C /* LichThang.swift in Sources */,
 				0378BA3420DCA97D00BD765D /* Const.swift in Sources */,
 				035A9E2A20E36AED001175C3 /* ChonNgay.swift in Sources */,
 				0377B91C20DBFA780074410C /* AppDelegate.swift in Sources */,
+				03D0D34D20E552F6009E50BE /* Calendars.swift in Sources */,
 				0377B94E20DBFBB90074410C /* NhieuHon.swift in Sources */,
+				03D0D34920E54C14009E50BE /* DateCollectionViewCell.swift in Sources */,
 				0377B96220DC121F0074410C /* Tren.swift in Sources */,
 				03A319A720DF6988005266BB /* LichCaNhan.swift in Sources */,
 				0377B95420DBFCA60074410C /* MainPage.swift in Sources */,
@@ -580,6 +594,8 @@
 				03987AC820E1D86A0041E617 /* TuVi.swift in Sources */,
 				03A319A520DF6949005266BB /* ChiTiet.swift in Sources */,
 				0377B95C20DC05500074410C /* ViewLich.swift in Sources */,
+				03D0D34B20E54FA1009E50BE /* ViewLichThang.swift in Sources */,
+				03D0D35120E56CCB009E50BE /* VietCalendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

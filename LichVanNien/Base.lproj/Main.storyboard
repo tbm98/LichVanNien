@@ -1448,6 +1448,168 @@ Mậu Tuất</string>
             </objects>
             <point key="canvasLocation" x="-167" y="623"/>
         </scene>
+        <!--View Lich Thang-->
+        <scene sceneID="IOA-lZ-0JH">
+            <objects>
+                <viewController storyboardIdentifier="viewlichthang" id="9FK-hN-C5P" customClass="ViewLichThang" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GOD-Ir-zUa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CNF-1I-b5l">
+                                <rect key="frame" x="16" y="118" width="343" height="474"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0R-6g-jRt">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYo-Rf-Dgs">
+                                        <rect key="frame" x="0.0" y="40.5" width="343" height="18"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T.Hai" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKq-La-uCD">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T.Ba" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIW-pl-920">
+                                                <rect key="frame" x="49" y="0.0" width="49" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T.Tư" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Su2-iI-jmC">
+                                                <rect key="frame" x="98" y="0.0" width="49" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T.Năm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJJ-XM-Y4K">
+                                                <rect key="frame" x="147" y="0.0" width="49" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T.Sáu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biu-p8-DoF">
+                                                <rect key="frame" x="196" y="0.0" width="49" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T.Bảy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oC-zm-Yhn">
+                                                <rect key="frame" x="245" y="0.0" width="49" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mah-jr-Iwe">
+                                                <rect key="frame" x="294" y="0.0" width="49" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Su2-iI-jmC" firstAttribute="width" secondItem="yJJ-XM-Y4K" secondAttribute="width" id="2M5-xf-d0c"/>
+                                            <constraint firstItem="8oC-zm-Yhn" firstAttribute="width" secondItem="Mah-jr-Iwe" secondAttribute="width" id="EMr-La-sxA"/>
+                                            <constraint firstItem="GKq-La-uCD" firstAttribute="width" secondItem="RIW-pl-920" secondAttribute="width" id="GDd-xh-JS3"/>
+                                            <constraint firstItem="RIW-pl-920" firstAttribute="width" secondItem="Su2-iI-jmC" secondAttribute="width" id="LOE-0g-hGa"/>
+                                            <constraint firstItem="biu-p8-DoF" firstAttribute="width" secondItem="8oC-zm-Yhn" secondAttribute="width" id="fHD-6Y-lq4"/>
+                                            <constraint firstItem="yJJ-XM-Y4K" firstAttribute="width" secondItem="biu-p8-DoF" secondAttribute="width" id="s7c-by-59M"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OT4-IF-1aI">
+                                        <rect key="frame" x="0.0" y="78.5" width="343" height="395.5"/>
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XhI-Qk-sX9">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="395.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="nMk-oP-gfj">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="IZN-ea-CI9" customClass="DateCollectionViewCell" customModule="LichVanNien" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irk-gQ-AB2">
+                                                                    <rect key="frame" x="9.5" y="9.5" width="21" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCs-0c-IpJ">
+                                                                    <rect key="frame" x="34" y="24" width="6" height="16"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="kCs-0c-IpJ" secondAttribute="trailing" id="CzQ-0K-zuM"/>
+                                                            <constraint firstItem="irk-gQ-AB2" firstAttribute="centerY" secondItem="IZN-ea-CI9" secondAttribute="centerY" id="K52-XB-Ca6"/>
+                                                            <constraint firstItem="irk-gQ-AB2" firstAttribute="centerX" secondItem="IZN-ea-CI9" secondAttribute="centerX" id="QGf-pH-Izc"/>
+                                                            <constraint firstAttribute="bottom" secondItem="kCs-0c-IpJ" secondAttribute="bottom" id="lpD-yB-jG2"/>
+                                                        </constraints>
+                                                        <size key="customSize" width="40" height="40"/>
+                                                        <connections>
+                                                            <outlet property="Datelabel" destination="irk-gQ-AB2" id="dhA-08-ENa"/>
+                                                            <outlet property="DatelabelAm" destination="kCs-0c-IpJ" id="LuZ-Ve-Qsg"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="9FK-hN-C5P" id="Gqm-0Y-sVG"/>
+                                                    <outlet property="delegate" destination="9FK-hN-C5P" id="haD-UA-zKy"/>
+                                                </connections>
+                                            </collectionView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jT2-Az-laM" firstAttribute="trailing" secondItem="CNF-1I-b5l" secondAttribute="trailing" constant="16" id="5e2-tJ-H4b"/>
+                            <constraint firstItem="CNF-1I-b5l" firstAttribute="top" secondItem="jT2-Az-laM" secondAttribute="top" constant="98" id="bwz-6b-m9c"/>
+                            <constraint firstItem="CNF-1I-b5l" firstAttribute="leading" secondItem="jT2-Az-laM" secondAttribute="leading" constant="16" id="eXI-Dl-AgP"/>
+                            <constraint firstItem="jT2-Az-laM" firstAttribute="bottom" secondItem="CNF-1I-b5l" secondAttribute="bottom" constant="75" id="wKr-ak-mxL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jT2-Az-laM"/>
+                    </view>
+                    <connections>
+                        <outlet property="Calendar" destination="XhI-Qk-sX9" id="GlA-zD-pjY"/>
+                        <outlet property="monthLabel" destination="I0R-6g-jRt" id="Efh-7F-R1O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5T7-gt-wbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1572" y="-1499.1004497751126"/>
+        </scene>
+        <!--Sub Page Lich Thang-->
+        <scene sceneID="BIr-or-l4U">
+            <objects>
+                <viewController storyboardIdentifier="subpagelichthang" id="i4Z-E3-mSx" customClass="SubPageLichThang" customModule="LichVanNien" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aan-0S-g9L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fs9-qx-GBG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6n-1F-hVQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1572" y="-805"/>
+        </scene>
         <!--Lịch tháng-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
