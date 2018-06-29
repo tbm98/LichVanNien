@@ -144,7 +144,7 @@
 		03D0D34A20E54FA1009E50BE /* ViewLichThang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLichThang.swift; sourceTree = "<group>"; };
 		03D0D34C20E552F6009E50BE /* Calendars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendars.swift; sourceTree = "<group>"; };
 		03D0D34E20E554BF009E50BE /* SubPageLichThang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPageLichThang.swift; sourceTree = "<group>"; };
-		03D0D35020E56CCA009E50BE /* VietCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VietCalendar.swift; path = ../../../../.Trash/VietCalendar.swift; sourceTree = "<group>"; };
+		03D0D35020E56CCA009E50BE /* VietCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VietCalendar.swift; sourceTree = "<group>"; };
 		03E8801B20E1447000F8E3D3 /* vankhan_1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_1.html; sourceTree = "<group>"; };
 		03E8801D20E1447B00F8E3D3 /* vankhan_2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_2.html; sourceTree = "<group>"; };
 		03E8801F20E1449A00F8E3D3 /* vankhan_3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_3.html; sourceTree = "<group>"; };
