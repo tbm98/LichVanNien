@@ -51,7 +51,12 @@ UIPageViewControllerDataSource, navi,viewlich{
         navi?.date = date
         navi?.chucNang = self
         self.addChildViewController(navi!)
-        var fra = CGRect(x: 0, y: 20, width: self.view.frame.width, height: 44)
+        var fra:CGRect
+        if(self.view.frame.height>800){
+            fra = CGRect(x: 0, y: 40, width: self.view.frame.width, height: 44)
+        }else{
+            fra = CGRect(x: 0, y: 20, width: self.view.frame.width, height: 44)
+        }
         navi?.view.frame = fra// or better, turn off `translatesAutoresizingMaskIntoConstraints` and then define constraints for this subview
         self.view.addSubview((navi?.view)!)
         navi?.didMove(toParentViewController: self)

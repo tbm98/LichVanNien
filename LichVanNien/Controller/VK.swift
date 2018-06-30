@@ -107,6 +107,17 @@ class VK: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
+    @IBAction func btnDanhGia(_ sender: Any) {
+        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
+            return
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
     
 
     let titleVanKhan = [

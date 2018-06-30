@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class NhieuHon: UIViewController {
     @IBAction func btnBack(_ sender: Any) {
@@ -69,8 +70,34 @@ class NhieuHon: UIViewController {
         let thoitiet:UIViewController = (storyboard?.instantiateViewController(withIdentifier: "thoitiet"))!
         self.present(thoitiet, animated: true, completion: nil)
     }
+    
+    func rateApp(){
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+        } else {
+            guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
+                return
+            }
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
     @objc func actionDanhGia(tapGestureRecognizer: UITapGestureRecognizer) {
         print("danh gia")
+        //rateApp()
+        guard let url = URL(string: "https://itunes.apple.com/us/app/apple-store/id1253533671?mt=8") else {
+            return
+        }
+
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
     @objc func actionChiaSe(tapGestureRecognizer: UITapGestureRecognizer) {
         print("chia se")

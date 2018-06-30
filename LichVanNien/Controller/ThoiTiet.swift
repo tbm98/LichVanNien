@@ -40,16 +40,38 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
+    @IBAction func btnDanhGia(_ sender: Any) {
+        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
+            return
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
     @IBAction func btnChonTinh(_ sender: Any) {
         pickerTinh.isHidden = !pickerTinh.isHidden
     }
     @IBOutlet weak var textTinh: UITextField!
     @IBAction func btnTimTinh(_ sender: Any) {
-        let value:String = (textTinh.text?.replacingOccurrences(of: " ", with: "%20"))!
-        print("data:",loadString(path: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22(\(value))%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"))
-        handleData(path: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22(\(value))%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
-        
-        dismisKeyBoard()
+        if(!(textTinh.text?.isEmpty)!){
+            let value:String = (textTinh.text?.replacingOccurrences(of: " ", with: "%20"))!
+            print("data:",loadString(path: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22(\(value))%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"))
+            handleData(path: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22(\(value))%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
+            
+            dismisKeyBoard()
+        }else{
+            let alertController = UIAlertController(title: "Thông báo", message: "Bạn chưa nhập địa điểm!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction) in
+                print("you've pressed ok")
+            }
+            
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+        }
+
         
     }
     func dismisKeyBoard(){
@@ -267,8 +289,8 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
                 print("lat:",lat)
                 print("lng:",lng)
                 //load weather
-                print("data:",loadString(path: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22(\(21)%2C\(105))%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"))
-                handleData(path: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22(\(21)%2C\(105))%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
+                print("data:",loadString(path: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22(\(lat)%2C\(lng))%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"))
+                handleData(path: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22(\(lat)%2C\(lng))%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
             }
         }
     }

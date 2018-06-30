@@ -278,9 +278,10 @@ class VietCalendar{
         dateComponents.year = year
         dateComponents.month = month
         dateComponents.day = day
+        dateComponents.hour = 12
+        dateComponents.minute = 00
         dateComponents.timeZone = TimeZone.current
-        //        dateComponents.hour = 8
-        //        dateComponents.minute = 34
+        
         
         // Create date from components
         let userCalendar = Calendar.current // user calendar

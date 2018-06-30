@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import UIKit
 class objectLich{
+    var id:Int 
     var tieude:String
     var giothu:String
     var al:String
@@ -16,7 +18,8 @@ class objectLich{
     var luc:String
     var diadiem:String
     var ghichu:String
-    init(a:String,b:String,c:String,d:String,e:String,f:String,g:String,h:String) {
+    var time:Date
+    init(a:String,b:String,c:String,d:String,e:String,f:String,g:String,h:String,i:Int,j:Date) {
         tieude = a
         giothu = b
         al = c
@@ -24,6 +27,8 @@ class objectLich{
         lap = e
         luc = f
         diadiem = g
-        ghichu = h 
+        ghichu = h
+        id = i
+        time = j
     }
 }

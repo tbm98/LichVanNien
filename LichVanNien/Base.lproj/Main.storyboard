@@ -558,7 +558,7 @@ Mậu Tuất</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nca-2h-zZk">
                                         <rect key="frame" x="273.5" y="0.0" width="81.5" height="49.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="yrB-j2-rkA">
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more" translatesAutoresizingMaskIntoConstraints="NO" id="yrB-j2-rkA">
                                                 <rect key="frame" x="0.0" y="0.0" width="81.5" height="32.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yrB-j2-rkA" secondAttribute="height" multiplier="38:15" id="BhP-CT-DOK"/>
@@ -892,7 +892,11 @@ Mậu Tuất</string>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Item" image="star" id="fCz-mg-kjv"/>
+                                            <barButtonItem title="Item" image="star" id="fCz-mg-kjv">
+                                                <connections>
+                                                    <action selector="btnDanhGia:" destination="sF5-bN-gRh" id="m9H-d3-DSi"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem title="Item" image="share" id="569-iv-LRW">
                                                 <connections>
                                                     <action selector="btnShare:" destination="sF5-bN-gRh" id="mBk-wJ-OOX"/>
@@ -906,21 +910,21 @@ Mậu Tuất</string>
                                 <rect key="frame" x="16" y="84" width="343" height="30"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập địa điểm...(ko có dấu)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wn-Gt-wyA">
-                                        <rect key="frame" x="0.0" y="0.0" width="263" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXx-Of-xJi">
-                                        <rect key="frame" x="273" y="0.0" width="30" height="30"/>
-                                        <state key="normal" image="first"/>
+                                        <rect key="frame" x="285" y="0.0" width="24" height="30"/>
+                                        <state key="normal" image="location"/>
                                         <connections>
                                             <action selector="btnLocation:" destination="sF5-bN-gRh" eventType="touchUpInside" id="kLQ-Mq-NUl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yf-Xi-kHh">
-                                        <rect key="frame" x="313" y="0.0" width="30" height="30"/>
-                                        <state key="normal" image="first"/>
+                                        <rect key="frame" x="319" y="0.0" width="24" height="30"/>
+                                        <state key="normal" image="search"/>
                                         <connections>
                                             <action selector="btnTimTinh:" destination="sF5-bN-gRh" eventType="touchUpInside" id="Pba-bP-TX6"/>
                                         </connections>
@@ -940,8 +944,10 @@ Mậu Tuất</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehh-Nz-20a">
-                                <rect key="frame" x="322" y="122" width="37" height="30"/>
-                                <state key="normal" title="Chọn"/>
+                                <rect key="frame" x="257" y="122" width="102" height="30"/>
+                                <state key="normal" title="Tỉnh Thành VN">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="btnChonTinh:" destination="sF5-bN-gRh" eventType="touchUpInside" id="6WG-OP-Dls"/>
                                 </connections>
@@ -1333,6 +1339,9 @@ Mậu Tuất</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nen" translatesAutoresizingMaskIntoConstraints="NO" id="woq-p2-bj8">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tt-iJ-Kck">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
@@ -1343,7 +1352,11 @@ Mậu Tuất</string>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Item" image="star" id="NiW-xR-71r"/>
+                                            <barButtonItem title="Item" image="star" id="NiW-xR-71r">
+                                                <connections>
+                                                    <action selector="btnDanhGia:" destination="GZj-4n-NUQ" id="mVb-wY-aox"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem title="Item" image="share" id="SFh-S1-AcX">
                                                 <connections>
                                                     <action selector="btnShare:" destination="GZj-4n-NUQ" id="tzk-ao-hQS"/>
@@ -1359,7 +1372,7 @@ Mậu Tuất</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1r2-s7-IE1">
                                         <rect key="frame" x="106.5" y="24" width="81" height="80.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="mL6-Sr-TqH">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="mL6-Sr-TqH">
                                                 <rect key="frame" x="15.5" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="4OC-vz-vbo"/>
@@ -1391,7 +1404,7 @@ Mậu Tuất</string>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zZc-ZG-tbN">
                                 <rect key="frame" x="0.0" y="240" width="375" height="427"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="celllichcanhan" rowHeight="160" id="9ZU-SP-Cvg" customClass="LichCaNhanTableViewCell" customModule="LichVanNien" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="160"/>
@@ -1401,73 +1414,96 @@ Mậu Tuất</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiêu đề" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g9-xl-q50">
-                                                    <rect key="frame" x="159" y="11" width="57" height="21"/>
+                                                    <rect key="frame" x="159" y="11" width="57" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:14 - Thứ sáu," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JI-Ei-7SI">
-                                                    <rect key="frame" x="15" y="29" width="124" height="21"/>
+                                                    <rect key="frame" x="15" y="28.5" width="124" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29/6/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzK-VL-FDz">
-                                                    <rect key="frame" x="37" y="58" width="80" height="21"/>
+                                                    <rect key="frame" x="37" y="57" width="80" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không Lặp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HG-Pb-ob2">
-                                                    <rect key="frame" x="36" y="78" width="82.5" height="21"/>
+                                                    <rect key="frame" x="36" y="76.5" width="82.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16/5/2018 ÂL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEe-Wx-PQR">
-                                                    <rect key="frame" x="258" y="29" width="102" height="21"/>
+                                                    <rect key="frame" x="258" y="28.5" width="102" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vào Lúc Diễn Ra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0X8-hO-8ra">
-                                                    <rect key="frame" x="235.5" y="78" width="124.5" height="21"/>
+                                                    <rect key="frame" x="235.5" y="76.5" width="124.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa Điểm: Không" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eed-yu-Nbn">
-                                                    <rect key="frame" x="123.5" y="99" width="127.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ghi Chú: Không" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfC-jj-CBR">
-                                                    <rect key="frame" x="127" y="128" width="120" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osd-ET-ww5">
+                                                    <rect key="frame" x="124" y="99" width="128" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa Điểm: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYh-Of-Xwc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="78" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eed-yu-Nbn">
+                                                            <rect key="frame" x="78" y="0.0" width="50" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smK-sb-7pY">
+                                                    <rect key="frame" x="127.5" y="128" width="120.5" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ghi Chú: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTl-fe-MPK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="70.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfC-jj-CBR">
+                                                            <rect key="frame" x="70.5" y="0.0" width="50" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="osd-ET-ww5" firstAttribute="top" secondItem="0X8-hO-8ra" secondAttribute="bottom" constant="2" id="110-Uz-mh1"/>
                                                 <constraint firstItem="9g9-xl-q50" firstAttribute="centerX" secondItem="RP5-xY-3hR" secondAttribute="centerX" id="3N5-qG-3XD"/>
                                                 <constraint firstItem="4JI-Ei-7SI" firstAttribute="leading" secondItem="RP5-xY-3hR" secondAttribute="leading" constant="15" id="6fb-e9-wM7"/>
+                                                <constraint firstItem="smK-sb-7pY" firstAttribute="top" secondItem="osd-ET-ww5" secondAttribute="bottom" constant="8.5" id="7ez-UM-JWv"/>
                                                 <constraint firstItem="2HG-Pb-ob2" firstAttribute="centerX" secondItem="xzK-VL-FDz" secondAttribute="centerX" id="8ap-jT-bgg"/>
                                                 <constraint firstItem="xzK-VL-FDz" firstAttribute="top" secondItem="4JI-Ei-7SI" secondAttribute="bottom" constant="8" id="Acx-Vg-BIz"/>
-                                                <constraint firstItem="XfC-jj-CBR" firstAttribute="centerX" secondItem="RP5-xY-3hR" secondAttribute="centerX" id="IOx-Zu-Aex"/>
                                                 <constraint firstAttribute="trailing" secondItem="0X8-hO-8ra" secondAttribute="trailing" constant="15" id="Jnq-b2-5vs"/>
                                                 <constraint firstItem="xzK-VL-FDz" firstAttribute="centerX" secondItem="4JI-Ei-7SI" secondAttribute="centerX" id="N71-TK-Zmx"/>
-                                                <constraint firstItem="eed-yu-Nbn" firstAttribute="centerX" secondItem="RP5-xY-3hR" secondAttribute="centerX" id="RLV-Pr-ZfD"/>
+                                                <constraint firstItem="osd-ET-ww5" firstAttribute="centerX" secondItem="RP5-xY-3hR" secondAttribute="centerX" id="Q6P-zu-fWR"/>
                                                 <constraint firstAttribute="trailing" secondItem="kEe-Wx-PQR" secondAttribute="trailing" constant="15" id="Tok-gv-9ww"/>
-                                                <constraint firstItem="eed-yu-Nbn" firstAttribute="top" secondItem="0X8-hO-8ra" secondAttribute="bottom" id="UvA-Qk-9Ff"/>
                                                 <constraint firstItem="2HG-Pb-ob2" firstAttribute="top" secondItem="xzK-VL-FDz" secondAttribute="bottom" constant="-1" id="XeD-g0-kBT"/>
                                                 <constraint firstItem="0X8-hO-8ra" firstAttribute="top" secondItem="xzK-VL-FDz" secondAttribute="bottom" constant="-1" id="Zks-WY-Mli"/>
-                                                <constraint firstItem="XfC-jj-CBR" firstAttribute="top" secondItem="eed-yu-Nbn" secondAttribute="bottom" constant="8" id="jXJ-Dh-jqL"/>
+                                                <constraint firstItem="smK-sb-7pY" firstAttribute="centerX" secondItem="RP5-xY-3hR" secondAttribute="centerX" id="eVP-N7-oHk"/>
                                                 <constraint firstItem="kEe-Wx-PQR" firstAttribute="top" secondItem="9g9-xl-q50" secondAttribute="bottom" constant="-3" id="o5K-dY-nbo"/>
                                                 <constraint firstItem="4JI-Ei-7SI" firstAttribute="top" secondItem="9g9-xl-q50" secondAttribute="bottom" constant="-3" id="oQi-ap-gjE"/>
                                                 <constraint firstItem="9g9-xl-q50" firstAttribute="top" secondItem="RP5-xY-3hR" secondAttribute="top" constant="11" id="vhF-W0-VM1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="labelal" destination="kEe-Wx-PQR" id="UxZ-4e-pfq"/>
                                             <outlet property="labeldiadiem" destination="eed-yu-Nbn" id="oVY-Cw-kAI"/>
@@ -1491,13 +1527,17 @@ Mậu Tuất</string>
                             <constraint firstItem="ETC-FU-v6a" firstAttribute="leading" secondItem="CRC-iu-IJE" secondAttribute="leading" constant="40" id="1EM-zJ-N9r"/>
                             <constraint firstItem="CRC-iu-IJE" firstAttribute="trailing" secondItem="1Tt-iJ-Kck" secondAttribute="trailing" id="4qY-Jk-MYO"/>
                             <constraint firstItem="zZc-ZG-tbN" firstAttribute="leading" secondItem="CRC-iu-IJE" secondAttribute="leading" id="Ch1-sS-AOA"/>
+                            <constraint firstItem="woq-p2-bj8" firstAttribute="top" secondItem="CRC-iu-IJE" secondAttribute="top" id="KRh-Xg-Jqa"/>
                             <constraint firstItem="1Tt-iJ-Kck" firstAttribute="top" secondItem="CRC-iu-IJE" secondAttribute="top" id="Pnw-2k-TVy"/>
                             <constraint firstItem="CRC-iu-IJE" firstAttribute="trailing" secondItem="zZc-ZG-tbN" secondAttribute="trailing" id="PqW-we-n8g"/>
+                            <constraint firstItem="woq-p2-bj8" firstAttribute="leading" secondItem="CRC-iu-IJE" secondAttribute="leading" id="htP-dO-NPL"/>
                             <constraint firstItem="ETC-FU-v6a" firstAttribute="top" secondItem="1Tt-iJ-Kck" secondAttribute="bottom" constant="40" id="jOV-I6-9ng"/>
+                            <constraint firstItem="CRC-iu-IJE" firstAttribute="trailing" secondItem="woq-p2-bj8" secondAttribute="trailing" id="jlz-9z-h6I"/>
                             <constraint firstItem="CRC-iu-IJE" firstAttribute="bottom" secondItem="zZc-ZG-tbN" secondAttribute="bottom" id="lFG-CG-dR5"/>
                             <constraint firstItem="1Tt-iJ-Kck" firstAttribute="leading" secondItem="CRC-iu-IJE" secondAttribute="leading" id="ll1-84-czM"/>
                             <constraint firstItem="CRC-iu-IJE" firstAttribute="trailing" secondItem="ETC-FU-v6a" secondAttribute="trailing" constant="40" id="pUw-jP-Dq9"/>
                             <constraint firstItem="zZc-ZG-tbN" firstAttribute="top" secondItem="ETC-FU-v6a" secondAttribute="bottom" constant="8" id="rar-Zu-6zE"/>
+                            <constraint firstItem="CRC-iu-IJE" firstAttribute="bottom" secondItem="woq-p2-bj8" secondAttribute="bottom" id="z1d-uc-hQa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CRC-iu-IJE"/>
                     </view>
@@ -1518,6 +1558,9 @@ Mậu Tuất</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nen" translatesAutoresizingMaskIntoConstraints="NO" id="qHA-EH-Zd1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3SB-co-F5Q">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
@@ -1541,14 +1584,18 @@ Mậu Tuất</string>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gie-Ch-vw5">
                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
-                                        <state key="normal" title="Dương Lịch"/>
+                                        <state key="normal" title="Dương Lịch">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="btnDuong:" destination="CYW-a7-af0" eventType="touchUpInside" id="uyK-B3-CWl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tcn-00-3FU">
                                         <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
-                                        <state key="normal" title="Âm Lịch"/>
+                                        <state key="normal" title="Âm Lịch">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="btnAm:" destination="CYW-a7-af0" eventType="touchUpInside" id="QsI-5U-NHA"/>
                                         </connections>
@@ -1564,12 +1611,14 @@ Mậu Tuất</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bắt Đầu:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7J7-bj-YKI">
                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INq-V9-sfO">
                                         <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
-                                        <state key="normal" title="16:44, 27/11/2020"/>
+                                        <state key="normal" title="16:44, 27/11/2020">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="btnBatDau:" destination="CYW-a7-af0" eventType="touchUpInside" id="LBy-qa-4VX"/>
                                         </connections>
@@ -1585,12 +1634,14 @@ Mậu Tuất</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kết Thúc:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXq-se-FvG">
                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBo-L0-ZLU">
                                         <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
-                                        <state key="normal" title="16:44, 27/11/2020"/>
+                                        <state key="normal" title="16:44, 27/11/2020">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="btnKetThuc:" destination="CYW-a7-af0" eventType="touchUpInside" id="Whm-5N-4Ln"/>
                                         </connections>
@@ -1606,12 +1657,14 @@ Mậu Tuất</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lặp Lại:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDK-dg-wRl">
                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlV-Ka-eLf">
                                         <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
-                                        <state key="normal" title="Không Lặp"/>
+                                        <state key="normal" title="Không Lặp">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="btnLap:" destination="CYW-a7-af0" eventType="touchUpInside" id="jOE-FA-cHL"/>
                                         </connections>
@@ -1627,12 +1680,14 @@ Mậu Tuất</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhắc Nhở:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ie-3Q-4c2">
                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uob-N6-mOv">
                                         <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
-                                        <state key="normal" title="Vào Lúc Diễn Ra"/>
+                                        <state key="normal" title="Vào Lúc Diễn Ra">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="btnLuc:" destination="CYW-a7-af0" eventType="touchUpInside" id="eFR-ZF-Qm2"/>
                                         </connections>
@@ -1658,7 +1713,9 @@ Mậu Tuất</string>
                                 <rect key="frame" x="110.5" y="443" width="154" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
-                                <state key="normal" title="LƯU SỰ KIỆN"/>
+                                <state key="normal" title="LƯU SỰ KIỆN">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="8"/>
@@ -1668,11 +1725,12 @@ Mậu Tuất</string>
                                     <action selector="btnLuu:" destination="CYW-a7-af0" eventType="touchUpInside" id="KOI-4q-EXQ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ft-ib-Jtt">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ft-ib-Jtt">
                                 <rect key="frame" x="37" y="243.5" width="300" height="200"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3s2-I5-ssS">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.79810573630136983" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="0ZR-Uu-nNV"/>
                                         </constraints>
@@ -1700,37 +1758,176 @@ Mậu Tuất</string>
                                     <constraint firstAttribute="height" constant="200" id="qHF-72-bET"/>
                                 </constraints>
                             </view>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dSn-E0-xgD">
+                                <rect key="frame" x="201" y="259" width="124" height="190"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gb-Hf-TmA">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.77702268835616439" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Không Lặp">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLap1:" destination="CYW-a7-af0" eventType="touchUpInside" id="CLI-Xc-EX0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjQ-oY-Xt9">
+                                        <rect key="frame" x="0.0" y="38" width="124" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.77967144691780821" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Hàng Ngày">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLap2:" destination="CYW-a7-af0" eventType="touchUpInside" id="fBy-y3-gas"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wt-Rg-EO2">
+                                        <rect key="frame" x="0.0" y="76" width="124" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.78381849315068497" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Hàng Tuần">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLap3:" destination="CYW-a7-af0" eventType="touchUpInside" id="Rhq-Ly-yeL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzX-S9-1fL">
+                                        <rect key="frame" x="0.0" y="114" width="124" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.78603916952054798" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Hàng Tháng">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLap4:" destination="CYW-a7-af0" eventType="touchUpInside" id="75d-7D-qJQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muX-3n-aUL">
+                                        <rect key="frame" x="0.0" y="152" width="124" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79240689212328763" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Hàng Năm">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLap5:" destination="CYW-a7-af0" eventType="touchUpInside" id="bXq-lc-KGR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tUd-y0-0Yo">
+                                <rect key="frame" x="173" y="305" width="152" height="228"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL8-TO-EZo">
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79240689212328763" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Vào Lúc Diễn Ra">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLuc1:" destination="CYW-a7-af0" eventType="touchUpInside" id="sv7-t8-RWp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c51-sZ-ufJ">
+                                        <rect key="frame" x="0.0" y="38" width="152" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79240689212328763" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Trước 5 Phút">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLuc2:" destination="CYW-a7-af0" eventType="touchUpInside" id="pd5-ZN-03A"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkZ-ZE-yUo">
+                                        <rect key="frame" x="0.0" y="76" width="152" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79240689212328763" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Trước 15 Phút">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLuc3:" destination="CYW-a7-af0" eventType="touchUpInside" id="mrn-I8-VXV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aT0-Y1-Gaf">
+                                        <rect key="frame" x="0.0" y="114" width="152" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79240689212328763" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Trước 30 Phút">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLuc4:" destination="CYW-a7-af0" eventType="touchUpInside" id="sEm-1E-RMi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ5-nd-f59">
+                                        <rect key="frame" x="0.0" y="152" width="152" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79240689212328763" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Trước 1 Giờ">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLuc5:" destination="CYW-a7-af0" eventType="touchUpInside" id="VqJ-hP-VvZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sya-Vy-wwy">
+                                        <rect key="frame" x="0.0" y="190" width="152" height="38"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79240689212328763" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Trước 1 Ngày">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLuc6:" destination="CYW-a7-af0" eventType="touchUpInside" id="VHj-w4-sQ4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="XrB-yX-gBX" secondAttribute="trailing" constant="16" id="3wr-Je-Zth"/>
+                            <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="tUd-y0-0Yo" secondAttribute="trailing" constant="50" id="4Hn-zM-Jcb"/>
                             <constraint firstItem="Js5-5Q-Ce4" firstAttribute="top" secondItem="XrB-yX-gBX" secondAttribute="bottom" constant="16" id="53C-Ob-tSd"/>
                             <constraint firstItem="3SB-co-F5Q" firstAttribute="leading" secondItem="OSW-Rt-dcm" secondAttribute="leading" id="6TE-Ss-b8Q"/>
                             <constraint firstItem="Wr2-7A-n5D" firstAttribute="centerX" secondItem="OSW-Rt-dcm" secondAttribute="centerX" id="6UZ-w7-vC9"/>
                             <constraint firstItem="TCl-tZ-FeA" firstAttribute="top" secondItem="ZOD-HC-8qA" secondAttribute="bottom" constant="16" id="8b4-Jl-wJg"/>
+                            <constraint firstItem="dSn-E0-xgD" firstAttribute="top" secondItem="cXZ-Zz-Hgb" secondAttribute="bottom" constant="-30" id="8hO-hK-k3W"/>
                             <constraint firstItem="0ft-ib-Jtt" firstAttribute="centerY" secondItem="OSW-Rt-dcm" secondAttribute="centerY" id="CMf-3T-H1P"/>
                             <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="TCl-tZ-FeA" secondAttribute="trailing" constant="16" id="CcV-vk-TEJ"/>
                             <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="ZOD-HC-8qA" secondAttribute="trailing" constant="16" id="E7X-dq-fI2"/>
                             <constraint firstItem="Js5-5Q-Ce4" firstAttribute="leading" secondItem="OSW-Rt-dcm" secondAttribute="leading" constant="16" id="Ecs-hi-CwS"/>
                             <constraint firstItem="XrB-yX-gBX" firstAttribute="top" secondItem="1dK-g4-6nj" secondAttribute="bottom" constant="16" id="Gra-cj-3HI"/>
                             <constraint firstItem="cXZ-Zz-Hgb" firstAttribute="top" secondItem="smx-oW-eVa" secondAttribute="bottom" constant="16" id="KnG-4s-utl"/>
+                            <constraint firstItem="qHA-EH-Zd1" firstAttribute="top" secondItem="OSW-Rt-dcm" secondAttribute="top" id="M7C-Bh-7S1"/>
                             <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="cXZ-Zz-Hgb" secondAttribute="trailing" constant="16" id="M8L-XE-9d7"/>
+                            <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="dSn-E0-xgD" secondAttribute="trailing" constant="50" id="MAH-3D-X7O"/>
                             <constraint firstItem="ZOD-HC-8qA" firstAttribute="leading" secondItem="OSW-Rt-dcm" secondAttribute="leading" constant="16" id="Neo-T6-pwq"/>
                             <constraint firstItem="smx-oW-eVa" firstAttribute="leading" secondItem="OSW-Rt-dcm" secondAttribute="leading" constant="16" id="OhK-C9-Qjh"/>
+                            <constraint firstItem="tUd-y0-0Yo" firstAttribute="top" secondItem="ZOD-HC-8qA" secondAttribute="bottom" constant="-30" id="Oo8-qJ-WGV"/>
                             <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="1dK-g4-6nj" secondAttribute="trailing" constant="16" id="P8v-4e-g4j"/>
                             <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="Js5-5Q-Ce4" secondAttribute="trailing" constant="16" id="QxL-8v-BED"/>
+                            <constraint firstItem="qHA-EH-Zd1" firstAttribute="leading" secondItem="OSW-Rt-dcm" secondAttribute="leading" id="R4f-Ed-Pqi"/>
                             <constraint firstItem="ZOD-HC-8qA" firstAttribute="top" secondItem="cXZ-Zz-Hgb" secondAttribute="bottom" constant="16" id="TIa-30-OlU"/>
                             <constraint firstItem="Wr2-7A-n5D" firstAttribute="top" secondItem="cKx-lY-cTE" secondAttribute="bottom" constant="16" id="TrO-Dt-xsK"/>
                             <constraint firstItem="cKx-lY-cTE" firstAttribute="leading" secondItem="OSW-Rt-dcm" secondAttribute="leading" constant="16" id="V0Y-zY-fXY"/>
                             <constraint firstItem="XrB-yX-gBX" firstAttribute="leading" secondItem="OSW-Rt-dcm" secondAttribute="leading" constant="16" id="aE9-zx-WSE"/>
                             <constraint firstItem="TCl-tZ-FeA" firstAttribute="leading" secondItem="OSW-Rt-dcm" secondAttribute="leading" constant="16" id="bRI-Xv-RzS"/>
                             <constraint firstItem="cKx-lY-cTE" firstAttribute="top" secondItem="TCl-tZ-FeA" secondAttribute="bottom" constant="16" id="eMq-Hm-UX5"/>
+                            <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="qHA-EH-Zd1" secondAttribute="trailing" id="eNt-qA-Vyn"/>
                             <constraint firstItem="smx-oW-eVa" firstAttribute="top" secondItem="Js5-5Q-Ce4" secondAttribute="bottom" constant="16" id="fHC-8V-3BS"/>
                             <constraint firstItem="0ft-ib-Jtt" firstAttribute="centerX" secondItem="OSW-Rt-dcm" secondAttribute="centerX" id="gjc-vl-tWP"/>
                             <constraint firstItem="cXZ-Zz-Hgb" firstAttribute="leading" secondItem="OSW-Rt-dcm" secondAttribute="leading" constant="16" id="kgN-vy-8zh"/>
                             <constraint firstItem="1dK-g4-6nj" firstAttribute="top" secondItem="3SB-co-F5Q" secondAttribute="bottom" constant="11" id="lGF-fW-pNQ"/>
                             <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="smx-oW-eVa" secondAttribute="trailing" constant="16" id="m5R-Cc-7fT"/>
                             <constraint firstItem="3SB-co-F5Q" firstAttribute="top" secondItem="OSW-Rt-dcm" secondAttribute="top" id="n4E-fT-COF"/>
+                            <constraint firstItem="qHA-EH-Zd1" firstAttribute="bottom" secondItem="OSW-Rt-dcm" secondAttribute="bottom" id="oCG-ec-aOj"/>
                             <constraint firstItem="1dK-g4-6nj" firstAttribute="leading" secondItem="OSW-Rt-dcm" secondAttribute="leading" constant="16" id="srX-Td-AJl"/>
                             <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="cKx-lY-cTE" secondAttribute="trailing" constant="16" id="w6A-l6-6N8"/>
                             <constraint firstItem="OSW-Rt-dcm" firstAttribute="trailing" secondItem="3SB-co-F5Q" secondAttribute="trailing" id="xuR-bv-u7x"/>
@@ -1738,10 +1935,18 @@ Mậu Tuất</string>
                         <viewLayoutGuide key="safeArea" id="OSW-Rt-dcm"/>
                     </view>
                     <connections>
+                        <outlet property="batdau" destination="INq-V9-sfO" id="u14-tf-1Wb"/>
                         <outlet property="datePicker" destination="3s2-I5-ssS" id="7sg-l8-z4e"/>
+                        <outlet property="ketthuc" destination="MBo-L0-ZLU" id="ppU-x0-ZKn"/>
+                        <outlet property="labelAm" destination="Tcn-00-3FU" id="Np1-cS-m5g"/>
+                        <outlet property="labelDuong" destination="Gie-Ch-vw5" id="I6I-xu-Zej"/>
+                        <outlet property="labelLap" destination="wlV-Ka-eLf" id="0AZ-1X-iBZ"/>
+                        <outlet property="labelLuc" destination="Uob-N6-mOv" id="z4e-fA-i22"/>
                         <outlet property="tdiadiem" destination="TCl-tZ-FeA" id="YMP-a4-QQM"/>
                         <outlet property="tghichu" destination="cKx-lY-cTE" id="YDh-lt-h1f"/>
                         <outlet property="ttensk" destination="1dK-g4-6nj" id="tbb-Ei-CDS"/>
+                        <outlet property="viewLap" destination="dSn-E0-xgD" id="3Lp-bE-irc"/>
+                        <outlet property="viewLuc" destination="tUd-y0-0Yo" id="Rq2-Yk-drv"/>
                         <outlet property="viewPicker" destination="0ft-ib-Jtt" id="M0I-GD-gKZ"/>
                     </connections>
                 </viewController>
@@ -1757,8 +1962,8 @@ Mậu Tuất</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V9X-Db-YZa">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nen" translatesAutoresizingMaskIntoConstraints="NO" id="V9X-Db-YZa">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qN4-tl-HTt">
                                 <rect key="frame" x="40" y="202.5" width="295" height="282.5"/>
@@ -1775,7 +1980,7 @@ Mậu Tuất</string>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thước đo cược đời không phải là bạn sống dài hay sống ngắn, mà là sống như thế nào!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btU-HR-H20">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thước đo cược đời không phải là bạn sống dài hay sống ngắn, mà là sống như thế nào!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btU-HR-H20">
                                         <rect key="frame" x="0.0" y="221.5" width="295" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1784,16 +1989,16 @@ Mậu Tuất</string>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="V9X-Db-YZa" firstAttribute="leading" secondItem="9Pd-TZ-m5g" secondAttribute="leading" id="5y7-Ex-45F"/>
-                            <constraint firstItem="9Pd-TZ-m5g" firstAttribute="trailing" secondItem="V9X-Db-YZa" secondAttribute="trailing" id="CT1-DM-kp2"/>
-                            <constraint firstItem="9Pd-TZ-m5g" firstAttribute="bottom" secondItem="V9X-Db-YZa" secondAttribute="bottom" id="I7j-qG-p2G"/>
                             <constraint firstItem="qN4-tl-HTt" firstAttribute="top" secondItem="9Pd-TZ-m5g" secondAttribute="top" constant="182.5" id="WM2-ps-H0s"/>
-                            <constraint firstItem="9Pd-TZ-m5g" firstAttribute="top" secondItem="V9X-Db-YZa" secondAttribute="top" constant="20" id="jo9-0v-QoS"/>
+                            <constraint firstItem="V9X-Db-YZa" firstAttribute="leading" secondItem="9Pd-TZ-m5g" secondAttribute="leading" id="Ymc-jg-FP7"/>
+                            <constraint firstItem="9Pd-TZ-m5g" firstAttribute="trailing" secondItem="V9X-Db-YZa" secondAttribute="trailing" id="ZK1-kX-tk7"/>
+                            <constraint firstItem="9Pd-TZ-m5g" firstAttribute="bottom" secondItem="V9X-Db-YZa" secondAttribute="bottom" id="cnV-Vy-aLF"/>
                             <constraint firstItem="qN4-tl-HTt" firstAttribute="trailing" secondItem="9Pd-TZ-m5g" secondAttribute="trailing" constant="-40" id="nAf-41-fas"/>
                             <constraint firstItem="qN4-tl-HTt" firstAttribute="centerX" secondItem="9Pd-TZ-m5g" secondAttribute="centerX" id="uap-ZG-oen"/>
                             <constraint firstItem="qN4-tl-HTt" firstAttribute="leading" secondItem="9Pd-TZ-m5g" secondAttribute="leading" constant="40" id="ucU-xP-JGL"/>
+                            <constraint firstItem="9Pd-TZ-m5g" firstAttribute="top" secondItem="V9X-Db-YZa" secondAttribute="top" id="zwb-DY-kYB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Pd-TZ-m5g"/>
                     </view>
@@ -1826,7 +2031,7 @@ Mậu Tuất</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.76556447170392716" green="1" blue="0.9687404281008396" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4ne-A2-jtd"/>
                     </view>
                 </viewController>
@@ -2362,7 +2567,7 @@ Mậu Tuất</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WlA-9z-77P">
                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Ms7-Tn-NYw">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book" translatesAutoresizingMaskIntoConstraints="NO" id="Ms7-Tn-NYw">
                                                                 <rect key="frame" x="28" y="18" width="64" height="64"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="64" id="hR4-yo-Faa"/>
@@ -2394,7 +2599,7 @@ Mậu Tuất</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZ6-zp-8rr">
                                                         <rect key="frame" x="180" y="0.0" width="120" height="120"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="JIn-Ac-6xw">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amduong" translatesAutoresizingMaskIntoConstraints="NO" id="JIn-Ac-6xw">
                                                                 <rect key="frame" x="28" y="18" width="64" height="64"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="64" id="Krq-m9-Dt2"/>
@@ -2431,7 +2636,7 @@ Mậu Tuất</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Rs-SI-eUa">
                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-c7-B11">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-c7-B11">
                                                                 <rect key="frame" x="28" y="18" width="64" height="64"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="64" id="NNU-Oo-o0m"/>
@@ -2497,7 +2702,7 @@ Mậu Tuất</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8f-Nc-RKe">
                                                 <rect key="frame" x="0.0" y="360" width="120" height="120"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="gli-Nf-Be3">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="gli-Nf-Be3">
                                                         <rect key="frame" x="28" y="18" width="64" height="64"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="64" id="ATg-O4-GGQ"/>
@@ -2634,7 +2839,11 @@ Mậu Tuất</string>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Item" image="star" id="JH5-Vf-xDt"/>
+                                            <barButtonItem title="Item" image="star" id="JH5-Vf-xDt">
+                                                <connections>
+                                                    <action selector="btnDanhGia:" destination="rTH-ik-icO" id="Xo7-HV-q0D"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem title="Item" image="share" id="uHS-Xu-nrZ">
                                                 <connections>
                                                     <action selector="btnShare:" destination="rTH-ik-icO" id="Is7-gq-bAe"/>
@@ -2742,7 +2951,7 @@ Mậu Tuất</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EA0-lY-4XF">
                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="91b-bW-wgk">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amduong" translatesAutoresizingMaskIntoConstraints="NO" id="91b-bW-wgk">
                                                                 <rect key="frame" x="28" y="18" width="64" height="64"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="64" id="cHS-tW-hck"/>
@@ -2774,7 +2983,7 @@ Mậu Tuất</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOH-S9-JEG">
                                                         <rect key="frame" x="180" y="0.0" width="120" height="120"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="JJd-xH-v7s">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amduong" translatesAutoresizingMaskIntoConstraints="NO" id="JJd-xH-v7s">
                                                                 <rect key="frame" x="28" y="18" width="64" height="64"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="64" id="O3i-sC-hPU"/>
@@ -2811,7 +3020,7 @@ Mậu Tuất</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAY-kG-vvJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="lTe-Gv-7CS">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amduong" translatesAutoresizingMaskIntoConstraints="NO" id="lTe-Gv-7CS">
                                                                 <rect key="frame" x="28" y="18" width="64" height="64"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="64" id="iQ7-uq-jjY"/>
@@ -2843,7 +3052,7 @@ Mậu Tuất</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcM-2a-gun">
                                                         <rect key="frame" x="180" y="0.0" width="120" height="120"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="YTA-bR-CDc">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amduong" translatesAutoresizingMaskIntoConstraints="NO" id="YTA-bR-CDc">
                                                                 <rect key="frame" x="28" y="18" width="64" height="64"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="64" id="eqE-g0-eDb"/>
@@ -2924,14 +3133,22 @@ Mậu Tuất</string>
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="VZi-1X-w7g">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="3U5-Dt-Eq0">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="3U5-Dt-Eq0">
                                             <connections>
                                                 <action selector="btnBack:" destination="I17-g5-EoJ" id="pnu-g3-wG9"/>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Item" id="o0I-RZ-l0a"/>
-                                            <barButtonItem title="Item" id="37z-Pp-Oko"/>
+                                            <barButtonItem title="Item" image="star" id="o0I-RZ-l0a">
+                                                <connections>
+                                                    <action selector="btnDanhGia:" destination="I17-g5-EoJ" id="Haa-gq-vhD"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="share" id="37z-Pp-Oko">
+                                                <connections>
+                                                    <action selector="btnShare:" destination="I17-g5-EoJ" id="fh2-Jc-A4K"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -2964,11 +3181,17 @@ Mậu Tuất</string>
         </scene>
     </scenes>
     <resources>
+        <image name="amduong" width="75" height="75"/>
+        <image name="book" width="24" height="24"/>
         <image name="chitiet" width="32" height="32"/>
         <image name="cloud" width="32" height="32"/>
         <image name="first" width="30" height="30"/>
         <image name="lichcanhan" width="32" height="32"/>
+        <image name="location" width="24" height="24"/>
+        <image name="more" width="24" height="24"/>
         <image name="nen" width="564" height="792"/>
+        <image name="plus" width="24" height="24"/>
+        <image name="search" width="24" height="24"/>
         <image name="second" width="30" height="30"/>
         <image name="share" width="32" height="32"/>
         <image name="star" width="32" height="32"/>

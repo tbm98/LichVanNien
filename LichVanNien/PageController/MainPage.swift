@@ -115,7 +115,13 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgay
         chucNangTren?.date = self.date
         chucNangTren?.chucNang = self
         self.addChildViewController(chucNangTren!)
-        var fra = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        var fra:CGRect
+        if(self.view.frame.height>800){
+            fra = CGRect(x: 0, y: 20, width: self.view.frame.width, height: 50)
+        }else{
+            fra = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        }
+        
         chucNangTren?.view.frame = fra// or better, turn off `translatesAutoresizingMaskIntoConstraints` and then define constraints for this subview
         self.view.addSubview((chucNangTren?.view)!)
         chucNangTren?.didMove(toParentViewController: self)
@@ -125,7 +131,14 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgay
         chucNangDuoi?.chucNang = self
         
         self.addChildViewController(chucNangDuoi!)
-        fra = CGRect(x: 0, y: self.view.frame.height-(164 as CGFloat).dp, width: self.view.frame.width, height: (164 as CGFloat).dp)
+        if(self.view.frame.height>800){
+            fra = CGRect(x: 0, y: self.view.frame.height-(190 as CGFloat).dp, width: self.view.frame.width, height: (190 as CGFloat).dp)
+        }else if(self.view.frame.height>700){
+            fra = CGRect(x: 0, y: self.view.frame.height-(150 as CGFloat).dp, width: self.view.frame.width, height: (150 as CGFloat).dp)
+        }else{
+            fra = CGRect(x: 0, y: self.view.frame.height-(150 as CGFloat).dp, width: self.view.frame.width, height: (150 as CGFloat).dp)
+        }
+        
         chucNangDuoi?.view.frame = fra// or better, turn off `translatesAutoresizingMaskIntoConstraints` and then define constraints for this subview
         self.view.addSubview((chucNangDuoi?.view)!)
         chucNangDuoi?.didMove(toParentViewController: self)

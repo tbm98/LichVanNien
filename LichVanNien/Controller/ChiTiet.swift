@@ -56,6 +56,44 @@ class ChiTiet: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initDate()
+        let time = VietCalendar().minh(d: day, m: month, y: year)
+        labelNgayAm.text = "Ngày \(calendar.component(.day, from: time)), tháng \(calendar.component(.month, from: time)), năm \(calendar.component(.year, from: time))"
+        if(Const.hoangdao(time: time) == 0){
+            labelNgayHoangDao.text = "Hoàng Đạo"
+        }else if(Const.hoangdao(time: time) == 1){
+            labelNgayHoangDao.text = "Hắc Đạo"
+        }else{
+            labelNgayHoangDao.text = "Bình Thường"
+        }
+        print("nhithapbattu:",Const.nhiThapBatTu(time: time)+1)
+        let index = Const.nhiThapBatTu(time: time)
+        var nhithap:objectNTBT
+        if(index<27){
+            nhithap = Const.ntbt[index+1]
+        }else{
+            nhithap = Const.ntbt[index]
+        }
+        //let nhithap = Const.ntbt[+1]
+        labelSao.text = "Sao: \(nhithap.sao)"
+        labelNguHanh.text = nhithap.thuoc
+        labelConVat.text = nhithap.convat
+        labelNen.text = nhithap.nenlam
+        labelKhongNen.text = nhithap.khongnen
+        labelNgoaiLe.text = nhithap.ngoaile
+        let giohoangdao = Const.gioHoangDao(dmy: time)
+        labelGio1.text = Const.gio[giohoangdao[0]]
+        labelGio2.text = Const.gio[giohoangdao[1]]
+        labelGio3.text = Const.gio[giohoangdao[2]]
+        labelGio4.text = Const.gio[giohoangdao[3]]
+        labelGio5.text = Const.gio[giohoangdao[4]]
+        labelGio6.text = Const.gio[giohoangdao[5]]
+        let truc = Const.truc[Const.truci(dmy: time)]
+        labelTrucNgay.text = truc.truc
+        labelViecNenLam.text = truc.nenlam
+        labelViecKhongNenLam.text = truc.khongnen
+        labelTietKhi.text = Const.TIETKHI[Const.tietKhi(dmy: time)]
+        print(giohoangdao)
+        
         
         naviTitle.title = "\(Const.thu(date: self.date!)), \(self.day)/\(self.month)/\(self.year)"
         

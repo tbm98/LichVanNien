@@ -53,7 +53,15 @@ class Duoi: UIViewController {
         
         let hour = calendar.component(.hour, from: date!)
         let minutes = calendar.component(.minute, from: date!)
-        labelGio.text = "\(hour):\(minutes)"
+        var h:String = "\(hour)"
+        var m:String = "\(minutes)"
+        if(minutes<10){
+            m = "0\(minutes)"
+        }
+        if(hour<10){
+            h = "0\(hour)"
+        }
+        labelGio.text = "\(h):\(m)"
         
         lb1.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
         lb2.font = UIFont.systemFont(ofSize: (14 as CGFloat).dp)
@@ -74,14 +82,26 @@ class Duoi: UIViewController {
             lb9.font = UIFont.systemFont(ofSize: (10 as CGFloat).dp)
             lb10.font = UIFont.systemFont(ofSize: (10 as CGFloat).dp)
         }
+        if(self.view.frame.height>800){
+            lb7.font = UIFont.systemFont(ofSize: (12 as CGFloat).dp)
+            lb8.font = UIFont.systemFont(ofSize: (12 as CGFloat).dp)
+            lb9.font = UIFont.systemFont(ofSize: (12 as CGFloat).dp)
+            lb10.font = UIFont.systemFont(ofSize: (12 as CGFloat).dp)
+        }
+        
+        //
+        labelTenNam.text = Const.namcanchi(time: lichAm!)
         setClick()
     }
+    
     
    
     func updateUI(date:Date){
         self.date = date
         let components = calendar.dateComponents([.year, .month, .day], from: date)
         lichAm = vietCalendar.minh(d: components.day!, m: components.month!, y: components.year!)
+        print("licham:",lichAm)
+        labelTenNam.text = Const.namcanchi(time: lichAm!)
         let components2 = calendar.dateComponents([.year, .month, .day], from: lichAm!)
         labelThang.text = components2.month?.description
         labelNgay.text = components2.day?.description

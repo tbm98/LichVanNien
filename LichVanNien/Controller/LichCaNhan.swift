@@ -11,12 +11,11 @@ import CoreData
 
 class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     
+    
+    var appDelegate:AppDelegate?
+    
+    var context:NSManagedObjectContext?
     var lich:[objectLich] = [
-        objectLich(a: "a", b: "a", c: "a", d: "a", e: "a", f: "a", g: "a", h: "a"),
-        objectLich(a: "a", b: "a", c: "a", d: "a", e: "a", f: "a", g: "a", h: "a"),
-        objectLich(a: "a", b: "a", c: "a", d: "a", e: "a", f: "a", g: "a", h: "a"),
-        objectLich(a: "a", b: "a", c: "a", d: "a", e: "a", f: "a", g: "a", h: "a"),
-        objectLich(a: "a", b: "a", c: "a", d: "a", e: "a", f: "a", g: "a", h: "a"),
     ]
     
     @IBOutlet weak var btn: UIView!
@@ -41,7 +40,21 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         cell.labelghichu.text = obj.ghichu
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alertController = UIAlertController(title: "Thông báo", message: "Bạn có muốn làm gì?", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Xoá", style: .default) { (action:UIAlertAction) in
+            self.deleteAt(id: self.lich[indexPath.row].id)
+        }
+        let action2 = UIAlertAction(title: "Sửa", style: .cancel) { (action:UIAlertAction) in
+            Const.objLich = self.lich[indexPath.row]
+            self.deleteAt(id: self.lich[indexPath.row].id)
+            let them = self.storyboard?.instantiateViewController(withIdentifier: "themlich")
+            self.present(them!, animated: true, completion: nil)
+        }
+        alertController.addAction(action1)
+        alertController.addAction(action2)
+        self.present(alertController, animated: true, completion: nil)
+    }
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -51,6 +64,60 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
+    @IBAction func btnDanhGia(_ sender: Any) {
+        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
+            return
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    func deleteAt(id:Int){
+        
+        
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Lich", in: context!)
+        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Lich")
+        //request.predicate = NSPredicate(format: "age = %@", "12")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context?.fetch(request)
+
+            
+            for data in result as! [NSManagedObject] {
+                //print(data.value(forKey: "tieude") as! String)
+                if(data.value(forKey: "tieude") == nil){
+                    continue
+                }
+                if(data.value(forKey: "id") as! Int == id){
+                    context?.delete(data)
+                }
+            }
+            
+            
+        } catch {
+            
+            print("Failed")
+        }
+        do {
+            
+            try context?.save()
+            //table.reloadData()
+            loadTable()
+            
+        } catch {
+            
+            print("Failed saving")
+        }
+    }
 
     
     override func viewDidLoad() {
@@ -58,33 +125,19 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         btn.isUserInteractionEnabled = true
         let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(actionThem(tapGestureRecognizer:)))
         btn.addGestureRecognizer(tapGesture1)
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let entity = NSEntityDescription.entity(forEntityName: "Lich", in: context)
-        let newUser = NSManagedObject(entity: entity!, insertInto: context)
-        
-        newUser.setValue("hop", forKey: "tieude")
-        newUser.setValue("11:22 thu 5", forKey: "giothu")
-        newUser.setValue("11/22/2018", forKey: "al")
-        newUser.setValue("11/23/2018", forKey: "dl")
-        newUser.setValue("khong lap", forKey: "lap")
-        newUser.setValue("ngay hien tai", forKey: "luc")
-        newUser.setValue("ictu", forKey: "diadiem")
-        newUser.setValue("di choi ", forKey: "ghichu")
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate?.persistentContainer.viewContext
+       
+        loadTable()
+        // Do any additional setup after loading the view.
+    }
+    
+    func loadTable(){
 
         
-//        do {
-//
-//            try context.save()
-//            //table.reloadData()
-//
-//        } catch {
-//
-//            print("Failed saving")
-//        }
+        let entity = NSEntityDescription.entity(forEntityName: "Lich", in: context!)
+        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Lich")
         //request.predicate = NSPredicate(format: "age = %@", "12")
@@ -98,21 +151,38 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         var luc:String
         var diadiem:String
         var ghichu:String
+        var id:Int
+        var time:Date
         
         do {
-            let result = try context.fetch(request)
+            let result = try context?.fetch(request)
+            Const.id = (result?.count)! + 1
             lich.removeAll()
+            
             for data in result as! [NSManagedObject] {
                 //print(data.value(forKey: "tieude") as! String)
+                if(data.value(forKey: "tieude") == nil){
+                    continue
+                }
                 tieude = data.value(forKey: "tieude") as! String
                 giothu = data.value(forKey: "giothu") as! String
                 al = data.value(forKey: "al") as! String
                 dl = data.value(forKey: "dl") as! String
                 lap = data.value(forKey: "lap") as! String
                 luc = data.value(forKey: "luc") as! String
-                diadiem = data.value(forKey: "diadiem") as! String
-                ghichu = data.value(forKey: "ghichu") as! String
-                lich.append(objectLich(a: tieude, b: giothu, c: al, d: dl, e: lap, f: luc, g: diadiem, h: ghichu))
+                diadiem = "Địa Điểm: \(data.value(forKey: "diadiem") as! String)"
+                ghichu = "Ghi Chú: \(data.value(forKey: "ghichu") as! String)"
+                id = data.value(forKey: "id") as! Int
+                time = data.value(forKey: "time") as! Date
+                
+                let notification = UILocalNotification()
+                notification.alertTitle = "Thông báo sự kiện"
+                notification.alertBody = tieude
+                notification.fireDate = time
+                notification.soundName = UILocalNotificationDefaultSoundName
+                
+                UIApplication.shared.scheduleLocalNotification(notification)
+                lich.append(objectLich(a: tieude, b: giothu, c: al, d: dl, e: lap, f: luc, g: diadiem, h: ghichu,i: id,j: time))
             }
             table.reloadData()
             
@@ -120,7 +190,46 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
             
             print("Failed")
         }
-        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        if(context != nil){
+            loadTable()
+        }
+        if(Const.objLich != nil){
+            save(tieude: (Const.objLich?.tieude)!, giothu: (Const.objLich?.giothu)!, al: (Const.objLich?.al)!, dl: (Const.objLich?.dl)!, lap: (Const.objLich?.lap)!, luc: (Const.objLich?.luc)!, diadiem: (Const.objLich?.diadiem)!, ghichu: (Const.objLich?.ghichu)!,time: (Const.objLich?.time)!)
+            loadTable()
+        }
+    }
+    func save(tieude:String,giothu:String,al:String,dl:String,lap:String,luc:String,diadiem:String,ghichu:String,time:Date){
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Lich", in: context)
+        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+        
+        newUser.setValue(tieude, forKey: "tieude")
+        newUser.setValue(giothu, forKey: "giothu")
+        newUser.setValue(al, forKey: "al")
+        newUser.setValue(dl, forKey: "dl")
+        newUser.setValue(lap, forKey: "lap")
+        newUser.setValue(luc, forKey: "luc")
+        newUser.setValue(diadiem, forKey: "diadiem")
+        newUser.setValue(ghichu, forKey: "ghichu")
+        newUser.setValue(Const.id, forKey: "id")
+        newUser.setValue(time, forKey: "time")
+        
+        
+        do {
+            
+            try context.save()
+            //table.reloadData()
+            
+        } catch {
+            
+            print("Failed saving")
+        }
     }
     @objc func actionThem(tapGestureRecognizer: UITapGestureRecognizer) {
         // Your code goes here

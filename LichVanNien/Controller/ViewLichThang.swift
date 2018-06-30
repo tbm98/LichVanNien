@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewLichThang: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class ViewLichThang: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
     
     @IBOutlet weak var img: UIImageView!
@@ -230,6 +230,23 @@ class ViewLichThang: UIViewController,UICollectionViewDataSource,UICollectionVie
         
         
     }
-
-
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if(self.view.frame.height<700){
+            // 5s
+            return CGSize(width: 35, height: 35)
+        }else if (self.view.frame.height>800){
+            return CGSize(width: 40, height: 40)
+        }else{
+            return CGSize(width: 50, height: 50)
+        }
+        
+    }
+    
+    
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 80, height: 80)
+//    }
 }
+
