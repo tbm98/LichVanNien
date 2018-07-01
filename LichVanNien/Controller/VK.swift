@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class VK: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+
+class VK: UIViewController ,UITableViewDelegate,UITableViewDataSource,GADInterstitialDelegate{
     @IBOutlet weak var imageBackground: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,6 +96,11 @@ class VK: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     }
     
     func showChiTiet(){
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
         let chitietVK = storyboard?.instantiateViewController(withIdentifier: "chitietvankhan")
         self.present(chitietVK!, animated: true, completion: nil)
     }
@@ -102,21 +109,43 @@ class VK: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnShare(_ sender: Any) {
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
         let image:[Any] = [UIApplication.shared.screenShot as Any]
         let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
-    @IBAction func btnDanhGia(_ sender: Any) {
-        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
-            return
-        }
-        
+    fileprivate func rateApp(appId: String) {
+        openUrl("itms-apps://itunes.apple.com/us/app/id1253533671")
+    }
+    fileprivate func openUrl(_ urlString:String) {
+        let url = URL(string: urlString)!
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
             UIApplication.shared.openURL(url)
         }
+    }
+    @IBAction func btnDanhGia(_ sender: Any) {
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
+        rateApp(appId: "appid")
+//        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
+//            return
+//        }
+//
+//        if #available(iOS 10.0, *) {
+//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.openURL(url)
+//        }
     }
     
 
@@ -173,12 +202,51 @@ class VK: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         }
         return false
     }
+    var bannerView: GADBannerView!
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+        print("dismis")
+    }
+    func createAndLoadInterstitial() -> GADInterstitial {
+        var interstitial = GADInterstitial(adUnitID: Const.interstitialId)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    var interstitial: GADInterstitial!
     override func viewDidLoad() {
         super.viewDidLoad()
         imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.indexBackground])
         initTitle()
         tableView.reloadData()
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Const.bannerId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        interstitial = createAndLoadInterstitial()
         // Do any additional setup after loading the view.
+    }
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
 
 }

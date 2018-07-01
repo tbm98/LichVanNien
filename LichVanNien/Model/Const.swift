@@ -454,6 +454,11 @@ Lập khế ước , giao dịch , cho vay , thâu nợ , mua hàng , bán hàng
     
     // lich ca nhan
     public static var objLich:objectLich?
+    public static let appID = "ca-app-pub-3940256099942544~3347511713"
+    public static let bannerId = "ca-app-pub-3940256099942544/6300978111"
+    public static let interstitialId = "ca-app-pub-3940256099942544/1033173712"
+    public static var countAction = 0 // moi 5 lan chon chuc nang se hien quang cao fullscreen
+    
     
     
 }

@@ -97,6 +97,9 @@
 		03F99C9920E628E00035F4FE /* objectLich.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F99C9820E628E00035F4FE /* objectLich.swift */; };
 		03F99C9B20E62CFA0035F4FE /* ThemLich.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F99C9A20E62CFA0035F4FE /* ThemLich.swift */; };
 		03F99C9E20E62DE40035F4FE /* Lich.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03F99C9C20E62DE40035F4FE /* Lich.xcdatamodeld */; };
+		6AE269B69948E554808FCD39 /* Pods_LichVanNienTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37CA5E44D6D533C1BFF71B6 /* Pods_LichVanNienTests.framework */; };
+		97BCCC2EFF8D643540732C9A /* Pods_LichVanNienUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10F69929732A88DA0510E81 /* Pods_LichVanNienUITests.framework */; };
+		F8D38B7C5D10B617FF0812C5 /* Pods_LichVanNien.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5688539DC0EECFA1D12C7BE /* Pods_LichVanNien.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +216,15 @@
 		03F99C9820E628E00035F4FE /* objectLich.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objectLich.swift; sourceTree = "<group>"; };
 		03F99C9A20E62CFA0035F4FE /* ThemLich.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemLich.swift; sourceTree = "<group>"; };
 		03F99C9D20E62DE40035F4FE /* Lich.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lich.xcdatamodel; sourceTree = "<group>"; };
+		0FC79DC4939E4E778A298C00 /* Pods-LichVanNienUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LichVanNienUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LichVanNienUITests/Pods-LichVanNienUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5BFCF684F56E39FCEE0C9254 /* Pods-LichVanNien.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LichVanNien.release.xcconfig"; path = "Pods/Target Support Files/Pods-LichVanNien/Pods-LichVanNien.release.xcconfig"; sourceTree = "<group>"; };
+		89629020AC6887CF591DCED0 /* Pods-LichVanNien.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LichVanNien.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LichVanNien/Pods-LichVanNien.debug.xcconfig"; sourceTree = "<group>"; };
+		C5688539DC0EECFA1D12C7BE /* Pods_LichVanNien.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LichVanNien.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC50BB192389B288D2CED2B /* Pods-LichVanNienUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LichVanNienUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LichVanNienUITests/Pods-LichVanNienUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E10F69929732A88DA0510E81 /* Pods_LichVanNienUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LichVanNienUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E37CA5E44D6D533C1BFF71B6 /* Pods_LichVanNienTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LichVanNienTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E93B98F9AADC098A1359FEC2 /* Pods-LichVanNienTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LichVanNienTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LichVanNienTests/Pods-LichVanNienTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EBDB4487DBDAF1B2320482AC /* Pods-LichVanNienTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LichVanNienTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LichVanNienTests/Pods-LichVanNienTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8D38B7C5D10B617FF0812C5 /* Pods_LichVanNien.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AE269B69948E554808FCD39 /* Pods_LichVanNienTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97BCCC2EFF8D643540732C9A /* Pods_LichVanNienUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +323,8 @@
 				0377B93120DBFA790074410C /* LichVanNienTests */,
 				0377B93C20DBFA790074410C /* LichVanNienUITests */,
 				0377B91920DBFA780074410C /* Products */,
+				BA116168BD5DEBB0199A48B5 /* Pods */,
+				73626CF8EC2EF97060AB86FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -406,6 +423,29 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		73626CF8EC2EF97060AB86FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5688539DC0EECFA1D12C7BE /* Pods_LichVanNien.framework */,
+				E37CA5E44D6D533C1BFF71B6 /* Pods_LichVanNienTests.framework */,
+				E10F69929732A88DA0510E81 /* Pods_LichVanNienUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA116168BD5DEBB0199A48B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89629020AC6887CF591DCED0 /* Pods-LichVanNien.debug.xcconfig */,
+				5BFCF684F56E39FCEE0C9254 /* Pods-LichVanNien.release.xcconfig */,
+				E93B98F9AADC098A1359FEC2 /* Pods-LichVanNienTests.debug.xcconfig */,
+				EBDB4487DBDAF1B2320482AC /* Pods-LichVanNienTests.release.xcconfig */,
+				0FC79DC4939E4E778A298C00 /* Pods-LichVanNienUITests.debug.xcconfig */,
+				CEC50BB192389B288D2CED2B /* Pods-LichVanNienUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -413,6 +453,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0377B94220DBFA7A0074410C /* Build configuration list for PBXNativeTarget "LichVanNien" */;
 			buildPhases = (
+				DD8568259055CCE457C9D480 /* [CP] Check Pods Manifest.lock */,
 				0377B91420DBFA780074410C /* Sources */,
 				0377B91520DBFA780074410C /* Frameworks */,
 				0377B91620DBFA780074410C /* Resources */,
@@ -430,6 +471,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0377B94520DBFA7A0074410C /* Build configuration list for PBXNativeTarget "LichVanNienTests" */;
 			buildPhases = (
+				0068848998384E907CD59571 /* [CP] Check Pods Manifest.lock */,
 				0377B92A20DBFA790074410C /* Sources */,
 				0377B92B20DBFA790074410C /* Frameworks */,
 				0377B92C20DBFA790074410C /* Resources */,
@@ -448,6 +490,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0377B94820DBFA7A0074410C /* Build configuration list for PBXNativeTarget "LichVanNienUITests" */;
 			buildPhases = (
+				A894726BBFBD564A5FDAF470 /* [CP] Check Pods Manifest.lock */,
 				0377B93520DBFA790074410C /* Sources */,
 				0377B93620DBFA790074410C /* Frameworks */,
 				0377B93720DBFA790074410C /* Resources */,
@@ -587,6 +630,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0068848998384E907CD59571 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LichVanNienTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A894726BBFBD564A5FDAF470 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LichVanNienUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD8568259055CCE457C9D480 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LichVanNien-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0377B91420DBFA780074410C /* Sources */ = {
@@ -795,6 +895,7 @@
 		};
 		0377B94320DBFA7A0074410C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89629020AC6887CF591DCED0 /* Pods-LichVanNien.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -817,6 +918,7 @@
 		};
 		0377B94420DBFA7A0074410C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BFCF684F56E39FCEE0C9254 /* Pods-LichVanNien.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -839,6 +941,7 @@
 		};
 		0377B94620DBFA7A0074410C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E93B98F9AADC098A1359FEC2 /* Pods-LichVanNienTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -859,6 +962,7 @@
 		};
 		0377B94720DBFA7A0074410C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBDB4487DBDAF1B2320482AC /* Pods-LichVanNienTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -879,6 +983,7 @@
 		};
 		0377B94920DBFA7A0074410C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FC79DC4939E4E778A298C00 /* Pods-LichVanNienUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -898,6 +1003,7 @@
 		};
 		0377B94A20DBFA7A0074410C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEC50BB192389B288D2CED2B /* Pods-LichVanNienUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

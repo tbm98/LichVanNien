@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleMobileAds
+
 
 class DoiNgay: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource{
     @IBAction func btnBack(_ sender: Any) {
@@ -185,7 +187,8 @@ class DoiNgay: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource{
         pickerDay1.reloadAllComponents()
         
     }
-    
+    var bannerView: GADBannerView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let component = calendar.dateComponents([.year, .month, .day], from: self.date)
@@ -203,6 +206,32 @@ class DoiNgay: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource{
 //        m = component.month!
 //        y = component.year!
         // Do any additional setup after loading the view.
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Const.bannerId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+    }
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
 
 }

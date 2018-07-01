@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class ChiTiet: UIViewController {
+
+class ChiTiet: UIViewController ,GADInterstitialDelegate{
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnShare(_ sender: Any) {
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
         let image:[Any] = [UIApplication.shared.screenShot as Any]
         let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
@@ -52,7 +59,18 @@ class ChiTiet: UIViewController {
         month = components.month!
         year = components.year!
     }
-    
+    var bannerView: GADBannerView!
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+        print("dismis")
+    }
+    func createAndLoadInterstitial() -> GADInterstitial {
+        var interstitial = GADInterstitial(adUnitID: Const.interstitialId)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    var interstitial: GADInterstitial!
     override func viewDidLoad() {
         super.viewDidLoad()
         initDate()
@@ -98,7 +116,34 @@ class ChiTiet: UIViewController {
         naviTitle.title = "\(Const.thu(date: self.date!)), \(self.day)/\(self.month)/\(self.year)"
         
         imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.indexBackground])
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Const.bannerId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        interstitial = createAndLoadInterstitial()
+
+    }
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
 
 }

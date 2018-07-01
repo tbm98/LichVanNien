@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
+
 
 class ThemLich: UIViewController {
 
@@ -203,7 +205,15 @@ class ThemLich: UIViewController {
         let y:Int = cal.component(.year, from: date)
         let m:Int = cal.component(.month, from: date)
         let d:Int = cal.component(.day, from: date)
-        return "\(d)/\(m)/\(y)"
+        var dd:String = "\(d)"
+        var mm:String = "\(m)"
+        if(m<10){
+            mm = "0\(m)"
+        }
+        if(d<10){
+            dd = "0\(d)"
+        }
+        return "\(dd)/\(mm)/\(y)"
     }
     
     func save(tieude:String,giothu:String,al:String,dl:String,lap:String,luc:String,diadiem:String,ghichu:String){
@@ -237,7 +247,8 @@ class ThemLich: UIViewController {
                     print("Failed saving")
                 }
     }
-    
+    var bannerView: GADBannerView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -264,61 +275,37 @@ class ThemLich: UIViewController {
         
         let entity = NSEntityDescription.entity(forEntityName: "Lich", in: context)
         let newUser = NSManagedObject(entity: entity!, insertInto: context)
-//
-//        newUser.setValue("hop", forKey: "tieude")
-//        newUser.setValue("11:22 thu 5", forKey: "giothu")
-//        newUser.setValue("11/22/2018", forKey: "al")
-//        newUser.setValue("11/23/2018", forKey: "dl")
-//        newUser.setValue("khong lap", forKey: "lap")
-//        newUser.setValue("ngay hien tai", forKey: "luc")
-//        newUser.setValue("ictu", forKey: "diadiem")
-//        newUser.setValue("di choi ", forKey: "ghichu")
-//
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         
-        //        do {
-        //
-        //            try context.save()
-        //            //table.reloadData()
-        //
-        //        } catch {
-        //
-        //            print("Failed saving")
-        //        }
-//
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Lich")
-//        //request.predicate = NSPredicate(format: "age = %@", "12")
-//        request.returnsObjectsAsFaults = false
-//
-//        var tieude:String
-//        var giothu:String
-//        var al:String
-//        var dl:String
-//        var lap:String
-//        var luc:String
-//        var diadiem:String
-//        var ghichu:String
-//
-//        do {
-//            let result = try context.fetch(request)
-//            lich.removeAll()
-//            for data in result as! [NSManagedObject] {
-//                //print(data.value(forKey: "tieude") as! String)
-//                tieude = data.value(forKey: "tieude") as! String
-//                giothu = data.value(forKey: "giothu") as! String
-//                al = data.value(forKey: "al") as! String
-//                dl = data.value(forKey: "dl") as! String
-//                lap = data.value(forKey: "lap") as! String
-//                luc = data.value(forKey: "luc") as! String
-//                diadiem = data.value(forKey: "diadiem") as! String
-//                ghichu = data.value(forKey: "ghichu") as! String
-//                lich.append(objectLich(a: tieude, b: giothu, c: al, d: dl, e: lap, f: luc, g: diadiem, h: ghichu))
-//            }
-//            table.reloadData()
-//
-//        } catch {
-//
-//            print("Failed")
-//        }
-        // Do any additional setup after loading the view.
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Const.bannerId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+
+    }
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        ttensk.resignFirstResponder()
+    }
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
 }

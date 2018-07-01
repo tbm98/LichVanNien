@@ -7,38 +7,123 @@
 //
 
 import UIKit
+import GoogleMobileAds
+
 
 class MainPage: UIPageViewController ,
     UIPageViewControllerDelegate,
-UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgayXong{
+UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgayXong{
     
     func done(date:Date) {
         updateUI(date: date)
         chonThang()
     }
+    
+    var mode = 1
 
     func chiTiet() {
+        Const.countAction = Const.countAction + 1
+        mode = 1
+        if(Const.countAction >= 5){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+            } else {
+                print("Ad wasn't ready")
+                mode1()
+            }
+            
+        }else{
+            mode1()
+        }
+    }
+    func mode1(){
         let chitiet:ChiTiet = (storyboard?.instantiateViewController(withIdentifier: "chitiet"))! as! ChiTiet
         chitiet.date = self.date
         self.present(chitiet, animated: true, completion: nil)
     }
     
     func lichThang() {
+        Const.countAction = Const.countAction + 1
+        mode = 2
+        if(Const.countAction >= 5){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+            } else {
+                print("Ad wasn't ready")
+                mode2()
+            }
+            
+        }else{
+            mode2()
+        }
+
+    }
+    func mode2(){
         let lichthang:UIViewController = (storyboard?.instantiateViewController(withIdentifier: "lichthang"))!
         self.present(lichthang, animated: true, completion: nil)
     }
     
     func doiNgay() {
+        Const.countAction = Const.countAction + 1
+        mode = 3
+        if(Const.countAction >= 5){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+            } else {
+                print("Ad wasn't ready")
+                mode3()
+            }
+            
+        }else{
+            mode3()
+        }
+    }
+    func mode3(){
         let doingay:UIViewController = (storyboard?.instantiateViewController(withIdentifier: "doingay"))!
         self.present(doingay, animated: true, completion: nil)
     }
     
     func nhieuHon() {
+        Const.countAction = Const.countAction + 1
+        mode = 4
+        if(Const.countAction >= 5){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+            } else {
+                print("Ad wasn't ready")
+                mode4()
+            }
+            
+        }else{
+            mode4()
+        }
+    }
+    func mode4(){
         let nhieuhon:UIViewController = (storyboard?.instantiateViewController(withIdentifier: "nhieuhon"))!
         self.present(nhieuhon, animated: true, completion: nil)
     }
     
     func thoiTiet() {
+        Const.countAction = Const.countAction + 1
+        mode = 5
+        if(Const.countAction >= 5){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+            } else {
+                print("Ad wasn't ready")
+                mode5()
+            }
+            
+        }else{
+            mode5()
+        }
+    }
+    func mode5(){
         let thoitiet:UIViewController = (storyboard?.instantiateViewController(withIdentifier: "thoitiet"))!
         self.present(thoitiet, animated: true, completion: nil)
     }
@@ -50,7 +135,22 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgay
     }
     var a = false
     func chonThang() {
-        print("chon thang")
+        Const.countAction = Const.countAction + 1
+        mode = 6
+        if(Const.countAction >= 5){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+            } else {
+                print("Ad wasn't ready")
+                mode6()
+            }
+            
+        }else{
+            mode6()
+        }
+    }
+    func mode6(){
         if(a){
             chonNgay?.view.removeFromSuperview()
         }else{
@@ -60,6 +160,22 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgay
     }
     
     func share() {
+        Const.countAction = Const.countAction + 1
+        mode = 7
+        if(Const.countAction >= 5){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+            } else {
+                print("Ad wasn't ready")
+                mode7()
+            }
+            
+        }else{
+            mode7()
+        }
+    }
+    func mode7(){
         let image:[Any] = [UIApplication.shared.screenShot as Any]
         let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
@@ -67,8 +183,48 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgay
     }
 
     func lichCaNhan() {
+        Const.countAction = Const.countAction + 1
+        mode = 8
+        if(Const.countAction >= 5){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+            } else {
+                print("Ad wasn't ready")
+                mode8()
+            }
+            
+        }else{
+            mode8()
+        }
+    }
+    func mode8(){
         let lichcanhan:UIViewController = (storyboard?.instantiateViewController(withIdentifier: "lichcanhan"))!
         self.present(lichcanhan, animated: true, completion: nil)
+    }
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+        print("dismis")
+        switch mode {
+        case 1:
+            mode1()
+        case 2:
+            mode2()
+        case 3:
+            mode3()
+        case 4:
+            mode4()
+        case 5:
+                mode5()
+        case 6:
+            mode6()
+        case 7:
+            mode7()
+        case 8:
+        mode8()
+        default:
+            break
+        }
     }
     
     var thang = 0
@@ -80,6 +236,7 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgay
     let calendar = Calendar.current
     var appear = false
     
+    var interstitial: GADInterstitial!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -89,7 +246,17 @@ UIPageViewControllerDataSource, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgay
         addChucNang()
         print("width:",self.view.frame.width)
         print("height:",self.view.frame.height)
+        interstitial = createAndLoadInterstitial()
+        //interstitial = GADInterstitial(adUnitID: Const.interstitialId)
     }
+    func createAndLoadInterstitial() -> GADInterstitial {
+        var interstitial = GADInterstitial(adUnitID: Const.interstitialId)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    
+
     override func viewWillAppear(_ animated: Bool) {
         print("view will appear")
         if(appear){

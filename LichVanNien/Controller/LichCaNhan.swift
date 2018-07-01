@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
+
 
 class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     
@@ -45,14 +47,19 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         let action1 = UIAlertAction(title: "Xoá", style: .default) { (action:UIAlertAction) in
             self.deleteAt(id: self.lich[indexPath.row].id)
         }
-        let action2 = UIAlertAction(title: "Sửa", style: .cancel) { (action:UIAlertAction) in
+        let action2 = UIAlertAction(title: "Sửa", style: .default) { (action:UIAlertAction) in
             Const.objLich = self.lich[indexPath.row]
             self.deleteAt(id: self.lich[indexPath.row].id)
             let them = self.storyboard?.instantiateViewController(withIdentifier: "themlich")
             self.present(them!, animated: true, completion: nil)
         }
+        let action3 = UIAlertAction(title: "Không", style: .cancel)
+        { (action:UIAlertAction) in
+                print("khong")
+        }
         alertController.addAction(action1)
         alertController.addAction(action2)
+        alertController.addAction(action3)
         self.present(alertController, animated: true, completion: nil)
     }
     @IBAction func btnBack(_ sender: Any) {
@@ -64,16 +71,28 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
-    @IBAction func btnDanhGia(_ sender: Any) {
-        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
-            return
-        }
-        
+    fileprivate func rateApp(appId: String) {
+        openUrl("itms-apps://itunes.apple.com/us/app/id1253533671")
+    }
+    fileprivate func openUrl(_ urlString:String) {
+        let url = URL(string: urlString)!
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
             UIApplication.shared.openURL(url)
         }
+    }
+    @IBAction func btnDanhGia(_ sender: Any) {
+        rateApp(appId: "appid")
+//        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
+//            return
+//        }
+//
+//        if #available(iOS 10.0, *) {
+//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.openURL(url)
+//        }
     }
     
     func deleteAt(id:Int){
@@ -118,7 +137,8 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
             print("Failed saving")
         }
     }
-
+    
+var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,7 +149,33 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         context = appDelegate?.persistentContainer.viewContext
        
         loadTable()
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Const.bannerId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
         // Do any additional setup after loading the view.
+    }
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
     
     func loadTable(){
@@ -170,8 +216,8 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
                 dl = data.value(forKey: "dl") as! String
                 lap = data.value(forKey: "lap") as! String
                 luc = data.value(forKey: "luc") as! String
-                diadiem = "Địa Điểm: \(data.value(forKey: "diadiem") as! String)"
-                ghichu = "Ghi Chú: \(data.value(forKey: "ghichu") as! String)"
+                diadiem = "\(data.value(forKey: "diadiem") as! String)"
+                ghichu = "\(data.value(forKey: "ghichu") as! String)"
                 id = data.value(forKey: "id") as! Int
                 time = data.value(forKey: "time") as! Date
                 
@@ -192,12 +238,14 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        //UIApplication.shared.cancelAllLocalNotifications()
         if(context != nil){
             loadTable()
         }
         if(Const.objLich != nil){
             save(tieude: (Const.objLich?.tieude)!, giothu: (Const.objLich?.giothu)!, al: (Const.objLich?.al)!, dl: (Const.objLich?.dl)!, lap: (Const.objLich?.lap)!, luc: (Const.objLich?.luc)!, diadiem: (Const.objLich?.diadiem)!, ghichu: (Const.objLich?.ghichu)!,time: (Const.objLich?.time)!)
             loadTable()
+            Const.objLich = nil
         }
     }
     func save(tieude:String,giothu:String,al:String,dl:String,lap:String,luc:String,diadiem:String,ghichu:String,time:Date){

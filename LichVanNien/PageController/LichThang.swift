@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import GoogleMobileAds
+
 
 class LichThang: UIPageViewController ,
     UIPageViewControllerDelegate,
-UIPageViewControllerDataSource, navi,viewlich{
+UIPageViewControllerDataSource, navi,viewlich,GADInterstitialDelegate,scroll{
+
+    
     
     
     func choose() {
@@ -35,7 +39,7 @@ UIPageViewControllerDataSource, navi,viewlich{
     
 
     var navi:NaviLich?
-    
+    var bannerView: GADBannerView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -43,7 +47,43 @@ UIPageViewControllerDataSource, navi,viewlich{
         
         setViewControllers([viewPage(for: date)!], direction: .forward, animated: true, completion: nil)
         addChucNang()
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Const.bannerId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    var interstitial: GADInterstitial!
+    override func viewWillAppear(_ animated: Bool) {
+        interstitial = createAndLoadInterstitial()
+    }
+    func createAndLoadInterstitial() -> GADInterstitial {
+        var interstitial = GADInterstitial(adUnitID: Const.interstitialId)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
     func addChucNang(){
         //treen
@@ -71,6 +111,7 @@ UIPageViewControllerDataSource, navi,viewlich{
         }
         viewPage.date = date
         viewPage.dele = self
+        viewPage.finish = self
         return viewPage
     }
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
@@ -96,6 +137,23 @@ UIPageViewControllerDataSource, navi,viewlich{
         tomorrow = calendar.startOfDay(for: tomorrow)
         return viewPage(for: tomorrow)
     }
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if(completed){
+            finish()
+        }
+    }
+    func finish() {
+        Const.countAction = Const.countAction + 1
+        if(Const.countAction >= 5){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+            } else {
+                print("Ad wasn't ready")
+            }
+            
+        }
+    }
 
 }
 
@@ -106,5 +164,8 @@ protocol navi {
 }
 protocol viewlich {
     func choose()
+}
+protocol scroll{
+    func finish()
 }
 

@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreLocation
+import GoogleMobileAds
 
-class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CLLocationManagerDelegate{
+class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CLLocationManagerDelegate,GADInterstitialDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -35,21 +36,43 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnShare(_ sender: Any) {
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
         let image:[Any] = [UIApplication.shared.screenShot as Any]
         let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
-    @IBAction func btnDanhGia(_ sender: Any) {
-        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
-            return
-        }
-        
+    fileprivate func rateApp(appId: String) {
+        openUrl("itms-apps://itunes.apple.com/us/app/id1253533671")
+    }
+    fileprivate func openUrl(_ urlString:String) {
+        let url = URL(string: urlString)!
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
             UIApplication.shared.openURL(url)
         }
+    }
+    @IBAction func btnDanhGia(_ sender: Any) {
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
+        rateApp(appId: "appid")
+//        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
+//            return
+//        }
+//
+//        if #available(iOS 10.0, *) {
+//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.openURL(url)
+//        }
     }
     @IBAction func btnChonTinh(_ sender: Any) {
         pickerTinh.isHidden = !pickerTinh.isHidden
@@ -127,6 +150,7 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
             
         }
     }
+
     
     var loadedLocation = false
     var lat:Double = 0.0
@@ -148,6 +172,19 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
     // Used to start getting the users location
     let locationManager = CLLocationManager()
     
+    
+    var bannerView: GADBannerView!
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+        print("dismis")
+    }
+    func createAndLoadInterstitial() -> GADInterstitial {
+        var interstitial = GADInterstitial(adUnitID: Const.interstitialId)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    var interstitial: GADInterstitial!
     override func viewDidLoad() {
         super.viewDidLoad()
         //Looks for single or multiple taps.
@@ -157,7 +194,36 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
         //tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
+        // In this case, we instantiate the banner with desired ad size.
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Const.bannerId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        interstitial = createAndLoadInterstitial()
+
         // Do any additional setup after loading the view.
+    }
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
     
     //Calls this function when the tap is recognized.

@@ -224,16 +224,16 @@ class VietCalendar{
         let s3 = convertLunar2Solar(lunarDay: 14, lunarMonth: 5, lunarYear: 2018, lunarLeap: l[3], timeZone: TZ)
         
         if (s[0] == s2[0] && s[1] == s2[1] && s[2] == s2[2]) {
-            print("OK! \(s[0])/\(s[1])/\(s[2])->\(l[0])/\(l[1])/\(l[2])")
-            if(l[3] != 0){
-                print("leap")
-            }
+//            print("OK! \(s[0])/\(s[1])/\(s[2])->\(l[0])/\(l[1])/\(l[2])")
+//            if(l[3] != 0){
+//                print("leap")
+//            }
             
         } else {
-            print("error! \(s[0])/\(s[1])/\(s[2])->\(l[0])/\(l[1])/\(l[2])")
-            if(l[3] != 0){
-                print("leap")
-            }
+//            print("error! \(s[0])/\(s[1])/\(s[2])->\(l[0])/\(l[1])/\(l[2])")
+//            if(l[3] != 0){
+//                print("leap")
+//            }
             //        Log.e("ERROR! ", "" + s[0] + "/" + s[1] + "/" + s[2] + " -> " + l[0] + "/" + l[1] + "/" + l[2] + if (l[3] == 0) "" else " leap")
         }
         
@@ -254,16 +254,16 @@ class VietCalendar{
         let s3 = convertLunar2Solar(lunarDay: d, lunarMonth: m, lunarYear: y, lunarLeap: l[3], timeZone: TZ)
         
         if (s[0] == s2[0] && s[1] == s2[1] && s[2] == s2[2]) {
-            print("OK! \(s[0])/\(s[1])/\(s[2])->\(s3[0])/\(s3[1])/\(s3[2])")
-            if(l[3] != 0){
-                print("leap")
-            }
+//            print("OK! \(s[0])/\(s[1])/\(s[2])->\(s3[0])/\(s3[1])/\(s3[2])")
+//            if(l[3] != 0){
+//                print("leap")
+//            }
             
         } else {
-            print("error! \(s[0])/\(s[1])/\(s[2])->\(l[0])/\(l[1])/\(l[2])")
-            if(l[3] != 0){
-                print("leap")
-            }
+//            print("error! \(s[0])/\(s[1])/\(s[2])->\(l[0])/\(l[1])/\(l[2])")
+//            if(l[3] != 0){
+//                print("leap")
+//            }
             //        Log.e("ERROR! ", "" + s[0] + "/" + s[1] + "/" + s[2] + " -> " + l[0] + "/" + l[1] + "/" + l[2] + if (l[3] == 0) "" else " leap")
         }
         

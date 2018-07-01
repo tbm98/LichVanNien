@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class TuVi: UIViewController {
+
+class TuVi: UIViewController ,GADInterstitialDelegate{
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnShare(_ sender: Any) {
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
         let image:[Any] = [UIApplication.shared.screenShot as Any]
         let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
@@ -45,6 +52,11 @@ class TuVi: UIViewController {
     
     @objc func actionHomNay(tapGestureRecognizer: UITapGestureRecognizer) {
         print("hn")
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
         Const.titleTuVi = "Tử Vi Hôm Nay"
         Const.linkTuVi = "http://tracuu.tuvisomenh.com/xem-ngay-tot-xau"
         show()
@@ -52,16 +64,31 @@ class TuVi: UIViewController {
     }
     @objc func actionGioTot(tapGestureRecognizer: UITapGestureRecognizer) {
         print("gt")
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
         Const.titleTuVi = "Giờ Tốt Hôm Nay"
         Const.linkTuVi = "http://tracuu.tuvisomenh.com/xem-ngay-tot-xau/xem-gio-tot-trong-ngay"
         show()
     }
     @objc func actionNgayTot(tapGestureRecognizer: UITapGestureRecognizer) {
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
         Const.titleTuVi = "Ngày Tốt Trong Tháng"
         Const.linkTuVi = "http://tracuu.tuvisomenh.com/xem-ngay-tot-xau/xem-ngay-tot-xau-trong-thang"
         show()
     }
     @objc func actionAmDuong(tapGestureRecognizer: UITapGestureRecognizer) {
+        Const.countAction = Const.countAction + 1
+        if interstitial.isReady && Const.countAction >= 5{
+            interstitial.present(fromRootViewController: self)
+            Const.countAction = 0
+        }
         Const.titleTuVi = "Âm Dương Của Ngày"
         Const.linkTuVi = "http://tracuu.tuvisomenh.com/xem-lich/lich-am-duong"
         show()
@@ -71,10 +98,49 @@ class TuVi: UIViewController {
         let chitiettuvi = storyboard?.instantiateViewController(withIdentifier: "chitiettuvi")
         self.present(chitiettuvi!, animated: true, completion: nil)
     }
-    
+    var bannerView: GADBannerView!
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+        print("dismis")
+    }
+    func createAndLoadInterstitial() -> GADInterstitial {
+        var interstitial = GADInterstitial(adUnitID: Const.interstitialId)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    var interstitial: GADInterstitial!
     override func viewDidLoad() {
         super.viewDidLoad()
         initTap()
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Const.bannerId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        interstitial = createAndLoadInterstitial()
+
         // Do any additional setup after loading the view.
+    }
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
 }

@@ -14,6 +14,7 @@ UIPageViewControllerDataSource{
 
     var date:Date?
     var dele:viewlich?
+    var finish:scroll?
     
 
     override func viewDidLoad() {
@@ -64,6 +65,11 @@ UIPageViewControllerDataSource{
         tomorrow = calendar.startOfDay(for: tomorrow)
         
         return viewPage(for: tomorrow)
+    }
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if(completed){
+            finish?.finish()
+        }
     }
 
 

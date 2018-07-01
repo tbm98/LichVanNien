@@ -18,16 +18,28 @@ class ChiTietTuVi: UIViewController {
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
-    @IBAction func btnDanhGia(_ sender: Any) {
-        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
-            return
-        }
-        
+    fileprivate func rateApp(appId: String) {
+        openUrl("itms-apps://itunes.apple.com/us/app/id1253533671")
+    }
+    fileprivate func openUrl(_ urlString:String) {
+        let url = URL(string: urlString)!
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
             UIApplication.shared.openURL(url)
         }
+    }
+    @IBAction func btnDanhGia(_ sender: Any) {
+        rateApp(appId: "appid")
+//        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
+//            return
+//        }
+//
+//        if #available(iOS 10.0, *) {
+//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        } else {
+//            UIApplication.shared.openURL(url)
+//        }
     }
     @IBOutlet weak var webview: UIWebView!
     @IBOutlet weak var titletuvi: UINavigationItem!
