@@ -33,6 +33,10 @@ UIPageViewControllerDataSource{
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }
     
+    func updateUI(){
+        (self.viewControllers?.first as! ViewLich).updateUI()
+    }
+    
     func addChucNang(){
         let controller = storyboard!.instantiateViewController(withIdentifier: "chucNang")
         self.addChildViewController(controller)

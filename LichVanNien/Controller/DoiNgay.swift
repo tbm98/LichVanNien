@@ -206,7 +206,8 @@ class DoiNgay: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource{
 //        m = component.month!
 //        y = component.year!
         // Do any additional setup after loading the view.
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait
+)
         
         addBannerViewToView(bannerView)
         bannerView.adUnitID = Const.bannerId

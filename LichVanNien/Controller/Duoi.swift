@@ -90,7 +90,35 @@ class Duoi: UIViewController {
         }
         
         //
-        labelTenNam.text = Const.namcanchi(time: lichAm!)
+        //print(Const.getCanChiLunarDay(dd: calendar.component(.day, from: lichAm!), mm: calendar.component(.month, from: lichAm!), yy: calendar.component(.year, from: lichAm!)))
+        
+        print("licham:",lichAm)
+        let canchi = Const.getCanChiLunarDay(dd: calendar.component(.day, from: lichAm!), mm: calendar.component(.month, from: lichAm!), yy: calendar.component(.year, from: lichAm!))
+        let tcc = Const.thangcanchi(time: lichAm!)
+        let ccD = "\(Const.can[tcc[0]]) \(Const.chi[tcc[1]])"
+        let ccA = "\(Const.namcanchi(time: lichAm!))"
+        var canN = canchi[0]
+        canN = canN - 2
+        if(canN < 0){
+            canN = 10 + canN
+        }
+        
+        var chiN = canchi[1]
+        //        print("chiN:",chiN)
+        chiN = chiN - 4
+        if(chiN < 0){
+            chiN = 12 + chiN// - 12
+        }
+        let ccN = "\(Const.can[canN]) \(Const.chi[chiN])"
+        print(ccD)
+        print(ccA)
+        labelTenNam.text = """
+        \(ccD)
+        \(ccA)
+        """
+        labelTenNgay.text = ccN
+        let ccH = Const.gioCanChi(hour: hour, can: canN)
+        labelTenGio.text = "\(Const.can[ccH[0]]) \(Const.chi[ccH[1]])"
         setClick()
     }
     
@@ -101,15 +129,41 @@ class Duoi: UIViewController {
         let components = calendar.dateComponents([.year, .month, .day], from: date)
         lichAm = vietCalendar.minh(d: components.day!, m: components.month!, y: components.year!)
         print("licham:",lichAm)
-        labelTenNam.text = Const.namcanchi(time: lichAm!)
-        let components2 = calendar.dateComponents([.year, .month, .day], from: lichAm!)
-        labelThang.text = components2.month?.description
-        labelNgay.text = components2.day?.description
+        let canchi = Const.getCanChiLunarDay(dd: calendar.component(.day, from: lichAm!), mm: calendar.component(.month, from: lichAm!), yy: calendar.component(.year, from: lichAm!))
+        let tcc = Const.thangcanchi(time: lichAm!)
+        let ccD = "\(Const.can[tcc[0]]) \(Const.chi[tcc[1]])"
+        let ccA = "\(Const.namcanchi(time: lichAm!))"
+        var canN = canchi[0]
+        canN = canN - 2
+        if(canN < 0){
+            canN = 10 + canN
+        }
         
+        var chiN = canchi[1]
+//        print("chiN:",chiN)
+        chiN = chiN - 4
+        if(chiN < 0){
+            chiN = 12 + chiN// - 12
+        }
+        let ccN = "\(Const.can[canN]) \(Const.chi[chiN])"
+        print(ccD)
+        print(ccA)
+        labelTenNam.text = """
+        \(ccD)
+        \(ccA)
+        """
+        labelTenNgay.text = ccN
         let date = Date()
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         labelGio.text = "\(hour):\(minutes)"
+        let ccH = Const.gioCanChi(hour: hour, can: canN)
+        labelTenGio.text = "\(Const.can[ccH[0]]) \(Const.chi[ccH[1]])"
+        let components2 = calendar.dateComponents([.year, .month, .day], from: lichAm!)
+        labelThang.text = components2.month?.description
+        labelNgay.text = components2.day?.description
+        
+        
     }
     
     func setClick(){

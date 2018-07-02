@@ -47,7 +47,8 @@ UIPageViewControllerDataSource, navi,viewlich,GADInterstitialDelegate,scroll{
         
         setViewControllers([viewPage(for: date)!], direction: .forward, animated: true, completion: nil)
         addChucNang()
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait
+)
         
         addBannerViewToView(bannerView)
         bannerView.adUnitID = Const.bannerId
@@ -144,10 +145,11 @@ UIPageViewControllerDataSource, navi,viewlich,GADInterstitialDelegate,scroll{
     }
     func finish() {
         Const.countAction = Const.countAction + 1
-        if(Const.countAction >= 5){
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
             if interstitial.isReady {
                 interstitial.present(fromRootViewController: self)
                 Const.countAction = 0
+                Date().millisecondsSince1970
             } else {
                 print("Ad wasn't ready")
             }

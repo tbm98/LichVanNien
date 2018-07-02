@@ -20,9 +20,240 @@ class Const{
         "Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"
     ]
     public static func namcanchi(time:Date)->String {
-        let c:String = can[Const.calendar.component(.year, from: time) % 10]
-        let ch:String = chi[(Const.calendar.component(.year, from: time) % 100) % 12]
-        return "\(c) \(ch)"
+        var y = Const.calendar.component(.year, from: time)
+        let can = y % 10
+        var hsc = y % 100
+        var tong = 0
+        var chi = 0
+        var chi1 = [0]
+        var chi2 = [0]
+        while(y>0){
+            tong = tong + y % 10
+            y = y / 10
+        }
+        tong = tong - 1
+        tong = tong % 3
+        if(tong == 0){
+            chi1 = [0,3,6,9]
+        }
+        if(tong == 1){
+            chi1 = [1,4,7,10]
+        }
+        if(tong == 2){
+            chi1 = [2,5,8,11]
+        }
+        hsc = hsc % 4
+        switch hsc {
+        case 0:
+            chi2 = [0,4,8]
+        case 1:
+            chi2 = [1,5,9]
+        case 2:
+            chi2 = [2,6,10]
+        case 3:
+            chi2 = [3,7,11]
+        default:
+            break
+        }
+        for c1 in chi1{
+            for c2 in chi2{
+                if(c1 == c2){
+                    chi = c1
+                    break
+                }
+            }
+        }
+        return "\(Const.can[can]) \(Const.chi[chi])"
+    }
+    public static func thangcanchi(time:Date)->[Int]{
+        let y = Const.calendar.component(.year, from: time)
+        let m = Const.calendar.component(.month, from: time)
+        let can = y%10
+        if([4,9].contains(can)){
+            switch m{
+            case 1:
+                return [6,2]
+            case 2:
+                return [7,3]
+            case 3:
+                return [8,4]
+            case 4:
+                return [9,5]
+            case 5:
+                return [0,6]
+            case 6:
+                return [1,7]
+            case 7:
+                return [2,8]
+            case 8:
+                return [3,9]
+            case 9:
+                return [4,10]
+            case 10:
+                return [5,11]
+            case 11:
+                return [6,0]
+            case 12:
+                return [7,1]
+            default:
+                break
+            }
+        }
+        if([0,5].contains(can)){
+            switch m{
+            case 1:
+                return [8,2]
+            case 2:
+                return [9,3]
+            case 3:
+                return [0,4]
+            case 4:
+                return [1,5]
+            case 5:
+                return [2,6]
+            case 6:
+                return [3,7]
+            case 7:
+                return [4,8]
+            case 8:
+                return [5,9]
+            case 9:
+                return [6,10]
+            case 10:
+                return [7,11]
+            case 11:
+                return [8,0]
+            case 12:
+                return [9,1]
+            default:
+                break
+            }
+        }
+        if([1,6].contains(can)){
+            switch m{
+            case 1:
+                return [0,2]
+            case 2:
+                return [1,3]
+            case 3:
+                return [2,4]
+            case 4:
+                return [3,5]
+            case 5:
+                return [4,6]
+            case 6:
+                return [5,7]
+            case 7:
+                return [6,8]
+            case 8:
+                return [7,9]
+            case 9:
+                return [8,10]
+            case 10:
+                return [9,11]
+            case 11:
+                return [0,0]
+            case 12:
+                return [1,1]
+            default:
+                break
+            }
+        }
+        if([2,7].contains(can)){
+            switch m{
+            case 1:
+                return [2,2]
+            case 2:
+                return [3,3]
+            case 3:
+                return [4,4]
+            case 4:
+                return [5,5]
+            case 5:
+                return [6,6]
+            case 6:
+                return [7,7]
+            case 7:
+                return [8,8]
+            case 8:
+                return [9,9]
+            case 9:
+                return [0,10]
+            case 10:
+                return [1,11]
+            case 11:
+                return [2,0]
+            case 12:
+                return [3,1]
+            default:
+                break
+            }
+        }
+        if([3,8].contains(can)){
+            switch m{
+            case 1:
+                return [4,2]
+            case 2:
+                return [5,3]
+            case 3:
+                return [6,4]
+            case 4:
+                return [7,5]
+            case 5:
+                return [8,6]
+            case 6:
+                return [9,7]
+            case 7:
+                return [0,8]
+            case 8:
+                return [1,9]
+            case 9:
+                return [2,10]
+            case 10:
+                return [3,11]
+            case 11:
+                return [4,0]
+            case 12:
+                return [5,1]
+            default:
+                break
+            }
+        }
+        return []
+        
+    }
+    public static func gioCanChi(hour:Int,can:Int)->[Int]{
+        var canchi = [0]
+        if([4,9].contains(can)){
+            canchi = [4,0]
+        }
+        if([0,5].contains(can)){
+            canchi = [6,0]
+        }
+        if([1,6].contains(can)){
+            canchi = [8,0]
+        }
+        if([2,7].contains(can)){
+            canchi = [0,0]
+        }
+        if([3,8].contains(can)){
+            canchi = [2,0]
+        }
+        var can = canchi[0]
+        var chi = canchi[1]
+        var bac:Int = 0
+        if(hour%2==0){
+            bac = hour/2
+        }
+        if(hour%2==1){
+            bac = hour/2 + 1
+        }
+        bac = bac - 1
+        can = can + bac - 1
+        can = can % 10
+        chi = chi + bac + 1
+        chi = chi % 12
+        return [can,chi]
     }
     public static var indexBackground = 0
     public static var indexChamNgon = 0
@@ -448,6 +679,23 @@ Lập khế ước , giao dịch , cho vay , thâu nợ , mua hàng , bán hàng
         }
         return Const.chi(dmy:dmy)[0];
     }
+    public static func jdFromDate( dd:Int, mm:Int, yy:Int) -> Int64{
+        let a = (14 - mm) / 12;
+        let y = (yy + 4800) - a;
+        let m = ((a * 12) + mm) - 3;
+        let jd = ((((((((m * 153) + 2) / 5) + dd) + (y * 365)) + (y / 4)) - (y / 100)) + (y / 400)) - 32045;
+        if (jd < 2299161) {
+            let b = (((m * 153) + 2) / 5)
+            let c = ((b + dd) + (y * 365))
+            let d = (c + (y / 4))
+            return Int64(d - 32083)
+        }
+        return Int64(jd)
+    }
+    public static func getCanChiLunarDay(dd:Int, mm:Int, yy:Int) ->[Int]{
+        let jd = Const.jdFromDate(dd: dd, mm: mm, yy: yy)
+        return [Int((jd + 9) % 10), Int((jd + 1) % 12)]
+    }
 
     
     
@@ -458,6 +706,7 @@ Lập khế ước , giao dịch , cho vay , thâu nợ , mua hàng , bán hàng
     public static let bannerId = "ca-app-pub-3940256099942544/6300978111"
     public static let interstitialId = "ca-app-pub-3940256099942544/1033173712"
     public static var countAction = 0 // moi 5 lan chon chuc nang se hien quang cao fullscreen
+    public static var timeRepeat = 0
     
     
     

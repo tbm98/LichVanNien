@@ -9,14 +9,16 @@
 import UIKit
 import CoreData
 import GoogleMobileAds
+import UserNotifications
 
 
-class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource,UNUserNotificationCenterDelegate,GADInterstitialDelegate{
     
-    
+    var mode = 1
     var appDelegate:AppDelegate?
     
     var context:NSManagedObjectContext?
+    let center = UNUserNotificationCenter.current()
     var lich:[objectLich] = [
     ]
     
@@ -66,10 +68,29 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnShare(_ sender: Any) {
+        
+        Const.countAction = Const.countAction + 1
+        mode = 1
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
+            } else {
+                print("Ad wasn't ready")
+                mode1()
+            }
+            
+        }else{
+            mode1()
+        }
+    }
+    func mode1(){
         let image:[Any] = [UIApplication.shared.screenShot as Any]
-        let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = self.view
-        self.present(activityVC, animated: true, completion: nil)
+    let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
+    activityVC.popoverPresentationController?.sourceView = self.view
+    self.present(activityVC, animated: true, completion: nil)
+        
     }
     fileprivate func rateApp(appId: String) {
         openUrl("itms-apps://itunes.apple.com/us/app/id1253533671")
@@ -83,16 +104,34 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
         }
     }
     @IBAction func btnDanhGia(_ sender: Any) {
+
+        Const.countAction = Const.countAction + 1
+        mode = 2
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
+            } else {
+                print("Ad wasn't ready")
+                mode2()
+            }
+            
+        }else{
+            mode2()
+        }
+    }
+    func mode2(){
         rateApp(appId: "appid")
-//        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
-//            return
-//        }
-//
-//        if #available(iOS 10.0, *) {
-//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//        } else {
-//            UIApplication.shared.openURL(url)
-//        }
+        //        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
+        //            return
+        //        }
+        //
+        //        if #available(iOS 10.0, *) {
+        //            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        //        } else {
+        //            UIApplication.shared.openURL(url)
+        //        }
     }
     
     func deleteAt(id:Int){
@@ -140,6 +179,22 @@ class LichCaNhan: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     
 var bannerView: GADBannerView!
     
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+        print("dismis")
+        if(mode == 1){
+            mode1()
+        }else{
+            mode2()
+        }
+    }
+    func createAndLoadInterstitial() -> GADInterstitial {
+        var interstitial = GADInterstitial(adUnitID: Const.interstitialId)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    var interstitial: GADInterstitial!
     override func viewDidLoad() {
         super.viewDidLoad()
         btn.isUserInteractionEnabled = true
@@ -149,12 +204,15 @@ var bannerView: GADBannerView!
         context = appDelegate?.persistentContainer.viewContext
        
         loadTable()
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait
+)
         
         addBannerViewToView(bannerView)
         bannerView.adUnitID = Const.bannerId
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
+        interstitial = createAndLoadInterstitial()
+
         // Do any additional setup after loading the view.
     }
     func addBannerViewToView(_ bannerView: GADBannerView) {
@@ -221,13 +279,17 @@ var bannerView: GADBannerView!
                 id = data.value(forKey: "id") as! Int
                 time = data.value(forKey: "time") as! Date
                 
-                let notification = UILocalNotification()
-                notification.alertTitle = "Thông báo sự kiện"
-                notification.alertBody = tieude
-                notification.fireDate = time
-                notification.soundName = UILocalNotificationDefaultSoundName
+//                let notification = UILocalNotification()
+//                notification.alertTitle = "Thông báo sự kiện"
+//                notification.alertBody = tieude
+//                notification.fireDate = time
+//                notification.soundName = UILocalNotificationDefaultSoundName
+//
+//                UIApplication.shared.scheduleLocalNotification(notification)
+                if(time.millisecondsSince1970>Date().millisecondsSince1970){
+                    scheduleNotification(m: Const.calendar.component(.minute, from: time), h: Const.calendar.component(.hour, from: time), d: Const.calendar.component(.day, from: time),tieude:tieude,diadiem:diadiem,ghichu:ghichu)
+                }
                 
-                UIApplication.shared.scheduleLocalNotification(notification)
                 lich.append(objectLich(a: tieude, b: giothu, c: al, d: dl, e: lap, f: luc, g: diadiem, h: ghichu,i: id,j: time))
             }
             table.reloadData()
@@ -237,8 +299,17 @@ var bannerView: GADBannerView!
             print("Failed")
         }
     }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.badge,.sound])
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("response:",response)
+        completionHandler()
+    }
     override func viewWillAppear(_ animated: Bool) {
         //UIApplication.shared.cancelAllLocalNotifications()
+        
+        UNUserNotificationCenter.current().delegate = self
         if(context != nil){
             loadTable()
         }
@@ -246,6 +317,32 @@ var bannerView: GADBannerView!
             save(tieude: (Const.objLich?.tieude)!, giothu: (Const.objLich?.giothu)!, al: (Const.objLich?.al)!, dl: (Const.objLich?.dl)!, lap: (Const.objLich?.lap)!, luc: (Const.objLich?.luc)!, diadiem: (Const.objLich?.diadiem)!, ghichu: (Const.objLich?.ghichu)!,time: (Const.objLich?.time)!)
             loadTable()
             Const.objLich = nil
+        }
+        
+    }
+    func scheduleNotification(m:Int,h:Int,d:Int,tieude:String,diadiem:String,ghichu:String) {
+        let center = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Thông báo sự kiện"
+        content.subtitle = tieude
+        content.body = """
+        Địa điểm: \(diadiem)
+        Ghi chú: \(ghichu)
+        """
+        content.categoryIdentifier = "alarm"
+        content.sound = UNNotificationSound.default()
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = h
+        dateComponents.minute = m
+        dateComponents.day = d
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "alarm", content: content, trigger: trigger)
+        center.add(request){(error) in
+            print("error:",error)
         }
     }
     func save(tieude:String,giothu:String,al:String,dl:String,lap:String,luc:String,diadiem:String,ghichu:String,time:Date){

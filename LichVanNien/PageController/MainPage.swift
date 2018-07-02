@@ -12,7 +12,36 @@ import GoogleMobileAds
 
 class MainPage: UIPageViewController ,
     UIPageViewControllerDelegate,
-UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgayXong{
+UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren, ChucNangDuoi, ChonNgayXong,GADBannerViewDelegate{
+    
+//    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+//        print("loading error banner")
+//        //bannerView.isHidden = true
+//        if(self.view.frame.height>800){
+//            chucNangDuoi?.view.frame = CGRect(x: 0, y: self.view.frame.height-((190) as CGFloat).dp, width: self.view.frame.width, height: ((190) as CGFloat).dp)
+//        }else if(self.view.frame.height>700){
+//            chucNangDuoi?.view.frame = CGRect(x: 0, y: self.view.frame.height-((160) as CGFloat).dp, width: self.view.frame.width, height: ((160) as CGFloat).dp)
+//        }else{
+//            chucNangDuoi?.view.frame = CGRect(x: 0, y: self.view.frame.height-((164) as CGFloat).dp, width: self.view.frame.width, height: ((164) as CGFloat).dp)
+//        }
+//        chucNangDuoi?.view.removeFromSuperview()
+//        //self.view.addSubview((chucNangDuoi?.view)!)
+//    }
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        chucNangDuoi?.view.removeFromSuperview()
+                if(self.view.frame.height>800){
+                    chucNangDuoi?.view.frame = CGRect(x: 0, y: self.view.frame.height-((190+50) as CGFloat).dp, width: self.view.frame.width, height: ((190+50) as CGFloat).dp)
+                }else if(self.view.frame.height>700){
+                    chucNangDuoi?.view.frame = CGRect(x: 0, y: self.view.frame.height-((160+50) as CGFloat).dp, width: self.view.frame.width, height: ((160+50) as CGFloat).dp)
+                }else{
+                    chucNangDuoi?.view.frame = CGRect(x: 0, y: self.view.frame.height-((164+50) as CGFloat).dp, width: self.view.frame.width, height: ((164+50) as CGFloat).dp)
+                }
+                //chucNangDuoi?.view.removeFromSuperview()
+        self.view.addSubview((chucNangDuoi?.view)!)
+        (self.viewControllers?.first as! SubPage).updateUI()
+        
+    }
+    
     
     func done(date:Date) {
         updateUI(date: date)
@@ -24,10 +53,11 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
     func chiTiet() {
         Const.countAction = Const.countAction + 1
         mode = 1
-        if(Const.countAction >= 5){
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
             if interstitial.isReady {
                 interstitial.present(fromRootViewController: self)
                 Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
             } else {
                 print("Ad wasn't ready")
                 mode1()
@@ -46,10 +76,11 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
     func lichThang() {
         Const.countAction = Const.countAction + 1
         mode = 2
-        if(Const.countAction >= 5){
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
             if interstitial.isReady {
                 interstitial.present(fromRootViewController: self)
                 Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
             } else {
                 print("Ad wasn't ready")
                 mode2()
@@ -68,10 +99,11 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
     func doiNgay() {
         Const.countAction = Const.countAction + 1
         mode = 3
-        if(Const.countAction >= 5){
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
             if interstitial.isReady {
                 interstitial.present(fromRootViewController: self)
                 Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
             } else {
                 print("Ad wasn't ready")
                 mode3()
@@ -89,10 +121,11 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
     func nhieuHon() {
         Const.countAction = Const.countAction + 1
         mode = 4
-        if(Const.countAction >= 5){
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
             if interstitial.isReady {
                 interstitial.present(fromRootViewController: self)
                 Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
             } else {
                 print("Ad wasn't ready")
                 mode4()
@@ -110,10 +143,11 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
     func thoiTiet() {
         Const.countAction = Const.countAction + 1
         mode = 5
-        if(Const.countAction >= 5){
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
             if interstitial.isReady {
                 interstitial.present(fromRootViewController: self)
                 Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
             } else {
                 print("Ad wasn't ready")
                 mode5()
@@ -137,10 +171,11 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
     func chonThang() {
         Const.countAction = Const.countAction + 1
         mode = 6
-        if(Const.countAction >= 5){
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
             if interstitial.isReady {
                 interstitial.present(fromRootViewController: self)
                 Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
             } else {
                 print("Ad wasn't ready")
                 mode6()
@@ -162,10 +197,11 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
     func share() {
         Const.countAction = Const.countAction + 1
         mode = 7
-        if(Const.countAction >= 5){
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
             if interstitial.isReady {
                 interstitial.present(fromRootViewController: self)
                 Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
             } else {
                 print("Ad wasn't ready")
                 mode7()
@@ -185,10 +221,11 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
     func lichCaNhan() {
         Const.countAction = Const.countAction + 1
         mode = 8
-        if(Const.countAction >= 5){
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
             if interstitial.isReady {
                 interstitial.present(fromRootViewController: self)
                 Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
             } else {
                 print("Ad wasn't ready")
                 mode8()
@@ -237,6 +274,8 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
     var appear = false
     
     var interstitial: GADInterstitial!
+    var bannerView: GADBannerView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -247,7 +286,35 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
         print("width:",self.view.frame.width)
         print("height:",self.view.frame.height)
         interstitial = createAndLoadInterstitial()
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait
+        )
+        
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = Const.bannerId
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        bannerView.load(GADRequest())
         //interstitial = GADInterstitial(adUnitID: Const.interstitialId)
+    }
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
     func createAndLoadInterstitial() -> GADInterstitial {
         var interstitial = GADInterstitial(adUnitID: Const.interstitialId)
@@ -299,12 +366,30 @@ UIPageViewControllerDataSource,GADInterstitialDelegate, PageFinish, ChucNangTren
         
         self.addChildViewController(chucNangDuoi!)
         if(self.view.frame.height>800){
-            fra = CGRect(x: 0, y: self.view.frame.height-(190 as CGFloat).dp, width: self.view.frame.width, height: (190 as CGFloat).dp)
+            fra = CGRect(x: 0, y: self.view.frame.height-((190) as CGFloat).dp, width: self.view.frame.width, height: ((190) as CGFloat).dp)
         }else if(self.view.frame.height>700){
-            fra = CGRect(x: 0, y: self.view.frame.height-(150 as CGFloat).dp, width: self.view.frame.width, height: (150 as CGFloat).dp)
+            fra = CGRect(x: 0, y: self.view.frame.height-((160) as CGFloat).dp, width: self.view.frame.width, height: ((160) as CGFloat).dp)
         }else{
-            fra = CGRect(x: 0, y: self.view.frame.height-(150 as CGFloat).dp, width: self.view.frame.width, height: (150 as CGFloat).dp)
+            fra = CGRect(x: 0, y: self.view.frame.height-((164) as CGFloat).dp, width: self.view.frame.width, height: ((164) as CGFloat).dp)
         }
+//        if(Net.isConnectedToNetwork()){
+//            if(self.view.frame.height>800){
+//                fra = CGRect(x: 0, y: self.view.frame.height-((190+50) as CGFloat).dp, width: self.view.frame.width, height: ((190+50) as CGFloat).dp)
+//            }else if(self.view.frame.height>700){
+//                fra = CGRect(x: 0, y: self.view.frame.height-((160+50) as CGFloat).dp, width: self.view.frame.width, height: ((160+50) as CGFloat).dp)
+//            }else{
+//                fra = CGRect(x: 0, y: self.view.frame.height-((164+50) as CGFloat).dp, width: self.view.frame.width, height: ((164+50) as CGFloat).dp)
+//            }
+//        }else{
+//            if(self.view.frame.height>800){
+//                fra = CGRect(x: 0, y: self.view.frame.height-((190) as CGFloat).dp, width: self.view.frame.width, height: ((190) as CGFloat).dp)
+//            }else if(self.view.frame.height>700){
+//                fra = CGRect(x: 0, y: self.view.frame.height-((160) as CGFloat).dp, width: self.view.frame.width, height: ((160) as CGFloat).dp)
+//            }else{
+//                fra = CGRect(x: 0, y: self.view.frame.height-((164) as CGFloat).dp, width: self.view.frame.width, height: ((164) as CGFloat).dp)
+//            }
+//        }
+
         
         chucNangDuoi?.view.frame = fra// or better, turn off `translatesAutoresizingMaskIntoConstraints` and then define constraints for this subview
         self.view.addSubview((chucNangDuoi?.view)!)

@@ -10,21 +10,43 @@ import UIKit
 import GoogleMobileAds
 
 
-class ChiTiet: UIViewController ,GADInterstitialDelegate{
+class ChiTiet: UIViewController ,GADInterstitialDelegate,GADBannerViewDelegate{
+    @IBOutlet weak var bot: NSLayoutConstraint!
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        
+        bot.constant = (50 as CGFloat).dp
+    }
+    var mode = 1
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnShare(_ sender: Any) {
+
+       
         Const.countAction = Const.countAction + 1
-        if interstitial.isReady && Const.countAction >= 5{
-            interstitial.present(fromRootViewController: self)
-            Const.countAction = 0
+        mode = 1
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
+            } else {
+                print("Ad wasn't ready")
+                mode1()
+            }
+            
+        }else{
+            mode1()
         }
+    }
+    func mode1(){
         let image:[Any] = [UIApplication.shared.screenShot as Any]
         let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
+    
     @IBOutlet weak var naviTitle: UINavigationItem!
     @IBOutlet weak var imageBackground: UIImageView!
     @IBOutlet weak var labelNgayAm: UILabel!
@@ -63,6 +85,7 @@ class ChiTiet: UIViewController ,GADInterstitialDelegate{
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
         interstitial = createAndLoadInterstitial()
         print("dismis")
+        mode1()
     }
     func createAndLoadInterstitial() -> GADInterstitial {
         var interstitial = GADInterstitial(adUnitID: Const.interstitialId)
@@ -115,12 +138,47 @@ class ChiTiet: UIViewController ,GADInterstitialDelegate{
         
         naviTitle.title = "\(Const.thu(date: self.date!)), \(self.day)/\(self.month)/\(self.year)"
         
+        
+        //
+        let canchi = Const.getCanChiLunarDay(dd: calendar.component(.day, from: time), mm: calendar.component(.month, from: time), yy: calendar.component(.year, from: time))
+        let tcc = Const.thangcanchi(time: time)
+        let ccD = "\(Const.can[tcc[0]]) \(Const.chi[tcc[1]])"
+        let ccA = "\(Const.namcanchi(time: time))"
+        var canN = canchi[0]
+        canN = canN - 2
+        if(canN < 0){
+            canN = 10 + canN
+        }
+        
+        var chiN = canchi[1]
+        //        print("chiN:",chiN)
+        chiN = chiN - 4
+        if(chiN < 0){
+            chiN = 12 + chiN// - 12
+        }
+        let ccN = "\(Const.can[canN]) \(Const.chi[chiN])"
+        print(ccD)
+        print(ccA)
+//        labelTenNam.text = """
+//        \(ccD)
+//        \(ccA)
+//        """
+        let thang = ccD
+        let nam = ccA
+        let ngay = ccN
+        
+        let ccH = Const.gioCanChi(hour: Const.calendar.component(.hour, from: Date()), can: canN)
+        let gio = "\(Const.can[ccH[0]]) \(Const.chi[ccH[1]])"
+        
+        labelGioAm.text = "Giờ \(gio), Ngày \(ngay), Tháng \(thang), Năm \(nam)"
         imageBackground.image = UIImage(named: Const.imageBackgrounds[Const.indexBackground])
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait
+)
         
         addBannerViewToView(bannerView)
         bannerView.adUnitID = Const.bannerId
         bannerView.rootViewController = self
+        bannerView.delegate = self
         bannerView.load(GADRequest())
         interstitial = createAndLoadInterstitial()
 

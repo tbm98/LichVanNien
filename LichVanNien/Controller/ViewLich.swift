@@ -30,9 +30,9 @@ class ViewLich: UIViewController {
         super.viewDidLoad()
         
         let topct:CGFloat = (80 as CGFloat).dp
-        if(self.view.frame.height<700){
+        //if(self.view.frame.height<700){
             top.constant = topct
-        }
+        //}
         labelNgay.font = UIFont.boldSystemFont(ofSize: (110 as CGFloat).dp)
         print("topct:",topct)
         print("spacing:",(30 as CGFloat).dp)
@@ -66,6 +66,17 @@ class ViewLich: UIViewController {
         Const.indexChamNgon = indexCN
         Const.update = true
         
+    }
+    
+    func updateUI(){
+        let topct:CGFloat = (40 as CGFloat).dp
+        //if(self.view.frame.height<700){
+        top.constant = topct
+        if(self.view.frame.height<700){
+            let topct:CGFloat = (30 as CGFloat).dp
+            //if(self.view.frame.height<700){
+            top.constant = topct
+        }
     }
     
 

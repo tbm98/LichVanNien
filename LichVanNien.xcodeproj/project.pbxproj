@@ -10,6 +10,7 @@
 		0311E3D920E0C6B400EB2055 /* ChiTietVanKhan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311E3D820E0C6B400EB2055 /* ChiTietVanKhan.swift */; };
 		0318CBAC20E0FAC300BCDC29 /* vankhan_9.html in Resources */ = {isa = PBXBuildFile; fileRef = 0318CBAB20E0FAC300BCDC29 /* vankhan_9.html */; };
 		0322DEC620E29F90004C50B3 /* objectThoiTiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322DEC520E29F90004C50B3 /* objectThoiTiet.swift */; };
+		034D14F220E9D6D200BE6E4F /* VanKhan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034D14F120E9D6D200BE6E4F /* VanKhan.swift */; };
 		035A9E2A20E36AED001175C3 /* ChonNgay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9E2920E36AED001175C3 /* ChonNgay.swift */; };
 		0377B91C20DBFA780074410C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B91B20DBFA780074410C /* AppDelegate.swift */; };
 		0377B92020DBFA780074410C /* LichThang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377B91F20DBFA780074410C /* LichThang.swift */; };
@@ -38,6 +39,7 @@
 		03D0D35120E56CCB009E50BE /* VietCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D0D35020E56CCA009E50BE /* VietCalendar.swift */; };
 		03E4EC7320E7A3420083ED92 /* objectNTBT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E4EC7220E7A3420083ED92 /* objectNTBT.swift */; };
 		03E4EC7520E7BB8B0083ED92 /* objectTruc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E4EC7420E7BB8B0083ED92 /* objectTruc.swift */; };
+		03E6143220EA39B9009FB58F /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6143120EA39B9009FB58F /* Net.swift */; };
 		03E8801C20E1447000F8E3D3 /* vankhan_1.html in Resources */ = {isa = PBXBuildFile; fileRef = 03E8801B20E1447000F8E3D3 /* vankhan_1.html */; };
 		03E8801E20E1447B00F8E3D3 /* vankhan_2.html in Resources */ = {isa = PBXBuildFile; fileRef = 03E8801D20E1447B00F8E3D3 /* vankhan_2.html */; };
 		03E8802020E1449A00F8E3D3 /* vankhan_3.html in Resources */ = {isa = PBXBuildFile; fileRef = 03E8801F20E1449A00F8E3D3 /* vankhan_3.html */; };
@@ -123,6 +125,7 @@
 		0311E3D820E0C6B400EB2055 /* ChiTietVanKhan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTietVanKhan.swift; sourceTree = "<group>"; };
 		0318CBAB20E0FAC300BCDC29 /* vankhan_9.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_9.html; sourceTree = "<group>"; };
 		0322DEC520E29F90004C50B3 /* objectThoiTiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objectThoiTiet.swift; sourceTree = "<group>"; };
+		034D14F120E9D6D200BE6E4F /* VanKhan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanKhan.swift; sourceTree = "<group>"; };
 		035A9E2920E36AED001175C3 /* ChonNgay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChonNgay.swift; sourceTree = "<group>"; };
 		0377B91820DBFA780074410C /* LichVanNien.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LichVanNien.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0377B91B20DBFA780074410C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 		03D0D35020E56CCA009E50BE /* VietCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VietCalendar.swift; sourceTree = "<group>"; };
 		03E4EC7220E7A3420083ED92 /* objectNTBT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objectNTBT.swift; sourceTree = "<group>"; };
 		03E4EC7420E7BB8B0083ED92 /* objectTruc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objectTruc.swift; sourceTree = "<group>"; };
+		03E6143120EA39B9009FB58F /* Net.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
 		03E8801B20E1447000F8E3D3 /* vankhan_1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_1.html; sourceTree = "<group>"; };
 		03E8801D20E1447B00F8E3D3 /* vankhan_2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_2.html; sourceTree = "<group>"; };
 		03E8801F20E1449A00F8E3D3 /* vankhan_3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = vankhan_3.html; sourceTree = "<group>"; };
@@ -419,6 +423,8 @@
 				03F99C9C20E62DE40035F4FE /* Lich.xcdatamodeld */,
 				03E4EC7220E7A3420083ED92 /* objectNTBT.swift */,
 				03E4EC7420E7BB8B0083ED92 /* objectTruc.swift */,
+				034D14F120E9D6D200BE6E4F /* VanKhan.swift */,
+				03E6143120EA39B9009FB58F /* Net.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -708,12 +714,14 @@
 				035A9E2A20E36AED001175C3 /* ChonNgay.swift in Sources */,
 				0377B91C20DBFA780074410C /* AppDelegate.swift in Sources */,
 				03D0D34D20E552F6009E50BE /* Calendars.swift in Sources */,
+				034D14F220E9D6D200BE6E4F /* VanKhan.swift in Sources */,
 				0377B94E20DBFBB90074410C /* NhieuHon.swift in Sources */,
 				03F99C9920E628E00035F4FE /* objectLich.swift in Sources */,
 				03D0D34920E54C14009E50BE /* DateCollectionViewCell.swift in Sources */,
 				0377B96220DC121F0074410C /* Tren.swift in Sources */,
 				03A319A720DF6988005266BB /* LichCaNhan.swift in Sources */,
 				03E4EC7320E7A3420083ED92 /* objectNTBT.swift in Sources */,
+				03E6143220EA39B9009FB58F /* Net.swift in Sources */,
 				03F99C9720E627950035F4FE /* LichCaNhanTableViewCell.swift in Sources */,
 				03E4EC7520E7BB8B0083ED92 /* objectTruc.swift in Sources */,
 				0377B95420DBFCA60074410C /* MainPage.swift in Sources */,

@@ -10,7 +10,14 @@ import UIKit
 import CoreLocation
 import GoogleMobileAds
 
-class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CLLocationManagerDelegate,GADInterstitialDelegate{
+class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CLLocationManagerDelegate,GADInterstitialDelegate,GADBannerViewDelegate{
+    
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bot.constant = (50 as CGFloat).dp
+    }
+    
+    var mode = 1
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -32,15 +39,30 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
     
     
     
+    @IBOutlet weak var viewThoiTiet: UIView!
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnShare(_ sender: Any) {
+
+        
         Const.countAction = Const.countAction + 1
-        if interstitial.isReady && Const.countAction >= 5{
-            interstitial.present(fromRootViewController: self)
-            Const.countAction = 0
+        mode = 1
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
+            } else {
+                print("Ad wasn't ready")
+                mode1()
+            }
+            
+        }else{
+            mode1()
         }
+    }
+    func mode1(){
         let image:[Any] = [UIApplication.shared.screenShot as Any]
         let activityVC = UIActivityViewController(activityItems: image, applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
@@ -58,21 +80,34 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
         }
     }
     @IBAction func btnDanhGia(_ sender: Any) {
+
         Const.countAction = Const.countAction + 1
-        if interstitial.isReady && Const.countAction >= 5{
-            interstitial.present(fromRootViewController: self)
-            Const.countAction = 0
+        mode = 2
+        if(Const.countAction >= 5 && (Date().millisecondsSince1970 - Const.timeRepeat > 180000)){
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+                Const.countAction = 0
+                Const.timeRepeat = Date().millisecondsSince1970
+            } else {
+                print("Ad wasn't ready")
+                mode2()
+            }
+            
+        }else{
+            mode2()
         }
+    }
+    func mode2(){
         rateApp(appId: "appid")
-//        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
-//            return
-//        }
-//
-//        if #available(iOS 10.0, *) {
-//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//        } else {
-//            UIApplication.shared.openURL(url)
-//        }
+        //        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1253533671") else {
+        //            return
+        //        }
+        //
+        //        if #available(iOS 10.0, *) {
+        //            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        //        } else {
+        //            UIApplication.shared.openURL(url)
+        //        }
     }
     @IBAction func btnChonTinh(_ sender: Any) {
         pickerTinh.isHidden = !pickerTinh.isHidden
@@ -163,6 +198,7 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
     var doam:String = ""
     var apsuat:String = ""
     var tamnhin:String = ""
+    @IBOutlet weak var bot: NSLayoutConstraint!
     
     
     let titleTinh = ["An Giang","Ba Ria - Vung Tau","Bac Giang","Bac Kan","Bac Lieu","Bac Ninh","Ben Tre","Binh Đinh","Binh Duong","Binh Phuoc","Binh Thuan","Ca Mau","Cao Bang","Dak Lak","Dak Nong","Dien Bien","Dong Nai","Dong Thap","Gia Lai","Ha Giang","Ha Nam","Ha Tinh","Hai Duong","Hau Giang","Hoa Binh","Hung Yen","Khanh Hoa","Kien Giang","Kon Tum","Lai Chau","Lam Đong","Lang Son","Lao Cai","Long An","Nam Dinh","Nghe An","Ninh Binh","Ninh Thuan","Phu Tho","Quang Binh","Quang Nam","Quang Ngai","Quang Ninh","Quang Tri","Soc Trang","Son La","Tay Ninh","Thai Binh","Thai Nguyen","Thanh Hoa","Thua Thien Hue","Tien Giang","Tra Vinh","Tuyen Quang","Vinh Long","Vinh Phuc","Yen Bai","Phu Yen","Can Tho","Đa Nang","Hai Phong","Ha Noi","TP HCM"]
@@ -177,6 +213,11 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
         interstitial = createAndLoadInterstitial()
         print("dismis")
+        if(mode == 1){
+            mode1()
+        }else{
+            mode2()
+        }
     }
     func createAndLoadInterstitial() -> GADInterstitial {
         var interstitial = GADInterstitial(adUnitID: Const.interstitialId)
@@ -195,11 +236,12 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
         
         view.addGestureRecognizer(tap)
         // In this case, we instantiate the banner with desired ad size.
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         
         addBannerViewToView(bannerView)
         bannerView.adUnitID = Const.bannerId
         bannerView.rootViewController = self
+        bannerView.delegate = self
         bannerView.load(GADRequest())
         interstitial = createAndLoadInterstitial()
 
@@ -224,6 +266,7 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
                                 multiplier: 1,
                                 constant: 0)
             ])
+        
     }
     
     //Calls this function when the tap is recognized.
@@ -335,6 +378,7 @@ class ThoiTiet: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,CL
                     self.labelThoiTiet5.text = "Thời tiết: \(self.objecttt[4].text)"
                     self.labelThap5.text = "Nhiệt độ thấp nhất: \(self.converFtoC(f: Int(self.objecttt[4].low)!)) °C"
                     self.labelCao5.text = "Nhiệt độ cao nhất: \(self.converFtoC(f: Int(self.objecttt[4].high)!)) °C"
+                    self.viewThoiTiet.isHidden = false
                 })
             }
 

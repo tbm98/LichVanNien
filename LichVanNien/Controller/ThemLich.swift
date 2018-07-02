@@ -275,7 +275,8 @@ class ThemLich: UIViewController {
         
         let entity = NSEntityDescription.entity(forEntityName: "Lich", in: context)
         let newUser = NSManagedObject(entity: entity!, insertInto: context)
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait
+)
         
         addBannerViewToView(bannerView)
         bannerView.adUnitID = Const.bannerId
@@ -287,6 +288,8 @@ class ThemLich: UIViewController {
     }
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         ttensk.resignFirstResponder()
+        tghichu.resignFirstResponder()
+        tdiadiem.resignFirstResponder()
     }
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
